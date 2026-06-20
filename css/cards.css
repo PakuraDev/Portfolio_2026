@@ -113,7 +113,7 @@
 }
 
 /* --- Responsive Cards --- */
-@media (max-width: 1024px) {
+@media (max-width: 999px) {
   .curriculum-content {
     flex-direction: column;
     height: auto;
@@ -260,19 +260,6 @@
 
 /* Responsive Cards Proyectos */
 @media (max-width: 768px) {
-  .card-destacada {
-    width: 320px;
-  }
-  .card-logo-destacada {
-    width: 140px;
-    height: 140px;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -50px;
-  }
-  .card-destacada-body {
-    padding: 72px 24px 24px 24px;
-  }
   .card-normal {
     width: 300px;
     height: 400px;

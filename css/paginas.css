@@ -112,13 +112,11 @@
 .contacto-link:hover img {
   filter: brightness(0);
 }
-
-}
-
 /* --- Responsive Contacto --- */
-@media (max-width: 1024px) {
+@media (max-width: 999px) {
   .contacto-content {
     flex-direction: column;
+    justify-content: center;
     height: auto;
     padding-top: 100px;
   }
@@ -126,7 +124,15 @@
   .contacto-texto {
     width: 100%;
   }
+  
+  .contacto-indice {
+    width: 100%;
+    flex: none;
+    height: max-content;
+  }
+}
 
+@media (max-width: 479px) {
   .contacto-links-row {
     flex-direction: column;
   }
@@ -828,6 +834,20 @@
   }
   .resumen-sec-03-contenido {
     flex-direction: column;
+    padding: 0 24px 48px 24px;
+  }
+  .resumen-mensaje {
+    width: 100%;
+  }
+  .resumen-acordeones {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 999px) {
+  .resumen-sec-03 {
+    padding: 64px 0 128px 0;
   }
 }
 @media (max-width: 767px) {

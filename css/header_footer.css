@@ -331,7 +331,7 @@ app-footer.show-footer {
 /* --- Responsive Footer --- */
 @media (max-width: 1024px) {
   .app-header-container {
-    top: 128px;
+    top: 24px;
   }
 
   .app-footer {
@@ -366,12 +366,31 @@ app-footer.show-footer {
     flex-direction: column;
   }
 
+  .footer-brand-box {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    display: none;
+  }
+
   .footer-contact {
     margin-right: 0;
   }
 
   .footer-links-row {
     flex-direction: column;
+  }
+
+  .footer-social-box {
+    padding: 16px;
+    flex: 1 1 0;
+  }
+  
+  .footer-socials-part {
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 }
 

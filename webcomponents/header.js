@@ -61,16 +61,19 @@ class AppHeader extends HTMLElement {
         
         // Si no es un enlace real a otra página (los de navegación in-page)
         if (target) {
-          e.preventDefault();
-          capsules.forEach(c => c.classList.remove('active'));
-          capsule.classList.add('active');
+          const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+          if (isHomePage) {
+            e.preventDefault();
+            capsules.forEach(c => c.classList.remove('active'));
+            capsule.classList.add('active');
 
-          const event = new CustomEvent('navigate-section', {
-            detail: { section: target },
-            bubbles: true,
-            composed: true
-          });
-          this.dispatchEvent(event);
+            const event = new CustomEvent('navigate-section', {
+              detail: { section: target },
+              bubbles: true,
+              composed: true
+            });
+            this.dispatchEvent(event);
+          }
         }
         
         // En movil cerramos el menú después de hacer click

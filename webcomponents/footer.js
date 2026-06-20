@@ -21,65 +21,27 @@ class AppFooter extends HTMLElement {
             </div>
           </div>
 
-          <!-- Contacto e índice -->
-          <div class="footer-contact-index">
-            
-            <!-- Contacto y copy -->
-            <div class="footer-contact-copy">
-              <div class="footer-contact">
-                <h3 class="text-h3 text-azul">¿Hablamos de producto?</h3>
-                <a href="mailto:SrPakura@proton.me" class="footer-email-link">
-                  <span class="text-p-large text-azul">[ SrPakura@proton.me ]</span>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.0411 5L12.1507 9.10959L5.30137 15.9589L5 19L8.0411 18.6986L14.8904 11.8493L19 15.9589V5H8.0411Z" fill="#2563EB"/>
-                  </svg>
-                </a>
-              </div>
-              <div class="footer-copy">
-                <p class="text-p-large text-azul">Creado por Alejandro, AKA SrPakura</p>
-              </div>
-            </div>
+          <!-- Contacto -->
+          <div class="footer-contact">
+            <h3 class="text-h3 text-azul">¿Hablamos de producto?</h3>
+            <a href="mailto:AlexPereZamudio@proton.me" class="footer-email-link">
+              <span class="text-p-large text-azul">[ AlexPereZamudio@proton.me ]</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.0411 5L12.1507 9.10959L5.30137 15.9589L5 19L8.0411 18.6986L14.8904 11.8493L19 15.9589V5H8.0411Z" fill="#2563EB"/>
+              </svg>
+            </a>
+          </div>
 
-            <!-- Índice -->
-            <div class="footer-index">
-              <h3 class="text-h3 text-azul">Índice web:</h3>
-              <div class="footer-links-group">
-                <div class="footer-links-row">
-                  <a href="/" class="footer-link">
-                    <span class="text-p-large">Inicio</span>
-                  </a>
-                </div>
-                <div class="footer-links-row">
-                  <a href="/#proyectos" class="footer-link">
-                    <span class="text-p-large">Proyectos</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8.0411 5L12.1507 9.10959L5.30137 15.9589L5 19L8.0411 18.6986L14.8904 11.8493L19 15.9589V5H8.0411Z" fill="#2563EB"/>
-                    </svg>
-                  </a>
-                  <a href="/#sobre-mi" class="footer-link">
-                    <span class="text-p-large">Sobre mí</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8.0411 5L12.1507 9.10959L5.30137 15.9589L5 19L8.0411 18.6986L14.8904 11.8493L19 15.9589V5H8.0411Z" fill="#2563EB"/>
-                    </svg>
-                  </a>
-                </div>
-                <div class="footer-links-row">
-                  <a href="curriculum.html" class="footer-link">
-                    <span class="text-p-large">Currículum</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8.0411 5L12.1507 9.10959L5.30137 15.9589L5 19L8.0411 18.6986L14.8904 11.8493L19 15.9589V5H8.0411Z" fill="#2563EB"/>
-                    </svg>
-                  </a>
-                  <a href="contacto.html" class="footer-link">
-                    <span class="text-p-large">Contacto</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8.0411 5L12.1507 9.10959L5.30137 15.9589L5 19L8.0411 18.6986L14.8904 11.8493L19 15.9589V5H8.0411Z" fill="#2563EB"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
+          <!-- Índice -->
+          <div class="footer-index">
+            <h3 class="text-h3 text-azul">Índice web:</h3>
+            <div class="footer-links-group" id="footer-links-group">
             </div>
+          </div>
 
+          <!-- Copy -->
+          <div class="footer-copy">
+            <p class="text-p-large text-azul">Creado por Alejandro, AKA SrPakura</p>
           </div>
         </div>
 
@@ -136,9 +98,105 @@ class AppFooter extends HTMLElement {
         </div>
       </footer>
     `;
+    
+    this.linksData = [
+      { name: 'Inicio', href: '/', dataTarget: 'Inicio' },
+      { name: 'Proyectos', href: '/#proyectos', dataTarget: 'Proyectos' },
+      { name: 'Sobre mí', href: '/#sobre-mi', dataTarget: 'Sobre mí' },
+      { name: 'Currículum', href: 'curriculum.html' },
+      { name: 'Contacto', href: 'contacto.html' }
+    ];
+
     this.setupListeners();
-    this.updateActiveLink();
     this.setupRevealEffect();
+    this.renderLinks();
+
+    document.addEventListener('navigate-section', (e) => {
+      if (e.detail && e.detail.section) {
+        this.renderLinks(e.detail.section);
+      }
+    });
+  }
+
+  renderLinks(activeName) {
+    const group = this.querySelector('#footer-links-group');
+    if (!group) return;
+
+    let activeItem;
+    if (activeName) {
+      activeItem = this.linksData.find(l => l.name === activeName);
+    } else {
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('contacto.html')) {
+        activeItem = this.linksData.find(l => l.name === 'Contacto');
+      } else if (currentPath.includes('curriculum.html')) {
+        activeItem = this.linksData.find(l => l.name === 'Currículum');
+      } else {
+        // En página principal
+        activeItem = this.linksData[0]; // Default Inicio
+      }
+    }
+    
+    if (!activeItem) activeItem = this.linksData[0];
+
+    const otherLinks = this.linksData.filter(l => l !== activeItem);
+    
+    let html = '';
+    
+    html += `
+      <div class="footer-links-row">
+        <a href="${activeItem.href}" class="footer-link active" data-target="${activeItem.dataTarget || ''}">
+          <span class="text-p-large">${activeItem.name}</span>
+          <span class="text-p-large footer-link-estas-aqui text-azul">(Estás aquí)</span>
+        </a>
+      </div>
+    `;
+
+    for (let i = 0; i < otherLinks.length; i += 2) {
+      html += '<div class="footer-links-row">';
+      html += this.createLinkHTML(otherLinks[i]);
+      if (otherLinks[i+1]) {
+        html += this.createLinkHTML(otherLinks[i+1]);
+      }
+      html += '</div>';
+    }
+
+    group.innerHTML = html;
+    this.setupLinkListeners();
+  }
+
+  createLinkHTML(link) {
+    return `
+      <a href="${link.href}" class="footer-link" data-target="${link.dataTarget || ''}">
+        <span class="text-p-large">${link.name}</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.0411 5L12.1507 9.10959L5.30137 15.9589L5 19L8.0411 18.6986L14.8904 11.8493L19 15.9589V5H8.0411Z" fill="#2563EB"/>
+        </svg>
+      </a>
+    `;
+  }
+
+  setupLinkListeners() {
+    const links = this.querySelectorAll('.footer-link');
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = link.getAttribute('data-target');
+        if (target) {
+          const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+          if (isHomePage) {
+            e.preventDefault();
+            this.renderLinks(target);
+
+            const event = new CustomEvent('navigate-section', {
+              detail: { section: target },
+              bubbles: true,
+              composed: true
+            });
+            this.dispatchEvent(event);
+          }
+        }
+      });
+    });
   }
 
   setupRevealEffect() {
@@ -151,24 +209,31 @@ class AppFooter extends HTMLElement {
       }
     };
 
-    // Actualizar margin en carga y resize
     window.addEventListener('resize', updateMargin);
-    // Timeout para asegurar que renderice primero
     setTimeout(updateMargin, 100);
 
-    // Ocultar en la zona transparente de intro
     window.addEventListener('scroll', () => {
-      // Si existe la intro y el scroll es menor a la mitad de su altura, lo ocultamos
-      if (introSection && window.scrollY < (introSection.offsetHeight / 2)) {
-        this.classList.remove('show-footer');
+      if (mainContent) {
+        // Solo mostramos el footer cuando el final del main está cerca (a menos de 1.5 pantallas)
+        // Esto garantiza que el footer JAMÁS se active estando cerca del header o el intro
+        const mainBottom = mainContent.getBoundingClientRect().bottom;
+        if (mainBottom < window.innerHeight * 1.5) {
+          this.classList.add('show-footer');
+        } else {
+          this.classList.remove('show-footer');
+        }
       } else {
         this.classList.add('show-footer');
       }
     });
 
-    // Estado inicial
-    if (introSection && window.scrollY < (introSection.offsetHeight / 2)) {
-      this.classList.remove('show-footer');
+    if (mainContent) {
+      const mainBottom = mainContent.getBoundingClientRect().bottom;
+      if (mainBottom < window.innerHeight * 1.5) {
+        this.classList.add('show-footer');
+      } else {
+        this.classList.remove('show-footer');
+      }
     } else {
       this.classList.add('show-footer');
     }
@@ -184,45 +249,15 @@ class AppFooter extends HTMLElement {
       });
     };
 
-    backToTopBtn.addEventListener('click', scrollToTop);
-    backToTopBtn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        scrollToTop();
-      }
-    });
-  }
-
-  updateActiveLink() {
-    const currentPath = window.location.pathname;
-    const links = this.querySelectorAll('.footer-link');
-    
-    links.forEach(link => {
-      const href = link.getAttribute('href');
-      const svgArrow = link.querySelector('svg');
-
-      let isActive = false;
-      if (currentPath.includes('contacto.html') && href.includes('contacto.html')) {
-        isActive = true;
-      } else if (currentPath.includes('curriculum.html') && href.includes('curriculum.html')) {
-        isActive = true;
-      } else if ((currentPath === '/' || currentPath.includes('index.html')) && href === '/') {
-        isActive = true;
-      }
-
-      if (isActive) {
-        // Añadir (Estás aquí) si es activo
-        const span = document.createElement('span');
-        span.className = 'text-p-large footer-link-estas-aqui text-azul';
-        span.textContent = '(Estás aquí)';
-        link.appendChild(span);
-        
-        // Quitar la flecha si la tiene
-        if (svgArrow) {
-            svgArrow.style.display = 'none';
-        }
-      }
-    });
+    if(backToTopBtn) {
+        backToTopBtn.addEventListener('click', scrollToTop);
+        backToTopBtn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            scrollToTop();
+          }
+        });
+    }
   }
 }
 

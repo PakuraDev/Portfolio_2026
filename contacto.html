@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Portfolio Pezetoide</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/header_footer.css">
+    <link rel="stylesheet" href="./css/paginas.css">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Web Components -->
+    <script type="module" src="./webcomponents/header.js"></script>
+</head>
+<body>
+    <!-- Background Canvas -->
+    <div id="canvas-container">
+      <canvas id="three-canvas"></canvas>
+    </div>
+    <div id="ambient-glow"></div>
+
+    <app-header></app-header>
+    
+    <main class="page-contacto">
+        <div class="contacto-content">
+            <!-- Texto explicativo -->
+            <div class="contacto-texto">
+                <p class="text-p text-negro">
+                    Las compañias de publicidad suelen rifarse mi número numerosas veces al día, por lo que nunca cojo llamadas de números desconocidos.<br><br>
+                    Prefiero que el contacto sea por un método directo, como mi correo o whatsapp, o por una plataforma de empleo.<br><br>
+                    Nota: Actualmente solo estoy abierto a posiciones 100% remotas (en español o inglés).
+                </p>
+            </div>
+            
+            <!-- Índice de contacto -->
+            <div class="contacto-indice">
+                <h3 class="text-h3 text-azul">Métodos directos:</h3>
+                <div class="contacto-links-group">
+                    <div class="contacto-links-row">
+                        <a href="mailto:mira_esto@MIRA_ESTO.ES" class="contacto-link">
+                            <span class="text-p-large">Correo electrónico</span>
+                            <img src="./assets/iconos/external_link_simplificado.svg" alt="Enlace externo" width="24" height="24">
+                        </a>
+                        <a href="https://wa.me/MIRA_ESTO" target="_blank" class="contacto-link">
+                            <span class="text-p-large">Whatsapp</span>
+                            <img src="./assets/iconos/external_link_simplificado.svg" alt="Enlace externo" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+
+                <h3 class="text-h3 text-azul">Plataformas de empleo</h3>
+                <div class="contacto-links-group">
+                    <div class="contacto-links-row">
+                        <a href="https://MIRA_ESTO.ES" target="_blank" class="contacto-link">
+                            <span class="text-p-large">Linkedin</span>
+                            <img src="./assets/iconos/external_link_simplificado.svg" alt="Enlace externo" width="24" height="24">
+                        </a>
+                        <a href="https://MIRA_ESTO.ES" target="_blank" class="contacto-link">
+                            <span class="text-p-large">Infojobs</span>
+                            <img src="./assets/iconos/external_link_simplificado.svg" alt="Enlace externo" width="24" height="24">
+                        </a>
+                    </div>
+                    <div class="contacto-links-row">
+                        <a href="https://MIRA_ESTO.ES" target="_blank" class="contacto-link">
+                            <span class="text-p-large">Manfred</span>
+                            <img src="./assets/iconos/external_link_simplificado.svg" alt="Enlace externo" width="24" height="24">
+                        </a>
+                        <a href="https://MIRA_ESTO.ES" target="_blank" class="contacto-link">
+                            <span class="text-p-large">WellFound</span>
+                            <img src="./assets/iconos/external_link_simplificado.svg" alt="Enlace externo" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/background.js"></script>
+</body>
+</html>

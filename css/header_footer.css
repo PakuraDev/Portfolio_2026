@@ -1,0 +1,366 @@
+/* header_footer.css */
+
+.app-header-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  position: fixed; /* Fixes header to the screen as per "siempre va con el usuario" */
+  left: 24px;
+  top: 24px;
+  z-index: 1000;
+}
+
+/* Logo */
+.header-logo {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 24px;
+  border: 1px solid var(--Negro, #1A1A1A);
+  background: var(--Azul, #2563EB);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.header-logo:hover {
+  background: var(--Azul_Hover);
+}
+
+.header-logo img {
+  display: block;
+}
+
+/* Navegación */
+.header-nav {
+  display: flex;
+  height: 56px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 24px 0;
+  border: 1px solid var(--Negro, #1A1A1A);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Capsula */
+.nav-capsule {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 24px 0;
+  text-decoration: none;
+  color: var(--Negro);
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border: 1px solid transparent; 
+  box-sizing: border-box;
+  margin: -1px 0; /* Soluciona el doble borde superior e inferior */
+}
+
+.nav-capsule:first-child {
+  margin-left: -1px; /* Soluciona el doble borde izquierdo */
+}
+
+.nav-capsule:last-child {
+  margin-right: -1px; /* Soluciona el doble borde derecho */
+}
+
+.nav-capsule:hover {
+  background: var(--Azul, #2563EB);
+  color: var(--Blanco);
+}
+
+.nav-capsule.active {
+  background: var(--Azul, #2563EB);
+  border: 1px solid var(--Negro, #1A1A1A);
+  color: var(--Blanco);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header-container {
+    gap: 16px;
+  }
+  
+  .header-nav {
+    display: none;
+    flex-direction: column;
+    height: auto;
+    border-radius: 24px 0 24px 24px;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    padding: 8px;
+    gap: 4px;
+  }
+
+  .header-nav.nav-open {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+}
+
+/* ------------------------------------- */
+/* FOOTER REVEAL Y ESTILOS               */
+/* ------------------------------------- */
+
+/* El custom element contenedor será el fixed */
+app-footer {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background: var(--Blanco, #FFF);
+  opacity: 0; /* Oculto inicialmente para no verse en el intro transparente */
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+app-footer.show-footer {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.app-footer {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px;
+  align-items: flex-start;
+  gap: -2px; 
+  background: var(--Blanco, #FFF);
+}
+
+.footer-left-part {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: -2px;
+  flex: 1 0 0;
+}
+
+/* Cajón de Marca */
+.footer-brand-box {
+  display: flex;
+  padding: 24px;
+  align-items: flex-start;
+  gap: 48px;
+  align-self: stretch;
+  border: 2px solid var(--Azul, #2563EB);
+  margin-bottom: -2px; /* Para simular gap: -2px con el siguiente cajón si tiene borde */
+}
+
+.footer-texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+}
+
+.footer-brand-desc {
+  align-self: stretch;
+  color: var(--Azul);
+}
+
+.footer-logo {
+  width: 84px;
+  align-self: stretch;
+  aspect-ratio: 1 / 1;
+}
+
+/* Contacto e Índice */
+.footer-contact-index {
+  display: flex;
+  align-items: flex-start;
+  gap: -2px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.footer-contact-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: -2px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.footer-contact {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
+  align-self: stretch;
+  border: 2px solid var(--Azul, #2563EB);
+  margin-bottom: -2px;
+  margin-right: -2px;
+}
+
+.footer-email-link {
+  display: flex;
+  padding-bottom: 4px;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-self: stretch;
+  border-bottom: 2px dashed var(--Azul, #2563EB);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-email-link:hover {
+  opacity: 0.8;
+}
+
+.footer-copy {
+  display: flex;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 48px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.footer-index {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
+  flex: 1 0 0;
+  align-self: stretch;
+  border: 2px solid var(--Azul, #2563EB);
+}
+
+.footer-links-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.footer-links-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.footer-link {
+  display: flex;
+  padding-bottom: 4px;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex: 1 0 0;
+  border-bottom: 2px solid var(--Azul, #2563EB);
+  text-decoration: none;
+  color: var(--Azul, #2563EB);
+  transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
+}
+
+/* Redes Sociales y Botones */
+.footer-socials-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: -2px;
+  margin-left: -2px;
+}
+
+.footer-social-box {
+  display: flex;
+  padding: 24px;
+  align-items: flex-start;
+  gap: 48px;
+  border: 2px solid var(--Azul, #2563EB);
+  margin-bottom: -2px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.footer-social-box:hover {
+  background: rgba(37, 99, 235, 0.05); /* Ligerísimo toque de azul */
+}
+
+.footer-back-to-top {
+  cursor: pointer;
+}
+
+.footer-back-to-top-inner {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  border-radius: 24px 0;
+  border: 2px solid var(--Azul, #2563EB);
+  transition: background 0.3s ease;
+}
+
+.footer-back-to-top:hover .footer-back-to-top-inner {
+  background: rgba(37, 99, 235, 0.1);
+}
+
+/* Para colorear SVG a azul. Si ya son azules, no hace falta. 
+   Por si acaso, este filtro vuelve todo azul (#2563EB) */
+.svg-blue {
+  filter: invert(30%) sepia(92%) saturate(2311%) hue-rotate(210deg) brightness(97%) contrast(93%);
+}
+
+/* --- Responsive Footer --- */
+@media (max-width: 1024px) {
+  .app-footer {
+    flex-direction: column;
+    padding: 24px 16px; /* Reducir un poco el padding general */
+  }
+
+  .footer-socials-part {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-top: -2px;
+    align-self: stretch;
+  }
+
+  .footer-social-box {
+    margin-right: -2px;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-contact-index {
+    flex-direction: column;
+  }
+
+  .footer-contact {
+    margin-right: 0;
+  }
+
+  .footer-links-row {
+    flex-direction: column;
+  }
+}
+

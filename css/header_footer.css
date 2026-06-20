@@ -212,7 +212,7 @@ app-footer.show-footer {
   justify-content: space-between;
   align-items: flex-end;
   align-self: stretch;
-  border-bottom: 2px dashed var(--Azul, #2563EB);
+  border-bottom: 2px var(--Azul, #2563EB);
   text-decoration: none;
   transition: opacity 0.3s ease;
 }

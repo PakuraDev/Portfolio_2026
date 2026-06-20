@@ -20,7 +20,7 @@ let time = 0;
 let lastWaveTime = 0;
 
 function checkDevice() {
-  isMobile = window.innerWidth <= 768 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+  isMobile = window.innerWidth <= 1024;
 }
 
 function init() {

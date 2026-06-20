@@ -181,6 +181,14 @@ document.addEventListener('DOMContentLoaded', () => {
           })).then(() => {
             ScrollTrigger.refresh();
           });
+
+          // Refrescar GSAP cuando se abren/cierran los acordeones para que recalcule la altura
+          const accordions = pageContainer.querySelectorAll('details.resumen-acordeon');
+          accordions.forEach(acc => {
+            acc.addEventListener('toggle', () => {
+              ScrollTrigger.refresh();
+            });
+          });
         }
       });
     });

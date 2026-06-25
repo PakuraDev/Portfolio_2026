@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Estudio - Pezetoide</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/header_footer.css">
+    <link rel="stylesheet" href="./css/paginas.css">
+    <link rel="stylesheet" href="./css/cards.css">
+    <link rel="stylesheet" href="./css/caso_estudio.css">
+
+    <!-- Web Components -->
+    <script type="module" src="./webcomponents/header.js"></script>
+    <script type="module" src="./webcomponents/footer.js"></script>
+</head>
+<body>
+    <app-header></app-header>
+    
+    <main id="main-content" style="position: relative; z-index: 2; background-color: var(--Blanco);">
+        
+        <!-- Estado de carga -->
+        <div id="loader-state" style="padding: 144px 48px; text-align: center;">
+            <h2 class="text-h2 text-negro">Cargando proyecto...</h2>
+        </div>
+
+        <div id="project-content" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
+            <!-- CABECERA DEL PROYECTO -->
+            <section class="case-header-dynamic">
+                <div class="case-header-inner">
+                    <!-- Etiquetas -->
+                    <div class="case-tags-container" id="project-tags"></div>
+                    
+                    <!-- Título -->
+                    <h1 class="text-h0 text-negro case-main-title" id="project-title">Nombre del Proyecto</h1>
+                    
+                    <!-- Descripción -->
+                    <p class="text-p-large text-negro case-desc" id="project-desc">Descripción</p>
+                    
+                    <!-- Enlaces -->
+                    <div class="case-links-container" id="project-links"></div>
+                </div>
+            </section>
+
+            <!-- SELECTOR (IDÉNTICO AL HOME) -->
+            <section class="home-selector" id="case-selector-section">
+                <div class="home-selector-inner">
+                    <h4 class="text-h4 text-negro selector-main-title" id="project-question">¿Qué quieres saber del proyecto?</h4>
+                    <div class="home-selector-options" id="project-tabs">
+                        <!-- Las opciones se inyectan por JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEPARADOR: 4 olas en fila -->
+            <section class="home-separator" id="separador">
+                <div class="wave-track" id="wave-track">
+                  <!-- Segmento 0: Espejo -->
+                  <svg class="wave-segment wave-mirrored" viewBox="0 0 1440 252" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0L80.4 24C159.6 48 320.4 96 480 102C639.6 108 800.4 72 960 48C1119.6 24 1280.4 12 1359.6 6L1440 0V252H1359.6C1280.4 252 1119.6 252 960 252C800.4 252 639.6 252 480 252C320.4 252 159.6 252 80.4 252H0V0Z" fill="#2563EB"/>
+                  </svg>
+                  <!-- Segmento 1: Normal -->
+                  <svg class="wave-segment" viewBox="0 0 1440 252" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0L80.4 24C159.6 48 320.4 96 480 102C639.6 108 800.4 72 960 48C1119.6 24 1280.4 12 1359.6 6L1440 0V252H1359.6C1280.4 252 1119.6 252 960 252C800.4 252 639.6 252 480 252C320.4 252 159.6 252 80.4 252H0V0Z" fill="#2563EB"/>
+                  </svg>
+                  <!-- Segmento 2: Espejo -->
+                  <svg class="wave-segment wave-mirrored" viewBox="0 0 1440 252" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0L80.4 24C159.6 48 320.4 96 480 102C639.6 108 800.4 72 960 48C1119.6 24 1280.4 12 1359.6 6L1440 0V252H1359.6C1280.4 252 1119.6 252 960 252C800.4 252 639.6 252 480 252C320.4 252 159.6 252 80.4 252H0V0Z" fill="#2563EB"/>
+                  </svg>
+                  <!-- Segmento 3: Normal -->
+                  <svg class="wave-segment" viewBox="0 0 1440 252" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0L80.4 24C159.6 48 320.4 96 480 102C639.6 108 800.4 72 960 48C1119.6 24 1280.4 12 1359.6 6L1440 0V252H1359.6C1280.4 252 1119.6 252 960 252C800.4 252 639.6 252 480 252C320.4 252 159.6 252 80.4 252H0V0Z" fill="#2563EB"/>
+                  </svg>
+                </div>
+            </section>
+
+            <!-- CONTENIDO PARCIAL: Fondo azul puro para conectar con la ola -->
+            <section class="home-partial bg-azul" id="contenido-parcial" style="background-color: var(--Azul);">
+                <!-- HTMLs dinámicos inyectados por JS -->
+            </section>
+        </div>
+    </main>
+
+    <app-footer></app-footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./js/caso_estudio.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+/* caso_estudio.css */
+
+.bg-blanco { background-color: var(--Blanco); }
+.bg-negro { background-color: var(--Negro); }
+.bg-azul { background-color: var(--Azul); border-color: var(--Azul); }
+.bg-amarillo { background-color: var(--Amarillo); }
+
+/* --- HERO SECTION DYNAMIC --- */
+.case-header-dynamic {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 144px; /* Espacio header */
+    padding-bottom: 96px;
+}
+
+.case-header-inner {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.case-tags-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.case-tag-badge {
+    display: inline-flex;
+    padding: 16px 24px;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--Negro);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(2px);
+}
+
+/* Lógica de asimetría para las etiquetas */
+.case-tag-badge:only-child {
+    border-radius: 24px 0;
+}
+
+.case-tag-badge:first-child:not(:only-child) {
+    border-radius: 24px 0 0 0;
+}
+
+.case-tag-badge:last-child:not(:only-child) {
+    border-radius: 0 0 24px 0;
+}
+
+.case-tag-badge:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+.case-main-title {
+    max-width: 1000px;
+}
+
+.case-desc {
+    max-width: 800px;
+    opacity: 0.8;
+}
+
+.case-links-container {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.case-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    border-radius: 64px;
+    border: 1px solid var(--Negro);
+    background: transparent;
+    color: var(--Negro);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.case-link-btn:hover {
+    background: var(--Negro);
+    color: var(--Blanco);
+}
+
+@media (max-width: 1024px) {
+    .case-header-inner {
+        padding: 0 24px;
+    }
+}

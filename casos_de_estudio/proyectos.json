@@ -1,0 +1,19 @@
+{
+  "aerko": {
+    "titulo": "Aerko_",
+    "descripcion": "Aerko_ es la pwa de fitness open source más avanzada (por lo menos al momento de escribir esto) que existe, y mi proyecto más ambicioso. Incluso meses después de su salida mantiene su base de 3000 usuarios mensuales a coste 0. Ya tengo pensada la siguiente versión de la misma, aunque falta tiempo para la ejecución.",
+    "etiquetas": ["Diseño", "Código", "TFM", "Open source"],
+    "enlaces": [
+      { "tipo": "web", "texto": "APP Web", "url": "https://aerko.app/#/", "icon": "web" },
+      { "tipo": "landing", "texto": "Landing page", "url": "https://landing.aerko.app/", "icon": "web" },
+      { "tipo": "github", "texto": "Repositorio de github", "url": "https://github.com/SrPakura/AERKO_PWA", "icon": "github" },
+      { "tipo": "figma", "texto": "Archivo de Figma", "url": "https://www.figma.com/design/UpqnrIqYNyEnqPb2LUiMnK/Aerko_?node-id=0-1&t=wRjLtcf6QxdYzxUe-1", "icon": "figma" },
+      { "tipo": "tfm", "texto": "TFM", "url": "https://drive.google.com/file/d/1vXtmRb_XLLb_CMrOAXYJig7gJ8mh4mHJ/view?usp=sharing", "icon": "book" }
+    ],
+    "tabs": [
+      { "id": "resumen", "numero": "01", "titulo": "Resumen", "archivo": "aerko_resumen.html" },
+      { "id": "diseno", "numero": "02", "titulo": "Diseño UX/UI", "archivo": "aerko_diseno.html" },
+      { "id": "codigo", "numero": "03", "titulo": "Código", "archivo": "aerko_codigo.html" }
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+<style>
+  .aerko-diseno-container {
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .aerko-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .aerko-diseno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .aerko-diseno-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .aerko-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .aerko-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .aerko-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .aerko-diseno-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+    
+    .aerko-diseno-section:nth-child(3),
+    .aerko-diseno-section:nth-child(4) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .aerko-diseno-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="aerko-diseno-container">
+  
+  <div class="aerko-intro-box">
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Hablar del diseño UI va a ser muy díficil porque el brutalismo no da para mucho. Sin embargo, por lo menos yo, voy a disfrutar escribiendo acerca de las bases y UX. Durante este apartado de la app hablaremos de:
+    </p>
+    
+    <ul class="aerko-list text-p-large text-blanco">
+      <li><span class="aerko-list-num">1</span> Design Thinking: Diseño de la app, funciones, etc...</li>
+      <li><span class="aerko-list-num">2</span> Dirección de arte</li>
+      <li><span class="aerko-list-num">3</span> UI KIT y sistema atómico</li>
+      <li><span class="aerko-list-num">4</span> UX y UI</li>
+    </ul>
+
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Dicho esto, vamos a empezar. Espero que disfrutéis leyendolo porque, aunque para cualquier persona pueda ser un coñazo, yo lo escribo con mucho amor.
+    </p>
+  </div>
+
+  <div class="aerko-diseno-grid">
+    
+    <!-- Design Thinking -->
+    <article class="aerko-diseno-section">
+      <h2 class="text-h2 text-blanco">Design Thinking</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para quien no lo sepa, un design thinking (en castellano/humano) es una metodología centrada en el usuario para resolver problemas. Básicamente su objetivo entender al usuario (necesidades, deseos, frustraciones) y en base a eso crear una solución que aporte valor al usuario. Ahora bien, cabe aclarar que yo no hice un design thinking "base" o "normal", sino que me enfoqué en la metodología de doble diamante. Para entendernos, un design thinking no es una cosa base y ya, hay "variaciones" como el modelo de IDEO, los Google Design Sprints, el sistema luna, y unos cuantos más que no necesitamos nombrar.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">La metodología de doble diamante varía en la forma de estructurar el proceso que ayuda mucho a "entender la respiración mental del proyecto", o dicho para cualquier persona que no tenga esquizofrenia inducida por diseñar, saber distinguir entre las fases más creativas donde debes explorar, y las fases más analíticas donde debes tomar decisiones. Está metodología se divide en 2 "diamantes" y cada diamante en dos fases.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Aunque me gustaría explicarlo entero aquí, ocuparía cerca de 1000 palabras o más, así que voy a dejar en el enlace de <a href="https://drive.google.com/file/d/1vXtmRb_XLLb_CMrOAXYJig7gJ8mh4mHJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-blanco" style="text-decoration: underline; font-weight: bold;">Drive el pdf del TMF</a> (tiene 80 páginas, pero son visuales y solo 40 tratan sobre el design thinking.) y aquí solo voy a hablar de la parte que más me gusta, la netnografía.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para empezar, la netnografía en humano significa estudiar el comportamiento humano en entornos online. Usualmente se hace en base a lo que puedes encontrar en internet, pero yo no me quedé ahí, directamente me adentré en las profundidades de reddit, donde me camufle entre los usuarios para preguntar y conseguir respuestas a todas mis preguntas. Como resultado, fue todo un éxito, consiguiendo más de 600,000 visitas, 1400 upvotes y 900 comentarios. Lo unico malo fue que después las tuve que analizar todas...</p>
+    </article>
+
+    <!-- Dirección de arte -->
+    <article class="aerko-diseno-section">
+      <h2 class="text-h2 text-blanco">Dirección de arte</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">La dirección de arte fue la fusión de 3 estilos, combinado de una decisión de UX que explicaré en detalla más adelante: Por una parte nos encontramos con el brutalismo para la organización y división de contenidos, acompañado del utilitarismo para priorizar la eficacia en vez de los adornos. Si bien es cierto que esto nos deja con una UI que intimida, es realmente sencilla de usar. Por otra parte, se usó la estética IDE/Cyberpunk protagonizada por un verde ácido, y un estilo orientado hacia las terminales de código. Todo esto tiene una explicación desde el punto de vista de la experiencia de usuario, la velocidad, aura y flexibilidad.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Por lo menos a mí, como powerlifter (flojo) que fuí, no me gusta perder el tiempo, quiero hacer lo mínimo en el menor tiempo posible, y de ahí sale el enfásis en reducir los pasos y fricción para la mayoría de acciones. La sensación cruda que intimida no es más que una forma de dar entender que no estás usando una app, sino una herramienta. Y por últino, influenciado en gran parte por mi existencialismo y amor a la libertad individual, encontramos, además de funciones para personalizar cualquier cosa hasta el último milimetro, la paleta de colores. Cualquiera diría que el verde, negro y blanco simplemente son para acompañar a la estética, pero la realidad es que se usan por motivos. El verde destaca, lo que permite guiar la experiencia de usuario sobre el blanco, y lo más importante, los 3 colores tienen un contraste tan fuerte que permite ver la interfaz en cualquier condición de luz.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para la tipografía se usó clash display/space grotesk por su gran fuerza visual, mientras que por otro lado, tanto para acompañar a la estética como para facilitar la lectura se usó JetBrains Mono, una de las mejores tipografias jamas creadas y no acepto discusión.</p>
+    </article>
+
+    <!-- UI KIT y Atomic Design -->
+    <article class="aerko-diseno-section">
+      <h2 class="text-h2 text-blanco">UI KIT y Atomic Design</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para el desarrolló de la interfaz en figma se uso el diseño atómica, que básicamente consiste en dividir el diseño en partes, desde lo más pequeño hasta lo más grande. Para que lo entendáis mejor, os voy a poner un ejemplo con un botón: El botón se compone de texto, iconos, y relleno por así decirlo. Tanto el texto como el icono por separado son atómos, que una vez junto se transforman en una molécula. Cuando a esa molécula le pones padding, relleno y la transformas en un botón pasa a ser un organismo.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para la app se usó el diseño atómico de forma integra, consiguiendo más de 140 elementos categorizados en 17 grupos semanticos. Dentro de cada grupo hay incluso más grupos. Por ejemplo, dentro de la iconografía podemos encontrar iconos de navegación, de acción, de feedback, de estado, entre otros. Esto es lo que se conoce como sistema de diseño, lo cual permite que un proyecto sea escalable, mantenible y consistente.</p>
+    </article>
+
+    <!-- UI y UX -->
+    <article class="aerko-diseno-section">
+      <h2 class="text-h2 text-blanco">UI y UX</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Como ya dije, el brutalismo no da mucho de que hablar. Sin embargo, el UX nos tiene preparado un discurso, y es que todo el diseño, app y funciones están centrados en el usarios bajo la filosofía de libertad individual y un esfuerzo inicial para que el resto sea fácil.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Ya hablé de los colores y tipografía, pero para empezar hay algo más importante, y es que, al ser una app pensada para móviles se tuvo en cuenta el alcance del pulgar. Yo, al ser una persona con manos pequeña, sé que si consigo hacer la navegación via pulgar comoda para mí, sería comoda para cualquiera. Así que dicho y otro, medí mi alcance efectivo con el pulgar, tomandolo como guía invisible para la distribución de elementos en la interfaz.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Una vez definidas las guías (las 4 columnas, el alcance seguro del pulgar y la restricción superior del notch) se empezarón los wireframes, a los que si soy muy sincero, no les tengo mucho cariño. En mi opinión, en la mayoría de proyectos son una pérdida de tiempo, ya que en el desarrollo o en el mismo diseño se cambian constantemente y se toman decisiones diferentes, así que voy a omitirlos.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Como hablar de cada pantalla nos sería imposible, vamos a hablar de las decisiones de diseño más importantes. Como por ejemplo, el teclado propio. Usar un teclado nativo ni siquiera era una opción, tanto por motivos de experiencia de usuario, como que los botones son lo suficientemente pequeños como para que, entre el sudor y el mareo posterior a hacer pierna, sea imposible acertar a la primera, tanto por motivos técnicos, como la necesidad de incluir el cambio de unidades a primera vista para no hacer al usuario navegar por los ajustes para cambiarlo. Además de permitir estás funciones, nos permitió mantener la consistencia visual y añadir la lógica anti-ansiedad, que básicamente es una restricción que impide al usuario pulsar una tecla del teclado en menos de 120ms. Esto podría verse como un fallo en el caso de una app de mensajería donde el usuario escribe lo más rápido posible, pero en este caso es un seguro de que el "Temblque" posterior a una serie pesada no provoque clics accidentales.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Me gustaría continuar por desmostrar la filosofía de libertad individual y esfuerzo inicial que ofrece la app, y para ello vamos a hablar del apartado de nutrición completo. Está sección se divide en smart checks y dieta. El esfuerzo inicial lo encontramos en la dieta, donde tenemos que crear una dieta base. Si bien es cierto que incluye más de 300 alimentos, posibilidad de crear propios, grupos, e incluso añadir escaneando códigos de barras, por lo menos para mi apuntar mi dieta es un esfuerzo de 10 minutos que me cuesta empezar. Una vez configurada la dieta nos encontramos con los smarts checks, donde solo tenemos que añadir los alimentos de la comida que hayamos consumido, y especificar los gramos en caso de que no hayáis puesto una cantidad fija. Casi el doble de rápido que otras apps de nutrición (probado con mi madre de 56 años), y muchisimo más comodo a largo plazo. La app además no nos dice ni cuanto tenemos que comer, simplemente lleva las calorías para que sea el propio usuario quien decida las cantidad y lo que come.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para terminar me gustaría hablar del análisis de forma, que si bien es una función principalmente para usuarios avanzados (Que haber, la app se supone que es para usuarios avanzados, pero es tan sencilla de usar que cualquier persona puede usarla solo con conocimientos básicos de fitness), está a la vista de todos. Aquí había dos caminos, analizar en tiempo real (así es como funciona mediapipe, el motor utilizado para analizar la forma) o analizar un video. Bajo la lógica del rendimiento, es mucho mejor analizar un video ya grabado dado que se puede tomar con calma, reducir la resolución y/o fotogramas, y lo más importante, no agotar la batería del usuario. Por ello, se optó por el análisis de videos ya grabados para proteger la batería, rendimiento y libertad del usuario.</p>
+    </article>
+
+  </div>
+</div>

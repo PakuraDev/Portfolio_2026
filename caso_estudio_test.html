@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Estudio - Pezetoide</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/header_footer.css">
+    <link rel="stylesheet" href="./css/paginas.css">
+    <link rel="stylesheet" href="./css/cards.css">
+    <link rel="stylesheet" href="./css/caso_estudio.css">
+
+    <!-- Web Components -->
+    <script type="module" src="./webcomponents/header.js"></script>
+    <script type="module" src="./webcomponents/footer.js"></script>
+</head>
+<body>
+    <app-header></app-header>
+    
+    <main id="main-content" style="position: relative; z-index: 2; background-color: var(--Blanco);">
+        <!-- HERO SECTION -->
+        <section class="case-hero">
+            <div class="case-hero-content">
+                <div class="case-meta-row">
+                    <div class="card-badge"><h4 class="text-h4 text-negro">Product Design</h4></div>
+                    <div class="card-badge"><h4 class="text-h4 text-negro">2026</h4></div>
+                    <div class="card-badge"><h4 class="text-h4 text-negro">3 Meses</h4></div>
+                </div>
+                <h1 class="text-h0 text-negro case-title">Rediseño App Bancaria</h1>
+                <p class="text-p-large text-negro case-subtitle">Un enfoque brutalista para un sector aburrido.</p>
+            </div>
+            <div class="case-hero-image-wrapper">
+                <img src="https://via.placeholder.com/1440x800/2563EB/FFFFFF?text=Mockup+Principal" alt="Mockup Principal" class="case-hero-img">
+            </div>
+        </section>
+
+        <!-- CONTEXTO Y DESAFÍO -->
+        <section class="case-split-section bg-blanco">
+            <div class="case-split-container">
+                <div class="case-split-text">
+                    <h2 class="text-h2 text-negro">Contexto</h2>
+                    <p class="text-p-large text-negro">El cliente se acercó con una aplicación legada que tenía 15 años de antigüedad. El reto principal no era solo hacerla bonita, sino repensar toda la arquitectura de información para que los usuarios más mayores pudieran transferir dinero sin perderse en menús infinitos.</p>
+                </div>
+                <div class="case-split-highlight">
+                    <h3 class="text-h3 text-azul">"Queremos ser el banco que no parece un banco."</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESO (GALERÍA HORIZONTAL) -->
+        <section class="case-gallery bg-amarillo">
+            <div class="case-gallery-container">
+                <h2 class="text-h2 text-negro">Proceso y Wireframes</h2>
+                <div class="proyectos-row">
+                    <img src="https://via.placeholder.com/400x600/FFFFFF/1A1A1A?text=Wireframe+1" alt="WF1" class="case-gallery-img">
+                    <img src="https://via.placeholder.com/400x600/FFFFFF/1A1A1A?text=Wireframe+2" alt="WF2" class="case-gallery-img">
+                    <img src="https://via.placeholder.com/400x600/FFFFFF/1A1A1A?text=Wireframe+3" alt="WF3" class="case-gallery-img">
+                    <img src="https://via.placeholder.com/400x600/FFFFFF/1A1A1A?text=Wireframe+4" alt="WF4" class="case-gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTADOS -->
+        <section class="case-results bg-blanco">
+            <div class="case-results-container">
+                <h2 class="text-h2 text-negro">Resultados</h2>
+                <div class="case-results-grid">
+                    <div class="resumen-card-principal">
+                        <h1 class="text-h1 text-negro">+45%</h1>
+                        <p class="text-p-large text-negro">Incremento en la retención de usuarios el primer mes tras el lanzamiento.</p>
+                    </div>
+                    <div class="resumen-card-sec bg-azul" style="flex: 1 1 500px; padding: 36px; border-radius: 0 24px;">
+                        <h1 class="text-h1 text-blanco">2.4s</h1>
+                        <p class="text-p-large text-blanco">Reducción del tiempo promedio en completar una transferencia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEXT PROJECT CTA -->
+        <section class="case-next bg-negro">
+            <a href="#" class="case-next-btn">
+                <h2 class="text-h2 text-blanco">Siguiente Proyecto</h2>
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </section>
+    </main>
+
+    <app-footer></app-footer>
+</body>
+</html>

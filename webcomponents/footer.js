@@ -25,7 +25,7 @@ class AppFooter extends HTMLElement {
           <div class="footer-contact">
             <h3 class="text-h3 text-azul">¿Hablamos de producto?</h3>
             <a href="mailto:AlexPereZamudio@proton.me" class="footer-email-link">
-              <span class="text-p-large text-azul">[ AlexPereZamudio@proton.me ]</span>
+              <span class="text-p-large text-azul">[ Enviar correo ]</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.0411 5L12.1507 9.10959L5.30137 15.9589L5 19L8.0411 18.6986L14.8904 11.8493L19 15.9589V5H8.0411Z" fill="#2563EB"/>
               </svg>
@@ -131,26 +131,28 @@ class AppFooter extends HTMLElement {
         activeItem = this.linksData.find(l => l.name === 'Contacto');
       } else if (currentPath.includes('curriculum.html')) {
         activeItem = this.linksData.find(l => l.name === 'Currículum');
+      } else if (currentPath.includes('caso_estudio.html')) {
+        activeItem = null;
       } else {
         // En página principal
         activeItem = this.linksData[0]; // Default Inicio
       }
     }
     
-    if (!activeItem) activeItem = this.linksData[0];
-
-    const otherLinks = this.linksData.filter(l => l !== activeItem);
+    const otherLinks = activeItem ? this.linksData.filter(l => l !== activeItem) : this.linksData;
     
     let html = '';
     
-    html += `
-      <div class="footer-links-row">
-        <a href="${activeItem.href}" class="footer-link active" data-target="${activeItem.dataTarget || ''}">
-          <span class="text-p-large">${activeItem.name}</span>
-          <span class="text-p-large footer-link-estas-aqui text-azul">(Estás aquí)</span>
-        </a>
-      </div>
-    `;
+    if (activeItem) {
+      html += `
+        <div class="footer-links-row">
+          <a href="${activeItem.href}" class="footer-link active" data-target="${activeItem.dataTarget || ''}">
+            <span class="text-p-large">${activeItem.name}</span>
+            <span class="text-p-large footer-link-estas-aqui text-azul">(Estás aquí)</span>
+          </a>
+        </div>
+      `;
+    }
 
     for (let i = 0; i < otherLinks.length; i += 2) {
       html += '<div class="footer-links-row">';
@@ -209,8 +211,17 @@ class AppFooter extends HTMLElement {
       }
     };
 
+    if (window.ResizeObserver) {
+      const resizeObserver = new ResizeObserver(() => {
+        updateMargin();
+      });
+      resizeObserver.observe(this);
+    }
+
     window.addEventListener('resize', updateMargin);
     setTimeout(updateMargin, 100);
+    setTimeout(updateMargin, 500); // Retraso adicional por si acaso tardan fuentes/imágenes
+    setTimeout(updateMargin, 2000); // Seguridad final
 
     window.addEventListener('scroll', () => {
       if (mainContent) {

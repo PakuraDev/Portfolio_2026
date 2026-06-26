@@ -127,11 +127,11 @@ class AppFooter extends HTMLElement {
       activeItem = this.linksData.find(l => l.name === activeName);
     } else {
       const currentPath = window.location.pathname;
-      if (currentPath.includes('contacto.html')) {
+      if (currentPath.includes('contacto')) {
         activeItem = this.linksData.find(l => l.name === 'Contacto');
-      } else if (currentPath.includes('curriculum.html')) {
+      } else if (currentPath.includes('curriculum')) {
         activeItem = this.linksData.find(l => l.name === 'Currículum');
-      } else if (currentPath.includes('caso_estudio.html')) {
+      } else if (currentPath.includes('caso_estudio')) {
         activeItem = null;
       } else {
         // En página principal

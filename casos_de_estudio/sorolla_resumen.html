@@ -1,0 +1,93 @@
+<style>
+  .sorolla-resumen-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .sorolla-links-container {
+    display: flex;
+    gap: 24px;
+    margin: 32px 0 48px 0;
+    flex-wrap: wrap;
+  }
+  
+  .sorolla-link-badge {
+    padding: 12px 24px;
+    border: 1px solid var(--Blanco);
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .sorolla-link-badge:hover {
+    background: var(--Blanco);
+    color: var(--Negro) !important;
+  }
+
+  .sorolla-link-badge:hover * {
+    color: var(--Negro) !important;
+  }
+
+  .sorolla-agradecimientos-box {
+    border: 2px solid var(--Blanco);
+    padding: 48px;
+    border-radius: 32px 0 32px 0;
+    background: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .sorolla-resumen-container {
+      padding: 64px 24px;
+    }
+    .sorolla-agradecimientos-box {
+      padding: 32px 24px;
+      border-radius: 24px 0 24px 0;
+    }
+  }
+</style>
+
+<div class="sorolla-resumen-container">
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9; font-size: 1.25rem; margin-bottom: 24px;">
+    El rediseño del Museo Sorolla es un proyecto que nació de una tarea de análisis heurístico, pero que acabé rehaciendo hace unos meses por puro placer al arte. Es el proyecto donde más dirección de arte he puesto, y donde más he experimentado técnicas que antes no habría pensado en usar. 
+  </p>
+
+  <p class="text-p-large text-blanco" style="margin-bottom: 64px; opacity: 0.9; font-size: 1.25rem;">
+    Ahora sí, vamos a resumir un poco el proyecto, su diseño y su código. Voy a intentar no extender demasiado porque soy capaz de hacer spoilers:
+  </p>
+
+  <div style="display: flex; flex-direction: column; gap: 64px;">
+    
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">¿Cómo nació y qué es mi rediseño del Museo Sorolla?</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9; margin-bottom: 24px;">Como dije, el proyecto nació de una tarea de mi TFM (con que estuve con Carla, un saludo si lees esto &lt;3), que consistía en hacer un análisis heurístico de una web. Nos dieron a elegir entre varias, pero claramente me decanté por el Museo Sorolla. Quiero decir, ciudad a la que voy, museo que visito, así que no podía dejar pasar la oportunidad de analizar una web de un museo.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9; margin-bottom: 24px;">Ahora bien, para la gente normal, ¿Qué es un análisis heurístico? La definición no ayuda, pero básicamente es un método de inspección de usabilidad en la que un UXer (o varios) revisan una interfaz, y la evalúan contra una lista de principios reconocidos (las 10 heurísticas de Jakob Nielsen, las cuales si os voy a dejar buscar libremente).</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.7; font-style: italic; margin-bottom: 24px;">Fun fact, aunque no tenga nada que ver, Don Norman se parece a Rajoy, por si queréis echaros una risa.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">En cualquier caso, sigamos. Mi rediseño es una forma de "solucionar" los problemas de UX que encontré en la página real, pero también de rendir tributo y hacer justicia a la obra de Joaquín Sorolla. Sé que suena muy cliché, quiero decir, ya solo me hace falta decir que soy familia del nieto de Sorolla, pero no, simplemente me gusta su obra.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Diseño</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para el diseño me encontré un pequeño nombre, ya sea de cultura o de nombre, pero claro, al querer combinar lo clásico con lo moderno, ¿Qué estilo tienes? Por una parte es diseño editorial, pero por otra parte es diseño moderno y minimalista. Así que hice lo que mejor se me daba, inventarme un nombre: "Neoclásico diáfano". Dentro del diseño explico este nombre, así que ya tenéis un incentivo para leerlo jeje.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Código</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Tampoco quiero hacer mucho spoiler porque el código aquí es de lo que menos puedo hablar, pero bueno, simplemente vamos a decir que tiene un rendimiento brutal (que voy a decir yo, no? jajajsjasj), y que está hecha modularmente con una arquitectura elegida más por hacer más sencilla la DX y el mantenimiento que por otra cosa. Ahora, no es que sea "mala", simplemente es una arquitectura que para este proyecto es viable, pero que para una web comercial o que haga falta indexarse es mejor no usar. En cualquier caso, es que no tengo mucho más que decir, os dejo el enlace a las estadísticas de <a href="https://pagespeed.web.dev/analysis/https-portfolio-museo-soralla-pages-dev/mx4dzalu9u?form_factor=desktop" target="_blank" style="color: var(--Blanco); text-decoration: underline;">lighthouse</a> para que veáis que no miento con el rendimiento. Eso sí, no me digáis nada del rendimiento móvil porque la web no es responsive, solo está pensada para ordenadores (ala, otro spoiler)</p>
+    </article>
+
+    <article class="sorolla-agradecimientos-box">
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Agradecimientos</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Ya para terminar me gustaría agradecer a mi padre por "prestarme" su pintura (guiño del texto de diseño), a Carla por aguantarme durante el proceso, a mí mismo por no haber decidido hacer un simulador interactivo de pez (porque si, ese era el otro proyecto que tenía en mente), y obviamente a todos vosotros por estar leyendo esto. Gracias y un saludo &lt;3</p>
+    </article>
+
+  </div>
+</div>

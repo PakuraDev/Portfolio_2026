@@ -1,0 +1,215 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+  .sorolla-codigo-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .sorolla-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .sorolla-codigo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 96px;
+  }
+
+  .sorolla-codigo-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .sorolla-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sorolla-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .sorolla-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Code Blocks */
+  .code-block-wrapper {
+    background: var(--Negro);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 32px 0;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  }
+
+  .code-block-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .code-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .code-dot {
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%;
+  }
+  .code-dot.red { background: #FF5F56; }
+  .code-dot.yellow { background: #FFBD2E; }
+  .code-dot.green { background: #27C93F; }
+
+  .code-lang {
+    color: var(--Blanco);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    opacity: 0.5;
+    margin-left: auto;
+    text-transform: uppercase;
+  }
+
+  .code-block-content {
+    padding: 32px;
+    overflow-x: auto;
+    color: #fcfcfa; 
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    white-space: pre;
+    margin: 0;
+  }
+  
+  .code-keyword { color: #ff6188; }
+  .code-function { color: #a9dc76; }
+  .code-string { color: #ffd866; }
+  .code-comment { color: #727072; font-style: italic; }
+  
+  @media (max-width: 768px) {
+    .sorolla-codigo-container {
+      padding: 64px 24px;
+    }
+    .code-block-content {
+      font-size: 13px;
+      padding: 24px;
+    }
+  }
+</style>
+
+<div class="sorolla-codigo-container">
+<div class="sorolla-intro-box">
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Hablar del código de este rediseño va a ser divertido porque no es un proyecto "normal", y desde luego, ni de cerca la forma más óptima de hacer una web. En este proyecto busca alma, luz, dirección de arte, pero también una DX (experiencia de desarrollador) que me permitiese dividir todo para ir más rápido. En cualquier caso, vamos a dividir el código en 4 partes:</p>
+  <ul class="sorolla-list text-p-large text-blanco">
+    <li><span class="sorolla-list-num">1</span> Arquitectura Vanilla y Web Components</li>
+    <li><span class="sorolla-list-num">2</span> Variables CSS y el Sistema de "Arenas"</li>
+    <li><span class="sorolla-list-num">3</span> El Botón Líquido y la Magia del SVG</li>
+    <li><span class="sorolla-list-num">4</span> Pragmatismo del Desarrollador (o chapuza, como lo queráis llamar)</li>
+  </ul>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Al contrario que en Aerko_, voy a intentar no usar términos técnicos, o por lo menos explicar en "cristiano". Eso sí, voy a suponer que no venís del caso de estudio de Aerko_ y voy a explicar términos de nuevo. Bien, voy a tener que explicar que es un framework, web components, y creo que nada más. Si ya sabéis como funcionan estas cosas, podéis saltaros la explicación rápida.</p>
+</div>
+
+<article class="sorolla-codigo-section">
+  <h2 class="text-h2 text-blanco">Explicación rápida</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Bien, imaginaos que construir una web es como montar una exposición en un museo (como un museo, y justo la web es un museo, flipad con mi nivel de creatividad). Al hacer la web, podéis tomar dos caminos, o bien os vais a lo seguro y lo decoráis con muebles y accesorios fabricados en serie (un framework), o directamente los fabricáis vosotros mismos a vuestro gusto (JS Vanilla). Por otro lado, podríais pintar todos los cuadros en la pared del museo (un archivo monolítico), lo cual sería un caos para reorganizar, o bien podrías pintar cada cuadro en su propio lienzo, y luego colgarlos en las salas (webcomponents).</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Pues así es como está construido esta web. Todo está construido en HTML, CSS puro y JS Vanilla, y modularizado para que cada componente (el header, una sección, un botón, etc...) sea un archivo independiente que se importa y renderiza en la web. Eso sí, esto no es lo óptimo, pero al ser una sola página de ejemplo para mostrar el diseño no tiene mayores implicaciones.</p>
+</article>
+
+<article class="sorolla-codigo-section">
+  <h2 class="text-h2 text-blanco">Arquitectura Vanilla y Web Components</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">La mayoría de webs hoy en día utilizan frameworks como React, Vue o Astro (este último solo si sois gigachads), y quiero decir, es cómodo, rápido, con todo ya construido. Pero mi filosofía de rendimiento excesivo (que ya roza la locura) me impide usarlo, además de que para está web (que ya digo, solo es una página de 5 componentes) me parece hasta sobre-ingeniería (irónico que diga esto cuando podría haber metido todos los componentes en un solo archivo).</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Ahora, que vaya a usar JS Vanilla no significa que vaya a meterlo todo en un solo archivo, porque si habéis leído alguno de los readme de mis repositorios sabréis que suelo modularizar absolutamente todo. Por eso mismo, cada sección de la web está hecha con webcomponents y simplemente se importan en el index.html con una clase de JS que extiende HTMLElement y se renderizan con this.innerHTML (Sé que dije que no iba a ser demasiado técnico, pero a ver, es que esto no se puede poner de otra forma) junto etiquetas como "<agenda-section></agenda-section>".</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span <span class="code-keyword">class</span>="code-keyword">export</span> <span class="code-keyword">class</span> AgendaSection extends HTMLElement {
+  <span class="code-keyword">constructor</span>() { <span class="code-keyword">super</span>(); }
+
+  connectedCallback() { this.render(); }
+
+  render() {
+    this.innerHTML = <span class="code-string">`
+      &lt;style&gt;
+        <span class="code-comment">/* CSS encapsulado de la sección */</span>
+      &lt;/style&gt;
+      &lt;section <span class="code-keyword">class</span>=<span class="code-string">"agenda-layout"</span>&gt;
+        &lt;/section&gt;
+    `</span>;
+  }
+}
+customElements.define(<span class="code-string">'agenda-section'</span>, AgendaSection);</pre>
+</div>
+
+<article class="sorolla-codigo-section">
+  <h2 class="text-h2 text-blanco">CSS & Design Tokens</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Aunque el sistema de colores parezca puro diseño, la implementación técnica es, como bien dice su nombre, técnica (espero que esta broma le haya hecho gracia a alguien). Aunque creo que es algo simple, al parecer hay personas y webs que todavía no usan variables, así que voy a presumir de que mi proyecto usa Variables CSS, configuradas como tokens de diseño, en un archivo independiente.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Esto permite que la web "respire" (nada, hoy estoy poético) bajo un sistema lógico: desde los cuatro tonos de "--arena" que imitan la orilla del mar hasta el "--azul-marino" institucional. Es una arquitectura de estilos que evita la repetición de código y permite cambios globales de forma instantánea, manteniendo la coherencia en todos los componentes.</p>
+</article>
+
+<article class="sorolla-codigo-section">
+  <h2 class="text-h2 text-blanco">Botones "Líquidos"</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Aunque están desactivados debido al shadow dom y arquitectura usada, los botones tienen programado un efecto "Líquido" al hacer hover. Esto, sin librerías externas, se hace con un truquito técnico que combina CSS y filtros SVG: Dentro del index.html definí un filtro global oculto que utiliza "feTurbulence" para generar un ruido fractal animado. Luego, desde el CSS de los componentes, "llamo" a ese filtro mediante su ID cuando el usuario hace hover sobre el botón, aunque como ya digo, el Shadow DOM y Webcomponents no dejan que el efecto se muestre. Igualmente, para no quedar como un mentiroso os dejo un snippet del código:</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">/* Filtro definido en el HTML global */</span>
+&lt;filter id=<span class="code-string">"subtle-liquid"</span>&gt;
+  &lt;feTurbulence type=<span class="code-string">"fractalNoise"</span> baseFrequency=<span class="code-string">"0.03 0.1"</span> numOctaves=<span class="code-string">"1"</span>&gt;
+    &lt;animate attributeName=<span class="code-string">"seed"</span> <span <span class="code-keyword">class</span>="code-keyword">from</span>=<span class="code-string">"1"</span> to=<span class="code-string">"100"</span> dur=<span class="code-string">"12s"</span> repeatCount=<span class="code-string">"indefinite"</span> /&gt;
+  &lt;/feTurbulence&gt;
+&lt;/filter&gt;
+
+<span class="code-comment">/* Aplicación técnica en el componente */</span>
+.btn-sorolla:hover .btn-sorolla-fluid {
+  opacity: 1;
+  filter: url(#subtle-liquid);
+}</pre>
+</div>
+
+<article class="sorolla-codigo-section">
+  <h2 class="text-h2 text-blanco">Pragmatismo del Desarrollador (o chapuza)</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Aquí voy a permitir que todos me miréis mal, pero también quiero que me entendáis. La web no es responsive, entras desde un móvil o una tablet y está rota. ¿La podría haber adaptado? Sí, perfectamente, pero claro, hay que tener en cuenta dos cosas:</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">1. Nadie me paga por hacer la web: Aquí todos me podéis insultar la verdad, es la excusa más corporativa que hay, pero entendedme, no es un proyecto para un cliente, sino un rediseño no oficial que la gente puede saltarse.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">2. Si mañana me llega un cese y desistimiento, estoy obligado a quitarla. Aquí podríamos entrar a argumentar que las probabilidades son muy bajas, y no lo voy a negar, pero mientras que no sean nulas prefiero no dedicarle tanto tiempo a un proyecto vulnerable.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Así que sí, podéis insultarme, podéis llamarme flojo, y podéis decir que soy un chapucero, no lo voy a negar porque en este caso técnicamente es cierto. Si algún día un cliente me pide que la haga (lo que significará que estáis leyendo esto), le echaré unos días extras y hago responsive. Hasta entonces me vais a tener que perdonar.</p>
+</article>
+
+</div>

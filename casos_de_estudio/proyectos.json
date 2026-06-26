@@ -15,5 +15,20 @@
       { "id": "diseno", "numero": "02", "titulo": "Diseño UX/UI", "archivo": "aerko_diseno.html" },
       { "id": "codigo", "numero": "03", "titulo": "Código", "archivo": "aerko_codigo.html" }
     ]
+  },
+  "sorolla": {
+    "titulo": "Museo Sorolla",
+    "descripcion": "Mi rediseño de la web del Museo Sorolla, enfocado puramente en hacer justicia a la obra del gran Joaquin Sorolla. Combina un estilo neoclásico diáfano con un rendimiento técnico espectacular.",
+    "etiquetas": ["Diseño", "Código", "Open source", "Se me olvidó el responsive"],
+    "enlaces": [
+      { "tipo": "web", "texto": "Página web", "url": "https://portfolio-museo-soralla.pages.dev/#", "icon": "web" },
+      { "tipo": "github", "texto": "Repositorio de github", "url": "https://github.com/PakuraDev/Portfolio_Museo_Soralla", "icon": "github" },
+      { "tipo": "figma", "texto": "Archivo de Figma", "url": "https://www.figma.com/design/eJ2cBX9uaKqvo4z6eAKIA1/Museo_Sorolla?node-id=1-4&t=t205NJp7oCfkxz9N-1", "icon": "figma" }
+    ],
+    "tabs": [
+      { "id": "resumen", "numero": "01", "titulo": "Resumen", "archivo": "sorolla_resumen.html" },
+      { "id": "diseno", "numero": "02", "titulo": "Diseño UX/UI", "archivo": "sorolla_diseno.html" },
+      { "id": "codigo", "numero": "03", "titulo": "Código", "archivo": "sorolla_codigo.html" }
+    ]
   }
 }

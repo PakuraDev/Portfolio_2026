@@ -74,5 +74,16 @@
       { "id": "diseno", "numero": "02", "titulo": "Diseño UX/UI", "archivo": "openflow_diseno.html" },
       { "id": "codigo", "numero": "03", "titulo": "Código", "archivo": "openflow_codigo.html" }
     ]
+  },
+  "entropy": {
+    "titulo": "Entropy",
+    "descripcion": "Caso de estudio en construcción...",
+    "etiquetas": ["WIP"],
+    "enlaces": [],
+    "tabs": [
+      { "id": "resumen", "numero": "01", "titulo": "Resumen", "archivo": "entropy_resumen.html" },
+      { "id": "diseno", "numero": "02", "titulo": "Diseño UX/UI", "archivo": "entropy_diseno.html" },
+      { "id": "codigo", "numero": "03", "titulo": "Código", "archivo": "entropy_codigo.html" }
+    ]
   }
 }

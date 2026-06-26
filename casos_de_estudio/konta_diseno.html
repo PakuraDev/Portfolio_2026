@@ -1,0 +1,122 @@
+<style>
+  .konta-diseno-container {
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .konta-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .konta-diseno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .konta-diseno-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .konta-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .konta-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .konta-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .konta-diseno-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+    
+    .konta-diseno-section:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .konta-diseno-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="konta-diseno-container">
+  
+  <div class="konta-intro-box">
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Hablar del diseño de Konta es especial. Es como hablar de Sevilla, porque si yo te digo que tiene un color especial mucha gente me dirá que lo unico especial que tiene es la calor, y no lo puedo negar, pero no es solo eso. Konta es especial porque combina una UI y UX pensada para que mis padres (personas de +50 años que todavía me preguntan como usar facebook o como ver un estado de whatsapp) con una DX tan, pero tan sencilla, que incluso mis padres pueden usarla (ok no, pero cualquier persona con conocimientos básicos de informática, y si acaso ayuda de una IA puede hacerlo).
+    </p>
+    <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">
+      El proposito de la app es básicamente llevar los gastos semanales de la casa, todo a raíz de que una ver se perdió un billete de 5 euros, para que veais el nivel de madurez del proyecto. En cualquier caso, vamos a dividir el diseño en:
+    </p>
+    
+    <ul class="konta-list text-p-large text-blanco">
+      <li><span class="konta-list-num">1</span> El concepto: Neo-brutalismo Minimalista</li>
+      <li><span class="konta-list-num">2</span> UX y mejoras de usabilidad respecto a otras versiones</li>
+      <li><span class="konta-list-num">3</span> DX</li>
+    </ul>
+  </div>
+
+  <div class="konta-diseno-grid">
+    
+    <!-- Concepto -->
+    <article class="konta-diseno-section">
+      <h2 class="text-h2 text-blanco">El concepto: Neo-Brutalismo Minimalista</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Empecemos a hablar de la UI, dado que necesitamos algo claro, sencillo, pero que entre por los ojos. Es por uso mismo que tenemos que usar de base el brutalismo, pero dado que lo voy a usar todos los días sin que me sangren los ojos, hay que hacerlo más moderno, de ahí el Neo-brutalismo y el minimalismo.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Lo primero a elegir fue la paleta de colores, en la que me decante por algo sencillo, blanco y negro como colores base, y el azul para darle vida a la app. De aquí también parte una mejora que las versiones anteriores no tenian, y es el modo de alto contraste. Como en anteriores versiones el código y base de datos era privada para nosotros, no tenía necesidad de añadir un modo de alto contraste donde se cumpla la wcag, pero ahora que la app está pensada para ser usada por cualquiera, es un detalle que no se puede obviar.</p>
+    </article>
+
+    <!-- UX -->
+    <article class="konta-diseno-section">
+      <h2 class="text-h2 text-blanco">UX y mejoras</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">La UX es seguramente en lo que más destaca el proyecto, especialmente en la última versión, y es que se han eliminado funciones que no se usaban, se ha añadido un sistema de login frictionless (no sé si está palabra existe), otras funciones se han movido a lugares más ocultos, y se han añadido funciones que mejoran la calidad de vida. Vamos a empezar por el login, dado que es donde el usuario toma contacto con la app por primera vez.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Antiguamente, al ser solo para nosotros 4 el login consistía en abrir la app, poner un pin y seleccionar tu nombre, pero ahora necesitabamos un identificador para añadir seguridad. Exigir una contraseña desde el punto de vista de UX sería un desastre, quiero decir, recordar una contraseña para apuntar tus gastos es el equivalente a añadir 1 puerta entre el porton (la primera puerta) y la puerta principal. Es por eso que se implemento un login que simplemente depende del dispositivo, aunque esto lo explicaré en el código. De está forma, solo tendrías que poner tu nombre, y la url del worker, pero claro, escribir una url a mano es un coñazo, por lo que se implemento un sistema de generación y escaneo de QRs, facilitando la tarea de añadir un nuevo usuario.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Siguiendo por la pantalla principal, se eliminó la función de categorías, dado que nadie las usaba, y funciones como la vista de gastos de otro mes se llevaron al menu lateral, permitiendo despejar la pantalla principal con lo más importante, el presupuestos semanal, los gastos y el botón para añadir registro. De está forma, a la pantalla de añadir registro se le pudo eliminar el selector de categoría, reduciendo el número de campos a rellenar y por lo tanto, reduciendo la carga cognitiva del usuario.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Mientras tanto, para mejorar la experincia de usuario, dado que mis padres al pulsar un gasto para ver los detalles y ser trasportados a otra pantalla se perdian, directamente se implemento un sistema de modales, donde al pulsar un gasto se abre un modal que cubre aproximadamente el 60% la pantalla, permitiendo ver los detalles del gasto sin salir de la pantalla principal. Aquí además se añadieron dos funcionas que en anteriores versiones no existia, editar y eliminar.</p>
+    </article>
+
+    <!-- DX -->
+    <article class="konta-diseno-section">
+      <h2 class="text-h2 text-blanco">DX</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Aquí es donde creo que el proyecto destaca, dado que para usarlo necesitas una cuenta de cloudflare gratuita, y 0 conocimientos de programación. La primera idea fue que el usuario tuviera que modificar el código de Worker-DB a su gusto, pero finalmente acabé implementando un sistema de configuración dentro de la propia app para que todo el mundo pueda usar el mismo código.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Además de dejar el código e instrucciones, para solucionar el problema de editarlo, se implemento una pantalla extra para la creación de la base de datos, donde el usuario solo tiene que escribir la url del worker-DB, la url del Worker-API, y los datos personalizados, como los nombre de usuarios o el presupuesto semanal base.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Y para terminar, aunque esto debería ir en la UX, la app es una PWA, por lo que se puede instalar en el dispositivo como si fuera una app nativa. Y ahora sí, terminé.</p>
+    </article>
+
+  </div>
+</div>

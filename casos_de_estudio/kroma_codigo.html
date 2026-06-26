@@ -1,0 +1,259 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+  .kroma-codigo-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .kroma-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .kroma-codigo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 96px;
+  }
+
+  .kroma-codigo-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .kroma-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .kroma-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .kroma-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .kroma-bullet-list {
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: disc;
+  }
+
+  /* Code Blocks */
+  .code-block-wrapper {
+    background: var(--Negro);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 32px 0;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  }
+
+  .code-block-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .code-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .code-dot {
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%;
+  }
+  .code-dot.red { background: #FF5F56; }
+  .code-dot.yellow { background: #FFBD2E; }
+  .code-dot.green { background: #27C93F; }
+
+  .code-lang {
+    color: var(--Blanco);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    opacity: 0.5;
+    margin-left: auto;
+    text-transform: uppercase;
+  }
+
+  .code-block-content {
+    padding: 32px;
+    overflow-x: auto;
+    color: #fcfcfa; 
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    white-space: pre;
+    margin: 0;
+  }
+  
+  .code-keyword { color: #ff6188; }
+  .code-function { color: #a9dc76; }
+  .code-string { color: #ffd866; }
+  .code-comment { color: #727072; font-style: italic; }
+
+  @media (max-width: 768px) {
+    .kroma-codigo-container {
+      padding: 64px 24px;
+    }
+    .code-block-content {
+      font-size: 13px;
+      padding: 24px;
+    }
+  }
+</style>
+
+<div class="kroma-codigo-container">
+
+<div class="kroma-intro-box">
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Vamos con el código de Kroma. Me gustaría decir que es divertido, pero sinceramente es el tercer caso de estudio que hago en 2 días y estoy harto de escribir, pero bueno, voy a dividir el código en 4 partes:</p>
+  
+  <ul class="kroma-list text-p-large text-blanco">
+    <li><span class="kroma-list-num">1</span> Arquitectura Vanilla y el EventBus</li>
+    <li><span class="kroma-list-num">2</span> Bóvedas Locales y Promesas (KromaDB)</li>
+    <li><span class="kroma-list-num">3</span> El Cerebro: CLI y Regex</li>
+    <li><span class="kroma-list-num">4</span> Decoradores y SVG Crudo</li>
+  </ul>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Al igual que en mis otros proyectos, voy a intentar explicar esto en cristiano, aunque no prometo nada porque estoy cansado.</p>
+</div>
+
+<article class="kroma-codigo-section">
+  <h2 class="text-h2 text-blanco">1. Arquitectura Vanilla y el EventBus</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Si habéis leido otro de mis casos de estudio ya deberíais saber que yo y los frameworks (en especial Angular, que no me voy a cansar de decirlo) no nos llevamos bien, por lo que ya podréis imaginar que Kroma está hecha en Vanilla JS, html y css puro (porque tampoco me gusta Tailwind). La arquitectura base arranca de un main.js que obliga a resolver secuencias de promesas lógicas antes de hidratar el DOM (traducción al castellano para gente que no se odie a si misma: Es como un restaurante donde el camarero, que se llama main.js, no te deja pasar al comedor hasta que la cocina confirma que tiene la comida lista, y en este caso has pedido una de promesas. Una vez todo está listo, te sirven la mesa, o en este caso, hidratan el DOM).</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Ahora, para que esto funcione bien sin tener un jeroglífico en JS, nuevamente enchufo un bus de eventos con el patrón Publisher/Subscriber. Al igual que en Aerko_, el bus de eventos nos permite aislar las ejecuciones en bloques try-catch. Es decir, si hay un módulo que no funciona, lo unico que no funciona es ese módulo, pero el resto de la web si. Os dejo por aqui un pequeño snippet de como funciona:</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// JS/core/bus.js</span>
+<span class="code-function">emit</span>(eventName, data) {
+    <span class="code-keyword">if</span> (!this.listeners[eventName]) <span class="code-keyword">return</span>;
+
+    <span class="code-comment">// Clonamos el array porque sino los bus.off() anidados la lían</span>
+    <span class="code-keyword">const</span> handlers = [...this.listeners[eventName]];
+    handlers.forEach(callback =&gt; {
+        <span class="code-keyword">try</span> {
+            <span class="code-function">callback</span>(data);
+        } <span class="code-keyword">catch</span> (error) {
+            <span class="code-comment">// Evitamos un fatal error en cadena</span>
+            console.error(<span class="code-string">`[EventBus] Error in listener for '${eventName}':`</span>, error);
+        }
+    });
+}</pre>
+</div>
+</article>
+
+<article class="kroma-codigo-section">
+  <h2 class="text-h2 text-blanco">2. Bóvedas Locales y Promesas (KromaDB)</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Cualquier persona normal hubiera usado localStorage para los datos que guarda el sistema, pero yo no soy normal, soy idiota. Si alguien lo ha notado ya, obviamente reutilicé un poco de la lógica base de aerko, aunque adaptada, entonces claro, podía volver a usar un wrapper de IndexedDB para asegurarme de que, aunque el cliente sea un esquizofrenico con 9000 enlaces, el sistema no se quede sin espacio (porque localStorage tiene límite de 5mb).</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Así que hice que la verificación del esquema con "onupgradeneeded" fuerce claves primarias (keypath, id, etc...), diviendiendo los esquemas en 5 stores, "user", "groups", "Categories", "links" y "notepads". Fun fact, si le preguntaís a una IA sobre la arquitectura de datos os propone solo 2 stores, uno para los enlaces y otro para el notepad. Posible es y dentro de lo que cabe tampoco sería mala con un array, pero para volverse loco con un solo bug también funcionaba.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// JS/core/db.js</span>
+<span class="code-keyword">async</span> <span class="code-function">put</span>(storeName, item) {
+    <span class="code-keyword">await</span> this.ready; <span class="code-comment">// Retenemos ejecuciones en crudo garantizando el I/O</span>
+    <span class="code-keyword">return</span> <span class="code-keyword">new</span> Promise((resolve, reject) =&gt; {
+        <span class="code-keyword">const</span> transaction = this.db.transaction([storeName], <span class="code-string">'readwrite'</span>);
+        <span class="code-keyword">const</span> store = transaction.objectStore(storeName);
+        <span class="code-keyword">const</span> request = store.put(item);
+
+        request.onsuccess = () =&gt; <span class="code-function">resolve</span>();
+        request.onerror = (e) =&gt; <span class="code-function">reject</span>(e.target.error);
+    });
+}</pre>
+</div>
+</article>
+
+<article class="kroma-codigo-section">
+  <h2 class="text-h2 text-blanco">3. El Cerebro: CLI y Regex</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Aquí es donde el proyecto destaca, porque claro, ¿Cuántas páginas de inicios existen? Pues solo en github hay casi 5000 proyectos, así que hacer otro solo por diseño sería una perdida de tiempo. Es por eso que le dí un pequeño toque de linux he hice que la barra de búsqueda sea un CLI (Command Line Interface) personalizado y optimizado para lo que hago. Además de funcionar como una barra de busqueda normal y corriente, también sirve para ejecutar comandos como:</p>
+  
+  <ul class="kroma-bullet-list text-p-large text-blanco">
+    <li><strong>"/yt [busqueda]"</strong> -&gt; Busca en youtube. Me ahorra el tener que entrar en youtube y usar la barra de busqueda, aquí directamente busco lo que quiero y me lleva a la busqueda.</li>
+    <li><strong>"/hex [color en hex]"</strong> -&gt; Te lleva a encycolorpedia.es, la biblia de los colores.</li>
+    <li><strong>"/svg [busqueda]"</strong> -&gt; Busca en svgrepo.com. Que por cierto, me dí cuenta el otro día que usan vercel. Dentro de lo que cabe lo entiendo, pero se podría haber hecho con cloudflare, edge computing, wasm y cliente.</li>
+    <li><strong>"/roll [nº máximo]"</strong> -&gt; Tira un dado. Ya está, así de tonto.</li>
+    <li><strong>"/choose [opciones]"</strong> -&gt; Elige una opción entre varias. Por ejemplo: "/choose Er betih, barça, vardrid" y automaticamente te elige el betis porque el código tiene arte, pero si lo pones entre otras cosas si te sale uno aleatorio.</li>
+    <li><strong>"/export"</strong> -&gt; Exporta los datos</li>
+    <li><strong>"/import"</strong> -&gt; Importa los datos</li>
+  </ul>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">Además de los comandos, también te permite hacer operaciones matemáticas nativamente. Podría haber usado una librería, pero preferí blindar la lógica con expresiones regulares, entre otras cosas porque la cuenta más compleja que hago es "(1440-120)/3". Eso si, os recomiendo mathway para cosas más complejas, esa página me ayudó en 1 bach.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// JS/logic/searchEngine.js</span>
+<span class="code-comment">// Parseo y securización del input crudo</span>
+<span class="code-keyword">const</span> isMath = <span class="code-string">/^[0-9+\-*/().\s]+$/</span>.test(query) && <span class="code-string">/[0-9]/</span>.test(query);
+<span class="code-keyword">const</span> isOperator = <span class="code-string">/[+\-*/]/</span>.test(query); 
+        
+<span class="code-keyword">if</span> (isMath && isOperator) {
+    <span class="code-keyword">try</span> {
+        <span class="code-keyword">const</span> result = <span class="code-keyword">new</span> Function(<span class="code-string">`return ${query}`</span>)();
+        <span class="code-keyword">if</span> (result !== undefined && !isNaN(result) && result !== Infinity) {
+            <span class="code-keyword">const</span> finalResult = Number.isInteger(result) ? result : parseFloat(result.toFixed(4));
+            <span class="code-comment">// Escupe el cálculo en línea con la acción CLI</span>
+            <span class="code-keyword">return</span> { action: <span class="code-string">'inline'</span>, payload: String(finalResult) };
+        }
+    } <span class="code-keyword">catch</span> (e) {
+        <span class="code-comment">// En caso de sintaxis incompleta</span>
+    }
+}</pre>
+</div>
+</article>
+
+<article class="kroma-codigo-section">
+  <h2 class="text-h2 text-blanco">4. Decoradores y SVG Crudo</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">En vez de limitarme a usar Base64 como un programador perezoso (notese la ironia), separé por completo la estructura MIME en decorators.js. Cuando subes un SVG utilizo FileReader.readAsText() para extraer directamente el vector original y empotrarlo en el DOM. ¿El motivo? Pues que soy gilipo... digo, al inyectar el svg como texto crudo en el html, ese svg hereda propiedades universales nativas como currentColor del theme engine principal. Una buena forma de no volverme loco los 5 estilos del proyecto y los svg.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">Y hasta aquí el código, que estoy cansado.</p>
+</article>
+
+</div>

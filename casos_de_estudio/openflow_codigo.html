@@ -1,0 +1,207 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+  .openflow-codigo-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .openflow-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .openflow-codigo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 96px;
+  }
+
+  .openflow-codigo-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .openflow-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .openflow-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .openflow-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  /* Code Blocks */
+  .code-block-wrapper {
+    background: var(--Negro);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 32px 0;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  }
+
+  .code-block-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .code-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .code-dot {
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%;
+  }
+  .code-dot.red { background: #FF5F56; }
+  .code-dot.yellow { background: #FFBD2E; }
+  .code-dot.green { background: #27C93F; }
+
+  .code-lang {
+    color: var(--Blanco);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    opacity: 0.5;
+    margin-left: auto;
+    text-transform: uppercase;
+  }
+
+  .code-block-content {
+    padding: 32px;
+    overflow-x: auto;
+    color: #fcfcfa; 
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    white-space: pre;
+    margin: 0;
+  }
+  
+  .code-keyword { color: #ff6188; }
+  .code-function { color: #a9dc76; }
+  .code-string { color: #ffd866; }
+  .code-comment { color: #727072; font-style: italic; }
+
+  @media (max-width: 768px) {
+    .openflow-codigo-container {
+      padding: 64px 24px;
+    }
+    .code-block-content {
+      font-size: 13px;
+      padding: 24px;
+    }
+  }
+</style>
+
+<div class="openflow-codigo-container">
+
+<div class="openflow-intro-box">
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">A ver, hablar del código de OpenFlow_V3 es algo que me apetece bastante, porque este proyecto es la encarnación de mi obsesión por el rendimiento extremo, el cero lag y mi odio profundo hacia la latencia de red. Hoy en día parece que si no usas una herramienta corporativa lenta que necesita cargar medio segundo cada vez que mueves una tarjeta, no eres profesional. Pues al carajo con eso. OpenFlow es una SPA Local-First de grado industrial, brutalista y cruda.</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">Para no volveros locos (ni volverme loco yo), voy a dividir este caos en 4 partes:</p>
+
+  <ul class="openflow-list text-p-large text-blanco">
+    <li><span class="openflow-list-num">1</span> Arquitectura Local-First y Soberanía de Datos (IndexedDB)</li>
+    <li><span class="openflow-list-num">2</span> El Motor de Rendering Optimista y el Radar de Colisiones</li>
+    <li><span class="openflow-list-num">3</span> Delegación de Eventos Estricta (El Guardia de Seguridad)</li>
+    <li><span class="openflow-list-num">4</span> Domesticando el Cronograma (Frappe) y el "Radar" de Búsqueda</li>
+  </ul>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Como siempre, voy a intentar explicar esto para que lo entienda cualquiera, pero si me pongo un poco friki, ya sabéis por qué es.</p>
+</div>
+
+<article class="openflow-codigo-section">
+  <h2 class="text-h2 text-blanco">1. Arquitectura Local-First y Soberanía de Datos (IndexedDB)</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Si vienes de leer mis otros casos de estudio, ya sabéis que yo y los frameworks (cof cof, Angular, cof cof) somos enemigos naturales. OpenFlow_V3 está construido en Vanilla JS puro y duro. Pero la verdadera joya aquí no es que no use React o parecidos, sino que no hay servidor.</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">En una web tradicional (tipo Jira), tú mueves una tarea, tu ordenador le manda un mensajito al servidor (que a saber dónde está alojado), el servidor lo procesa, lo guarda, y te responde "vale, ya está". Todo eso tarda unos milisegundos (o segundos si tu internet es el de Movistar un domingo lloviendo). En OpenFlow, tu navegador es el servidor. Usamos la base de datos nativa del propio navegador: <code>IndexedDB</code>.</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">IndexedDB es brutalmente rápido, pero su API nativa te da ganas de llorar por el horroroso sistema de callbacks. Así que, con la filosofía de un artesano (o masoquista), me monté mi propio wrapper con promesas en <code>db.js</code> para hacer un CRUD genérico asíncrono y meterle un sistema de migraciones (para poder pasar de la v1 a la v2 sin perder datos en el proceso añadiendo épicas e inyectando fechas).</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">La mayor ventaja del enfoque Local-First es la "Soberanía de Datos". Tus proyectos residen en tu máquina y de ahí no salen salvo que tú exportes. No hay tracking corporativo ni intermediarios. Y lo más importante: la latencia real es literalmente cero. Cero "loading spinners". Si se cae el internet, tú sigues trabajando como si de un software escritorio se tratara.</p>
+</article>
+
+<article class="openflow-codigo-section">
+  <h2 class="text-h2 text-blanco">2. El Motor de Rendering Optimista y el Radar de Colisiones</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Mover una tarjeta en un tablero Kanban parece una tontería de lo más sencilla, pero hacerlo fluido a 60fps sin que el navegador estornude tiene su truco. Aquí entra lo que yo llamo "Optimistic UI Rendering". Cuando tú arrastras una tarjeta y la sueltas, la interfaz gráfica se actualiza de forma instantánea en el DOM (en apenas 0ms), mientras que el cambio en sí de estado se manda a guardar a la base de datos de fondo, en total asincronía. Es silencioso pero letal.</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Pero claro, la API nativa de Drag & Drop de HTML5 es todo un dolor de cabeza. Principalmente porque el navegador no tiene un sentido claro de dónde quieres soltar exactamente la tarjeta en medio de una columna (queremos ordenación manual). Así que le programé su propio "Radar".</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// js/ui/render.js (Extracto de la magia matemática del radar)</span>
+<span class="code-keyword">function</span> <span class="code-function">getDragAfterElement</span>(container, y) {
+    <span class="code-keyword">const</span> draggableElements = [...container.querySelectorAll(<span class="code-string">'.task-card:not(.dragging)'</span>)];
+    <span class="code-keyword">return</span> draggableElements.reduce((closest, child) =&gt; {
+        <span class="code-keyword">const</span> box = child.getBoundingClientRect();
+        <span class="code-keyword">const</span> offset = y - box.top - box.height / <span class="code-keyword">2</span>; <span class="code-comment">// Distancia al centro de la tarjeta</span>
+        <span class="code-keyword">if</span> (offset &lt; <span class="code-keyword">0</span> && offset &gt; closest.offset) {
+            <span class="code-keyword">return</span> { offset: offset, element: child };
+        } <span class="code-keyword">else</span> {
+            <span class="code-keyword">return</span> closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}</pre>
+</div>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Básicamente, es una función matemática que calcula dónde está el ratón comparado con el centro vertical del resto de cartas de la columna para averiguar a ciencia exacta debajo de cuál la quieres meter. Una vez el radar hace su trabajo, entra en escena la versión pro de la lógica de soltado (la "The Benito Villamarín Edition"): el script pilla todas las cartas de la lista, les otorga un nuevo valor <code>order</code> por su índice actual y procede con el guardado, de modo que el ranking se conserva inmutable al refrescar.</p>
+</article>
+
+<article class="openflow-codigo-section">
+  <h2 class="text-h2 text-blanco">3. Delegación de Eventos Estricta (El Guardia de Seguridad)</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Si alguna vez una Single Page Application (SPA) se te empieza a calar al llevar media hora trabajando, lo más probable es que tenga "Memory Leaks" (fugas de memoria). Si renderizas 200 tarjetas, y a cada botoncito que haya le enchufas un <code>addEventListener</code>, estás malgastando la RAM y creando basura computacional. Y si las sacas del DOM sin desasignar los eventos, ya apaga y vámonos.</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Para mantener una arquitectura con un perfil de memoria plano para gente que tiene el OpenFlow abierto 8 horas seguidas, he aplicado una política estricta de Event Delegation global.</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Mencionando la lógica de modales (<code>modal.js</code>), en lugar de atarle un evento a cada triste botón para borrar épicas, el <code>modal-body</code> pilla el rol de portero de discoteca, o mejor dicho, de Germán Pezzella cortando un contraataque. Todo clic rebotará hasta él y mediante condicionales <code>e.target.matches()</code> decidirá a quién se lleva por el medio. Un solo guardián, y miles de elementos temporales que nacen y mueren limpios.</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Y por supuesto, una anécdota imperdonable en <code>render.js</code>. Para impedir ataques de Cross-Site Scripting (XSS) al inyectar puro texto como HTML, tuve que calzarle una función urgente de sanitización que convierte etiquetas como <code>&lt;script&gt;</code> en inocofensivas entidades <code>&amp;lt;</code>. "Lo siento gente, el que no escape los HTML no es bético". Qué le hacemos, pragmatismo ante el desastre inminente.</p>
+</article>
+
+<article class="openflow-codigo-section">
+  <h2 class="text-h2 text-blanco">4. Domesticando el Cronograma (Frappe) y el "Radar" de Búsqueda</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Para el cronograma usé la librería <code>frappe-gantt</code>. Como no iba a reinventar la rueda trazando cuadros en CANVAS, me traje Frappe con un único problema: el de siempre, los datos los espera en un formato, y mi BBDD los tiene en otro muy dispar.</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Aquí, para que nadie se me eche encima, entra el todopoderoso Patrón Adapter (<code>gantt.js</code>). Mapeo y transformo al vuelo todas mis tareas de <code>OpenFlow</code> hacia el esqueleto que espera Frappe, con el añadido de interceptar primero la fase (Épica) para robarle su color hexagonal y colarlo en cada barra del cronograma. Y para forzar mi "paleta industrial brutalista" en unos SVG que se resistían... uso ataques de fuerza bruta temporal (o lo que es lo mismo, clavarle los estilos mediante JS tras un pequeño <code>setTimeout</code>).</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Y, ya para coronar la corona tecnológica, está mi buscador en tiempo real. ¿Cómo busca otra SPA habitual las cosas? Mandan la string (texto) al backend, hacen una pseudo búsqueda indexada en la BD, se devuelven los resultados por una REST API, recálculo bestial, y se actualiza el DOM de React. ¿En OpenFlow? Simplemente tienes un listener pillando tu tecleo, interceptando los nodos del DOM uno por uno y comparándolos. Todo aquello que no coincida... <code>display: none</code>. Sin red, sin esperas asíncronas, visibilidad oculta temporal, instantáneo y gratis a nivel de computación para la interfaz.</p>
+  
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Es un código áspero, libre y reaccionario en todos los sentidos, pero puedo afirmar orgullosamente que la usabilidad resultante justifica cada pequeña locura. Espero que tampoco os haya explotado la cabeza leyendo mi forma de entender la programación, ¡nos vemos en la próxima interfaz!</p>
+</article>
+
+</div>

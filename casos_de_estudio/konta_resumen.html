@@ -1,0 +1,67 @@
+<style>
+  .konta-resumen-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .konta-thanks-box {
+    border: 2px solid var(--Blanco);
+    padding: 48px;
+    border-radius: 32px 0 32px 0;
+    background: transparent;
+  }
+
+  .konta-links-container a {
+    color: var(--Amarillo);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .konta-links-container a:hover {
+    color: var(--Amarillo_Hover);
+  }
+
+  @media (max-width: 768px) {
+    .konta-resumen-container {
+      padding: 64px 24px;
+    }
+    .konta-thanks-box {
+      padding: 32px 24px;
+      border-radius: 24px 0 24px 0;
+    }
+  }
+</style>
+
+<div class="konta-resumen-container">
+  
+  <div class="text-p-large text-blanco konta-links-container" style="margin-bottom: 64px; opacity: 0.9; font-size: 1.25rem;">
+    <p>Konta es una aplicación web que permite gestionar los gastos semanales de un grupo de personas fácilmente, y que fue hecha principalmente para mis padres. Ya es la tercera versión de la app, y seguramente la final porque nadie las usa... En cualquier caso, vamos a resumir un poco el proyecto, diseño y código:</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 64px;">
+    
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">¿Qué es Konta?</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Como dije, Konta es una PWA (aplicación web instalable) para gestionar los gastos semanales de un grupo cerrado, como una familia. En ella varias personas pueden añadir gastos y controlar el presupuesto semanal restante, llevar el control de los gastos de semanas anteriores, y evitar peleas porque han desaparecido 5 euros del mueble del salón (guiño guiño).</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Diseño</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para el diseño necesitaba algo agradable de ver, pero muy sencillo de usar, dado que mis padres (de +50 años) no son precisamente expertos, por no decir que les cuesta usar facebook. Por ello opté en el neo-brutalismo, que es básicamente el brutalisto agradable a la vista, y el minimalismo para que no se pierdan, combinado con una UX aprueba de errores. Podéis leer más en el caso de estudio jeje.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Código</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Aunque tampoco quiero decir demasiado, es una app hecha con JS Vanilla y edge computing para que sea lo más rápida y segura posible, aunque todo esto lo explico más en profundidad en el caso de estudio. Y es que claro, ¿Qué más digo sin hacer spoilers? Es muy difícil, así que simplemente os anime a leer el caso de estudio jeje.</p>
+    </article>
+
+    <article class="konta-thanks-box">
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Agradecimientos</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Y para terminar, me gustaría agradecer a cloudflare por ser una empresa tan fácil de querer, mis padres por ser los principales culpables de la app, y lo más importante, a vosotros por estar leyendo esto. Gracias y un saludo &lt;3</p>
+    </article>
+
+  </div>
+</div>

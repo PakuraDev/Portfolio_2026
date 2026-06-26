@@ -1,0 +1,125 @@
+<style>
+  .openflow-diseno-container {
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .openflow-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .openflow-diseno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .openflow-diseno-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .openflow-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .openflow-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .openflow-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .openflow-diseno-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+    
+    .openflow-diseno-section:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .openflow-diseno-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="openflow-diseno-container">
+  
+  <div class="openflow-intro-box">
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Hablar del diseño de OpenFlow_V3 me entusiasma tanto como quejarme de los frameworks modernos (y ya sabéis cuánto me gusta eso). Para este proyecto la meta era clarísima: no quería otra interfaz blandita y super redondeada de color pastel al estilo Notion, Asana o Monday. Para mí, organizar el trabajo de ingeniería o diseño no tiene que sentirse como jugar a un videojuego en el que los botones amables te sonríen. Cuando entro a trabajar, quiero un martillo que hunda el clavo de un solo golpe. 
+    </p>
+    <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">
+      Por eso OpenFlow nace y muere siendo puro Brutalismo Industrial. Y por eso mismo, he decidido dividir este diseño en tres partes:
+    </p>
+    
+    <ul class="openflow-list text-p-large text-blanco">
+      <li><span class="openflow-list-num">1</span> El concepto: Brutalismo Industrial y Tipografía Cruda</li>
+      <li><span class="openflow-list-num">2</span> UI Kit, CSS Puro, y el Miedo a Tailwind</li>
+      <li><span class="openflow-list-num">3</span> UX Frontal: Cero clics escondidos (No me hagas pensar)</li>
+    </ul>
+
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Si os gustan los bordecitos redondeados, lo siento, hoy toca rasparse los codos.
+    </p>
+  </div>
+
+  <div class="openflow-diseno-grid">
+    
+    <article class="openflow-diseno-section">
+      <h2 class="text-h2 text-blanco">1. El concepto: Brutalismo Industrial y Tipografía Cruda</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para la dirección de arte, busqué algo utilitario, ruidoso y técnico. Imagina el panel de control de una central nuclear hipermoderna, pero empaquetada en la web. Todo es rígido. No hay <code>border-radius</code>. Todo es cuadrado o directamente borde duro con sombras negras gruesas en caja (<code>box-shadow: 4px 4px 0 var(--ink)</code>).</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">La verdadera magia está en la paleta de colores. Me alejé de la basura genérica. Empezamos con una base fuerte casi opresiva de tinta negra (<code>--ink: #050505</code>) y gris hormigón (<code>--concrete: #e0e0e0</code>). Sobre ese lienzo sepulcral, suelto los perros de presa: colores de construcción y de obra, como un amarillo/verde ácido vibrante y asfixiante (<code>--acid: #ccff00</code>) acompañado de un rojo alerta de pura emergencia (<code>--alert: #ff4d00</code>). Estos colores no están de decoración, tienen una obligación visual. Si ves el color ácido, sabes exactamente hacia dónde llevar el ratón. En resumen: puro pragmatismo en vena y Cero tonterías.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Y respecto a la tipografía, me he olvidado de cualquier Sans-serif estándar corporativa. Todo, absolutamente todo el texto, corre sobre <code>JetBrains Mono</code>. Da igual que sea un título, un campo o una minúscula tarjeta, la sensación de estar picando código siempre tiene que acompañar al usuario. Si la app no parece una terminal de desarrollador sobre esteroides, he fracasado en la vida.</p>
+    </article>
+
+    <article class="openflow-diseno-section">
+      <h2 class="text-h2 text-blanco">2. UI Kit, CSS Puro y el Miedo a Tailwind</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">La estructura del diseño atómico se rige enteramente por CSS puro dividido en archivos modulares (¿Habéis visto los archivos <code>components.css</code> y <code>layout.css</code>? Pues ahí están todos los átomos y moléculas sin necesidad de depender de librerías). Agencias de desarrollo que me leéis, ¡atended!, no hace falta descargarse una librería mastodóntica como Tailwind llena de clases utilitarias vomitadas en el HTML para tener una app consistente y escalable.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">En vez de reinventar la rueda por cada maldito botón, el sistema se agarra a tres botones sagrados: <code>btn-acid</code> (para el CTA arrollador y dominante), <code>btn-solid</code> (para acciones secundarias rotundas), y <code>btn-outline</code> (para lo que simplemente tiene que estar ahí sin hacer bulto ni robar atención).</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">A las tarjetas del tablero Kanban (<code>task-card</code>) también les he dotado de agresividad y pura física. Son blancas, rudimentarias y al hacerles hover, pegan un salto amenazante (<code>transform: translate(-2px, -2px)</code>) enseñando esa maldita sombra brutalista que tanto amo, avisándote de que están listas para que las arrastres. Y si traen etiquetas de la Fase/Épica de proyecto, les pego una etiqueta "pill" (<code>epic-pill</code>) hiperpequeña porque no hace falta robar protagonismo al texto.</p>
+    </article>
+
+    <article class="openflow-diseno-section">
+      <h2 class="text-h2 text-blanco">3. UX Frontal: Cero clics escondidos y el Miedo al Desplegable</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">En el UX me impuse una regla vital y casi religiosa: "No me escondas cosas en un cajón que el propio usuario tiene que buscar". Odio enormemente tener que abrir 3 desplegables para encontrar mi maldito botón de exportar datos en una app comercial de productividad.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Como el header o <code>cmd-bar</code> superior aglutina toda la orquestación, todos los comandos globales están ahí plantados de frente. No se cierran, no se colapsan sin tu permiso. Los modos de visión <code>[ TABLERO ]</code> y <code>[ CRONOGRAMA ]</code> son interruptores crudos. ¿Que te quieres importar un .json con todos tus progresos exportados? Pues no está metido en Configuración > Avanzado > Base de Datos. No señores, ¡el botón de IMPORTAR está arriba brillante en toda tu cara para mayor lujo del "Local-First"!</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Por último, cuando necesitas actuar y crear algo (ya sea una tarea o una fase), se invoca un modal imponente que impone su propia pantalla oscura (<code>modal-overlay</code>) con un gran título técnico: <code>INPUT_REQUIRED</code>. Detiene todo lo que estés haciendo, difumina el fondo y el centro de tu propia alma se reduce a esa ventana emergente con inputs descarados. Y por si te equivocas de tecla en el móvil o después de un duro press de banca... nada de calendarios super customizados que nadie entiende: <code>input[type="date"]</code> nativos del navegador, que saben funcionar mucho mejor que cualquier date-picker gigante en React.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Y hasta aquí mi carta de amor al diseño de este engendro oscuro y brutal del rendimiento. ¿Qué más se puede pedir? Ruidoso, crudo, veloz a la vista, y lo más importante: que te deja currar en paz sin animaciones de confeti de por medio.</p>
+    </article>
+
+  </div>
+</div>

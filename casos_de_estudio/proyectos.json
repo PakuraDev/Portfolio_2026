@@ -30,5 +30,49 @@
       { "id": "diseno", "numero": "02", "titulo": "Diseño UX/UI", "archivo": "sorolla_diseno.html" },
       { "id": "codigo", "numero": "03", "titulo": "Código", "archivo": "sorolla_codigo.html" }
     ]
+  },
+  "konta": {
+    "titulo": "Konta",
+    "descripcion": "Konta es una PWA para gestionar los gastos semanales de un grupo cerrado, como una familia, con un diseño neo-brutalista amigable.",
+    "etiquetas": ["Diseño", "Código", "Open source"],
+    "enlaces": [
+      { "tipo": "web", "texto": "Página", "url": "https://personal-konta.pages.dev/", "icon": "web" },
+      { "tipo": "github", "texto": "GitHub", "url": "https://github.com/PakuraDev/Personal_Konta", "icon": "github" },
+      { "tipo": "figma", "texto": "Figma", "url": "https://www.figma.com/design/whzvUpnmXPRucAcqazPn2m/Konta-V2?node-id=0-1&t=PSkuYnStfNZ6JBZq-1", "icon": "figma" }
+    ],
+    "tabs": [
+      { "id": "resumen", "numero": "01", "titulo": "Resumen", "archivo": "konta_resumen.html" },
+      { "id": "diseno", "numero": "02", "titulo": "Diseño UX/UI", "archivo": "konta_diseno.html" },
+      { "id": "codigo", "numero": "03", "titulo": "Código", "archivo": "konta_codigo.html" }
+    ]
+  },
+  "kroma": {
+    "titulo": "Kroma",
+    "descripcion": "Kroma es la página de inicio que tiene el honor de ser la primera página de firefox que veo cada día.",
+    "etiquetas": ["Diseño", "Código", "Personal"],
+    "enlaces": [
+      { "tipo": "web", "texto": "Página", "url": "https://personal-kroma.pages.dev/", "icon": "web" },
+      { "tipo": "github", "texto": "GitHub", "url": "https://github.com/PakuraDev/Personal_Kroma", "icon": "github" },
+      { "tipo": "figma", "texto": "Figma", "url": "https://www.figma.com/design/HG9aubqUE12WJqi82wSSol/Nueva_pesta%C3%B1a?node-id=28-2&t=jgtf4yJgteRg4Rcb-1", "icon": "figma" }
+    ],
+    "tabs": [
+      { "id": "resumen", "numero": "01", "titulo": "Resumen", "archivo": "kroma_resumen.html" },
+      { "id": "diseno", "numero": "02", "titulo": "Diseño UX/UI", "archivo": "kroma_diseno.html" },
+      { "id": "codigo", "numero": "03", "titulo": "Código", "archivo": "kroma_codigo.html" }
+    ]
+  },
+  "openflow": {
+    "titulo": "OpenFlow_",
+    "descripcion": "OpenFlow_V3 es mi respuesta a todos esos softwares corporativos lentos, pesados y aburridos que te prometen organizar la vida.",
+    "etiquetas": ["Diseño", "Código", "Personal"],
+    "enlaces": [
+      { "tipo": "web", "texto": "Página", "url": "https://openflow-73n.pages.dev/", "icon": "web" },
+      { "tipo": "github", "texto": "GitHub", "url": "https://github.com/PakuraDev/Work_OpenFlow", "icon": "github" }
+    ],
+    "tabs": [
+      { "id": "resumen", "numero": "01", "titulo": "Resumen", "archivo": "openflow_resumen.html" },
+      { "id": "diseno", "numero": "02", "titulo": "Diseño UX/UI", "archivo": "openflow_diseno.html" },
+      { "id": "codigo", "numero": "03", "titulo": "Código", "archivo": "openflow_codigo.html" }
+    ]
   }
 }

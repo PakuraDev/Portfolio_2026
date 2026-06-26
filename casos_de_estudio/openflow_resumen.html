@@ -1,0 +1,58 @@
+<style>
+  .openflow-resumen-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .openflow-thanks-box {
+    border: 2px solid var(--Blanco);
+    padding: 48px;
+    border-radius: 32px 0 32px 0;
+    background: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .openflow-resumen-container {
+      padding: 64px 24px;
+    }
+    .openflow-thanks-box {
+      padding: 32px 24px;
+      border-radius: 24px 0 24px 0;
+    }
+  }
+</style>
+
+<div class="openflow-resumen-container">
+  
+  <div class="text-p-large text-blanco" style="margin-bottom: 64px; opacity: 0.9; font-size: 1.25rem;">
+    <p style="margin-bottom: 16px;">OpenFlow_V3 es mi respuesta a todos esos softwares corporativos lentos, pesados y aburridos que te prometen organizar la vida pero te terminan ahogando en pantallas de carga, submenús y latencia infinita. Esta tercera versión (Portfolio Edition) es la definitiva, y sinceramente, mi golpe en la mesa para demostrar que el rendimiento extremo no necesita depender de servidores pesados.</p>
+    <p>Ahora sí que sí, vamos a resumir un poco de qué va esta bestia cruda, su diseño y su código:</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 64px;">
+    
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">¿Qué es OpenFlow_V3?</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">OpenFlow es un sistema de gestión de proyectos (Single Page Application) concebido 100% bajo la filosofía "Local-First". Es un entorno que integra un tablero Kanban interactivo para arrastrar tareas y un diagrama de Gantt (cronograma) reactivo. Todo opera instantáneamente sin necesidad de conexión externa o bases de datos alojadas en la nube. Cero latencia real, tus datos son tuyos y viven en tu máquina.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Diseño</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Si tuviera que definir el diseño en dos palabras, sería: Brutalismo Industrial. Está planteado visualmente como un viejo panel de control de una central nuclear o la terminal de línea de comandos. He suprimido cualquier borde redondeado, los colores pasteles simpáticos estilo Notion y las animaciones amables, para abrazar una paleta cruda y ruidosa: negro tinta, gris hormigón, y colores de construcción como el verde ácido y naranja alerta. Todo comandado por <code>JetBrains Mono</code>. Esto no es amable, esto impone porque es una herramienta para picar código y organizarse en serio.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Código</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">A nivel técnico, el proyecto esconde magia muy interesante. Está hecho en Vanilla JS y no utiliza un solo framework moderno de moda. Para guardar, usa un wrapper optimizado en <code>IndexedDB</code>, lo que significa que el navegador hace de base de datos offline. Para la pantalla, usa "Renderizado Optimista" con un motor matemático propio para calcular colisiones de arrastre y soltado a 60fps sin pestañear. Y todo asegurado por una Delegación Global de Eventos para que el consumo de RAM sea ridículamente estable y nulo comparado con monstruos corporativos como Jira.</p>
+    </article>
+
+    <article class="openflow-thanks-box">
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">El porqué de este proyecto</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">La verdad es que podría usar herramientas normales, pero siempre me frustra esa sensación de lentitud que tiene hoy día la web. OpenFlow existe para recordarme a mí mismo (y a quien abra mi código) cómo era el software y la web en su forma primaria: artesanal, instantánea e híper eficiente.</p>
+      <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">Gracias por soportar mis quejas hacia los frameworks mastodónticos, mi paranoia y fijación con el lag en la red local y mi lado más bruto. Si mi radicalismo informático no os asusta, os dejo leer en profundidad los casos de código y diseño. Un saludo &lt;3</p>
+    </article>
+
+  </div>
+</div>

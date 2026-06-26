@@ -1,0 +1,139 @@
+<style>
+  .kroma-diseno-container {
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+  
+  .kroma-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .kroma-diseno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .kroma-diseno-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .kroma-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .kroma-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .kroma-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .kroma-bullet-list {
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: disc;
+  }
+
+  @media (min-width: 1024px) {
+    .kroma-diseno-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+    
+    .kroma-diseno-section:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .kroma-diseno-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="kroma-diseno-container">
+  
+  <div class="kroma-intro-box">
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      El diseño es... sencillo, y poco más. Gracias por leer. Bromas aparte, básicamente es una página de inicia minimalista, brutalista, y personalizable, poco más. Pero bueno, no hemos venido a hablar de la UI, sino del UX, donde el proyecto destaca, aunque todo es cierto, para el único usuario (yo), y puede que algún loco que le guste mi estilo o que quiera personalizarlo un poco. En cualquier caso, vamos a dividir está baina en 3 partes:
+    </p>
+    
+    <ul class="kroma-list text-p-large text-blanco">
+      <li><span class="kroma-list-num">1</span> El concepto: Linux + Terminal + Brutalismo minimalista</li>
+      <li><span class="kroma-list-num">2</span> Temas y Ricing</li>
+      <li><span class="kroma-list-num">3</span> UX y otros detalles</li>
+    </ul>
+
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Vamos a explicarlo todo, aunque eso si, no esperéis demasiada calidad porque mi cabeza va a explotar de escribir tanto en tan poco tiempo. Gracias por la comprensión.
+    </p>
+  </div>
+
+  <div class="kroma-diseno-grid">
+    
+    <!-- Concepto -->
+    <article class="kroma-diseno-section">
+      <h2 class="text-h2 text-blanco">El concepto: Linux + Terminal + Brutalismo minimalista (y un poco de ux)</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Como ya sabréis, soy un orgulloso usuario de linux (fuck windows), por lo que no debería ser un reto adivinar que uso la terminal, y que si me das a elegir entre un UI bonita y una TUI (una interfaz basada puramente en texto), me tiro de cabeza a la TUI como si fuera el betis, pero claro, recordemos que esto es una página de inicio gráfica, necesitamos una UI. Por lo que me decanté directamente por el brutalismo minimalista, pero combinado con una estética y UX de terminal.</p>
+      
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Pero ahora pensemos, ¿Qué tiene (o debería tener) una página de inicio? Pues un organizador de enlaces, un buscador, la hora y la fecha (dato curioso, la de firefox no tiene ni fecha ni hora), y poco más. ¿Y qué debería tener para recordar a una terminal? Pues claramente datos frikis y un lugar donde escribir comandos. Y ya por último, ¿Qué tiene que tener para que me resulte útil y así pueda escribir un post de linkdin explicando como hacer este proyecto aumentó mi productividad en un 777% (ironia)? Pues un bloc de notas, y un sistema de personalización para que no me aburra de ver lo mismo.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Ya sabemos todo lo que tiene, ¿Pero cómo juntamos las piezas para que encajen? Pues mi idea fue ordenar según la ley de fitts (es decir, que lo más importante esté más cerca y lo menos importante esté más lejos), asó que puse el buscador y organizador de enlaces en el centro, arriba de ello la hora y la fecha. Como las decoraciones laterales son lo menos importante, directamente abajo del todo, y el bloc de notas a la derecha (que aunque pueda parecer que no tiene sentido, mi setup me permite mover el ratón con mayor facilidad horizontalmente que verticalmente).</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Sin embargo, donde metemos los comandos y el sistema de personalización? Los comandos en la propia barra de busqueda, que como explicaré en el código sirve tanto para buscar como para ciertas cosas. Y el sistema de personalización se divide en dos partes, en los ajustes, donde podemos elegir entre 5 temas y organizar los grupos de enlaces, y en la propia barra inferior de decoración, donde podemos activar el modo decorar para añadir nuestras propias decoraciones a los lados del buscador. Como podréis ver en la captura de pantalla que dejé, yo tengo una imagen de Taiga Aisaka a la izquierda.</p>
+    </article>
+
+    <!-- Temas y Ricing -->
+    <article class="kroma-diseno-section">
+      <h2 class="text-h2 text-blanco">Temas y Ricing</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Para quien no lo sepa, el ricing es el arte de personalizar la interfaz de usuario principalmente en linux, por lo que si, acabo de usar incorrectamente el término en 3 sentidos diferentes, pero bueno, básicamente el ricing aquí es el poder personalizar los enlaces (strike 1) y las decoraciones laterales (strike 2, me libro del baneo, aunque por poco). Además de la personalización de enlaces o decoraciones laterales, el sistema cuenta con 5 temas, cada uno con un nombre que no tiene mucho sentido, pero quedan profundos:</p>
+      
+      <ul class="kroma-bullet-list text-p-large text-blanco">
+        <li><strong>Minimalista:</strong> Esto es literal, solo se usa blanco, negro, y gris. En un principio creia que iba a usar este tema, pero madre de dios, es imposible usarlo sin acabar con los ojos sangrando.</li>
+        <li><strong>Hongdae:</strong> Este tema se compone de marrón y beige, y es que el uso actualmente. De hecho, me gustaba tanto que el propio estilo base del portfolio usa un inpirado directamente en este tema.</li>
+        <li><strong>Kynesis:</strong> El tema que uso para la captura. Sinceramente, es un tema muy nocturno, pero sobretodo muy brutalisma. A mi por lo menos me dan vibes que es lo que usa un hacker de verdad por la noche, si un hacker tuviera estilo, claro (debido a esta broma, si un hacker de sombrero negro la encontrara, seguramente el portfolio se caiga unos días debido al ataque ddos que me va a meter).</li>
+        <li><strong>Genesis:</strong> El nombre podría haber sido perfectamente cyberpunk, porque está inspirado directamente en los colores de Aerko_, pero Genesis tiene más... Y también... (traducción: Es un nombre aleatorio)</li>
+        <li><strong>Lucy:</strong> Este tema infringe unas cuantas leyes de copyright y accesibilidad, pero va durisimo. Básicamente uso un fondo de pantalla del personaje Lucyna Kushinada (De quien no puedo confirmar la autoria, dado que en alphacoders lo publicó un tal @Patrika, pero en su propia descripción pone que no todo lo que sube es suyo) en blanco y negro, combinado con el color amarillo para el resto de la interfaz. Si bien es un tema bastante friki, lo necesitaba.</li>
+      </ul>
+    </article>
+
+    <!-- UX y otros detalles -->
+    <article class="kroma-diseno-section">
+      <h2 class="text-h2 text-blanco">UX y otros detalles</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Aunque todo esto lo explicaré en mayor profundidad en el código, vamos a hablar un poco de la ux importante. Vamos a explicar las funciones, no sin antes mencionar que como buen flojo el proyecto no es responsive. Pero antes de que me insultéis (cosa que haría yo también), tened en cuenta mi razonamiento. Es una página que solo se puede usar en pc, por lo que hacerla responsive para móviles era una tontería. Y por otro lado, solo yo la uso, por lo que hacerla responsive para otros ordenadores también me parecia una tontería. Ahora si, con todo el asco que me merezca de vosotros, vamos a explicar rápidamente las funciones:</p>
+      
+      <ul class="kroma-bullet-list text-p-large text-blanco">
+        <li><strong>La barra inteligente:</strong> Además de buscar (como cualquier otra barra de busqueda), metí algunos comandos para agilizar cosas de mi dia a dia, como por ejemplo buscar iconos en svgrepo, operaciones matemáticas rápidas, buscar videos en youtube, o tomar un número aleatorio.</li>
+        <li><strong>Notepad lateral:</strong> Esto seguramente es lo mejor que se me haya podido ocurrir, porque yo usaba online notepad para tomar apuntes, pero claro, eso me obligaba a tener una pestaña abierta, así que al meter esto ya la deje de usar. Fun fact: Tengo todos los comandos en un nota para no olvidarme.</li>
+        <li><strong>Barra de decoración:</strong> Si bien hay algunas cosas que no funcionan porque las tendría que correr en un servidor local, el tener mi sistema operativo o especificaciones de mi pc abajo del todo es un flex bastante grande. Aunque eso si, no sirve para nada, por eso se llama "de decoración" y no "inferior".</li>
+      </ul>
+    </article>
+
+  </div>
+</div>

@@ -64,7 +64,7 @@
   "openflow": {
     "titulo": "OpenFlow_",
     "descripcion": "OpenFlow_V3 es mi respuesta a todos esos softwares corporativos lentos, pesados y aburridos que te prometen organizar la vida.",
-    "etiquetas": ["Diseño", "Código", "Personal"],
+    "etiquetas": ["Diseño", "Código", "Open source"],
     "enlaces": [
       { "tipo": "web", "texto": "Página", "url": "https://openflow-73n.pages.dev/", "icon": "web" },
       { "tipo": "github", "texto": "GitHub", "url": "https://github.com/PakuraDev/Work_OpenFlow", "icon": "github" }

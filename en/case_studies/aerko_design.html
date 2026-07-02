@@ -1,0 +1,141 @@
+<style>
+  .aerko-diseno-container {
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .aerko-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .aerko-diseno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .aerko-diseno-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .aerko-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .aerko-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .aerko-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .aerko-diseno-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+
+    .aerko-diseno-section:nth-child(3),
+    .aerko-diseno-section:nth-child(4) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .aerko-diseno-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="aerko-diseno-container">
+
+  <div class="aerko-intro-box">
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Talking about the UI design is going to be very hard because brutalism doesn't leave much room for discussion. However, at least I'm going to enjoy writing about the foundations and UX. During this section of the app we'll talk about:
+    </p>
+
+    <ul class="aerko-list text-p-large text-blanco">
+      <li><span class="aerko-list-num">1</span> Design Thinking: App design, features, etc...</li>
+      <li><span class="aerko-list-num">2</span> Art direction</li>
+      <li><span class="aerko-list-num">3</span> UI KIT and atomic system</li>
+      <li><span class="aerko-list-num">4</span> UX and UI</li>
+    </ul>
+
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      With that said, let's get started. I hope you enjoy reading it because, although it might be boring for anyone else, I write it with a lot of love.
+    </p>
+  </div>
+
+  <div class="aerko-diseno-grid">
+
+    <!-- Design Thinking -->
+    <article class="aerko-diseno-section">
+      <h2 class="text-h2 text-blanco">Design Thinking</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">For those who don't know, Design Thinking (in Spanish/human terms) is a user-centered methodology for solving problems. Basically, its goal is to understand the user (needs, desires, frustrations) and based on that, create a solution that brings value to the user. Now, I should clarify that I didn't do a "base" or "normal" design thinking, but rather focused on the double diamond methodology. To be clear, design thinking isn't a single base thing — there are "variations" like the IDEO model, Google Design Sprints, the Luna system, and several others we don't need to name.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">The double diamond methodology varies in how it structures the process, which greatly helps to "understand the mental breathing of the project," or in other words for anyone who doesn't have design-induced schizophrenia, knowing how to distinguish between the more creative phases where you should explore, and the more analytical phases where you should make decisions. This methodology is divided into 2 "diamonds" and each diamond into two phases.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Although I'd like to explain it all here, it would take about 1000 words or more, so I'll leave the link to the <a href="https://drive.google.com/file/d/1vXtmRb_XLLb_CMrOAXYJig7gJ8mh4mHJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-blanco" style="text-decoration: underline; font-weight: bold;">TMF PDF on Drive</a> (it's 80 pages, but they're visual and only 40 are about design thinking) and here I'll only talk about the part I like the most: netnography.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">To start, netnography in human terms means studying human behavior in online environments. It's usually done based on what you can find on the internet, but I didn't stop there — I went straight into the depths of Reddit, where I disguised myself among users to ask questions and get answers to all my queries. As a result, it was a complete success, garnering over 600,000 visits, 1400 upvotes, and 900 comments. The only bad part was that I then had to analyze all of them...</p>
+    </article>
+
+    <!-- Dirección de arte -->
+    <article class="aerko-diseno-section">
+      <h2 class="text-h2 text-blanco">Art Direction</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">The art direction was the fusion of 3 styles, combined with a UX decision I'll explain in detail later. On one hand, we have brutalism for organization and content division, accompanied by utilitarianism to prioritize effectiveness over ornaments. While it's true that this leaves us with an intimidating UI, it's actually very simple to use. On the other hand, the IDE/Cyberpunk aesthetic was used, starring an acid green color, and a style oriented toward code terminals. All of this has an explanation from the perspective of user experience, speed, aura, and flexibility.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">At least for me, as a (lazy) former powerlifter, I don't like wasting time — I want to do the minimum in the shortest time possible, and that's where the emphasis on reducing steps and friction for most actions comes from. The raw, intimidating feeling is nothing more than a way to convey that you're not using an app, but a tool. And finally, largely influenced by my existentialism and love for individual freedom, we find, in addition to features to customize everything down to the last millimeter, the color palette. Anyone might say that green, black, and white are just there to accompany the aesthetic, but the reality is they're used for specific reasons. Green stands out, allowing it to guide the user experience against the white background, and most importantly, the 3 colors have such strong contrast that the interface is visible in any lighting condition.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">For typography, Clash Display/Space Grotesk was used for its strong visual presence, while on the other hand, both to accompany the aesthetic and to facilitate reading, JetBrains Mono was used — one of the best typefaces ever created, and I will not accept debate on this.</p>
+    </article>
+
+    <!-- UI KIT y Atomic Design -->
+    <article class="aerko-diseno-section">
+      <h2 class="text-h2 text-blanco">UI KIT and Atomic Design</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">For the interface development in Figma, atomic design was used, which basically consists of dividing the design into parts, from the smallest to the largest. To help you understand better, let me give you an example with a button: The button is composed of text, icons, and fill, so to speak. Both the text and the icon separately are atoms, which once combined become a molecule. When you add padding, fill, and transform that molecule into a button, it becomes an organism.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">For the app, atomic design was used comprehensively, achieving over 140 elements categorized into 17 semantic groups. Within each group, there are even more subgroups. For example, within iconography, we can find navigation icons, action icons, feedback icons, status icons, among others. This is what's known as a design system, which allows a project to be scalable, maintainable, and consistent.</p>
+    </article>
+
+    <!-- UI y UX -->
+    <article class="aerko-diseno-section">
+      <h2 class="text-h2 text-blanco">UI and UX</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">As I said before, brutalism doesn't leave much room for discussion. However, UX has a speech prepared for us: the entire design, app, and features are centered on the user under the philosophy of individual freedom and an initial effort so that everything else is easy.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">I already talked about colors and typography, but to start, there's something more important. Since it's an app designed for mobile, thumb reach was taken into account. Being someone with small hands, I know that if I can make thumb navigation comfortable for me, it would be comfortable for anyone. So said and done, I measured my effective thumb reach and used it as an invisible guide for the distribution of interface elements.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Once the guides were defined (4 columns, safe thumb reach, and the top notch restriction), wireframes were started. To be honest, I don't have much affection for them. In my opinion, in most projects they're a waste of time, since during development or design itself they constantly change and different decisions are made, so I'm going to skip them.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Since talking about every screen would be impossible, let's talk about the most important design decisions. For example, the custom keypad. Using a native keyboard wasn't even an option, both for UX reasons — the buttons are small enough that, between sweat and dizziness after leg day, hitting the right key on the first try is impossible — and for technical reasons, like the need to include unit changes at a glance without making the user navigate through settings to change it. Besides enabling these features, it allowed us to maintain visual consistency and add the anti-anxiety logic, which is basically a restriction that prevents the user from pressing a key in less than 120ms. This might seem like a flaw in a messaging app where the user types as fast as possible, but in this case it's a guarantee that the "shakiness" after a heavy set doesn't cause accidental clicks.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">I'd like to continue by demonstrating the philosophy of individual freedom and initial effort that the app offers, and for that, let's talk about the entire nutrition section. This section is divided into smart checks and diet. The initial effort is found in the diet, where we have to create a base diet. While it's true that it includes over 300 foods, the ability to create your own, groups, and even add by scanning barcodes, at least for me, logging my diet is a 10-minute effort that I struggle to start. Once the diet is configured, we find the smart checks, where we just need to add the foods from the meal we've consumed, and specify the grams in case we haven't set a fixed amount. Almost twice as fast as other nutrition apps (tested with my 56-year-old mother), and much more comfortable in the long run. The app also doesn't tell us how much to eat — it just tracks calories so the user decides the quantity and what to eat.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">To finish, I'd like to talk about form analysis. While it's primarily a feature for advanced users (although the app is supposed to be for advanced users, it's so simple that anyone with basic fitness knowledge can use it), it's visible to everyone. Here there were two paths: analyze in real time (that's how MediaPipe, the engine used for form analysis, works) or analyze a video. Under the logic of performance, analyzing an already recorded video is much better because it can be taken calmly, resolution and/or frames can be reduced, and most importantly, it doesn't drain the user's battery. Therefore, analyzing already recorded videos was chosen to protect battery life, performance, and user freedom.</p>
+    </article>
+
+  </div>
+</div>

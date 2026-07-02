@@ -1,0 +1,93 @@
+<style>
+  .sorolla-resumen-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .sorolla-links-container {
+    display: flex;
+    gap: 24px;
+    margin: 32px 0 48px 0;
+    flex-wrap: wrap;
+  }
+
+  .sorolla-link-badge {
+    padding: 12px 24px;
+    border: 1px solid var(--Blanco);
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sorolla-link-badge:hover {
+    background: var(--Blanco);
+    color: var(--Negro) !important;
+  }
+
+  .sorolla-link-badge:hover * {
+    color: var(--Negro) !important;
+  }
+
+  .sorolla-agradecimientos-box {
+    border: 2px solid var(--Blanco);
+    padding: 48px;
+    border-radius: 32px 0 32px 0;
+    background: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .sorolla-resumen-container {
+      padding: 64px 24px;
+    }
+    .sorolla-agradecimientos-box {
+      padding: 32px 24px;
+      border-radius: 24px 0 24px 0;
+    }
+  }
+</style>
+
+<div class="sorolla-resumen-container">
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9; font-size: 1.25rem; margin-bottom: 24px;">
+    The Sorolla Museum redesign is a project that was born from a heuristic analysis assignment, but I ended up rebuilding it a few months ago purely for the love of art. It's the project where I've invested the most art direction, and where I've experimented with techniques I wouldn't have thought of using before.
+  </p>
+
+  <p class="text-p-large text-blanco" style="margin-bottom: 64px; opacity: 0.9; font-size: 1.25rem;">
+    Now, let's summarize the project, its design and its code. I'll try not to go on too long because I might give away spoilers:
+  </p>
+
+  <div style="display: flex; flex-direction: column; gap: 64px;">
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">How was my Sorolla Museum redesign born and what is it?</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9; margin-bottom: 24px;">As I said, the project was born from an assignment for my TFM (shoutout to Carla, hi if you're reading this &lt;3), which consisted of doing a heuristic analysis of a website. We were given several options, but I clearly went for the Sorolla Museum. I mean, whichever city I go to, I visit the museum — so I couldn't pass up the chance to analyze a museum's website.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9; margin-bottom: 24px;">Now, for the average person: what is a heuristic analysis? The definition doesn't help much, but basically it's a usability inspection method where a UXer (or several) reviews an interface and evaluates it against a list of recognized principles (the 10 heuristics of Jakob Nielsen, which I'll let you look up on your own).</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.7; font-style: italic; margin-bottom: 24px;">Fun fact, even though it's unrelated, Don Norman looks like Mariano Rajoy, in case you want a laugh.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Anyway, moving on. My redesign is a way to "solve" the UX problems I found on the real website, but also to pay tribute and do justice to the work of Joaquín Sorolla. I know it sounds very cliché — I mean, all I'd need now is to claim I'm Sorolla's grandson's relative, but no, I just like his work.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Design</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">For the design I ran into a naming issue, whether cultural or just in name — when combining the classic with the modern, what style do you have? On one hand it's editorial design, but on the other it's modern and minimalist. So I did what I do best: I made up a name: "Translucent Neoclassical." I explain this name in the design section, so now you have an incentive to read it hehe.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Code</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">I don't want to spoil too much because the code here is the least I can talk about, but let's just say it has brutal performance (well, of course I'd say that, right? hahaha), and it's built modularly with an architecture chosen more for simplifying DX and maintenance than anything else. It's not that it's "bad," it's just an architecture that's viable for this project, but for a commercial website or one that needs SEO, it's better not to use. Anyway, I don't have much more to say — here's the link to the <a href="https://pagespeed.web.dev/analysis/https-portfolio-museo-soralla-pages-dev/mx4dzalu9u?form_factor=desktop" target="_blank" style="color: var(--Blanco); text-decoration: underline;">Lighthouse stats</a> so you can see I'm not lying about performance. Just don't say anything about mobile performance because the website isn't responsive — it's only designed for desktops (there, another spoiler).</p>
+    </article>
+
+    <article class="sorolla-agradecimientos-box">
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Acknowledgments</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Finally, I'd like to thank my father for "lending" me his paint (inside joke from the design section), Carla for putting up with me during the process, myself for not deciding to make an interactive fish simulator (because yes, that was the other project I had in mind), and obviously all of you for reading this. Thank you and best regards &lt;3</p>
+    </article>
+
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<style>
+  .sorolla-diseno-container {
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .sorolla-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .sorolla-diseno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .sorolla-diseno-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sorolla-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sorolla-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .sorolla-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .sorolla-diseno-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+
+    .sorolla-diseno-section:nth-child(4),
+    .sorolla-diseno-section:nth-child(5) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sorolla-diseno-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="sorolla-diseno-container">
+<div class="sorolla-intro-box">
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">The design of this website is what really gives the project its soul, because here I'm not focused on making a functional, pretty, fast, or easy-to-use website, but rather on personifying the figure and work of Joaquín Sorolla. While I wouldn't know exactly how to categorize it stylistically, since I try to combine the editorial and classic (because after all, it is a museum) with the modern and luminous (to represent the more experimental, avant-garde Sorolla), I've baptized it as "Neoclassical Diaphanous" (and I'm quite pleased with that. By the way, "Diaphanous" means allowing light to pass through, because let's be honest, I didn't know the word, you didn't either, and even a dictionary has trouble finding it).</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 24px;">Anyway, I'll try to divide the section into 4 parts:</p>
+  <ul class="sorolla-list text-p-large text-blanco">
+    <li><span class="sorolla-list-num">1</span> The concept: Personifying the painter of light</li>
+    <li><span class="sorolla-list-num">2</span> Color palette and typography: The system of sands</li>
+    <li><span class="sorolla-list-num">3</span> Organic shapes: My camera, a drop of oil paint, and Inkscape</li>
+    <li><span class="sorolla-list-num">4</span> UX, UI, and details</li>
+    <li><span class="sorolla-list-num">5</span> A little scolding (WCAG 2.1)</li>
+  </ul>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">I hope you enjoy reading this, because as always, I enjoy writing about design.</p>
+</div>
+
+<div class="sorolla-diseno-grid">
+<article class="sorolla-diseno-section">
+  <h2 class="text-h2 text-blanco">The concept: Personifying the painter of light</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">First of all, if you don't know who Sorolla is, I personally recommend visiting his profile on <a href="https://historia-arte.com/artistas/joaquin-sorolla" target="_blank" rel="noopener noreferrer" class="text-blanco" style="text-decoration: underline; font-weight: bold;">Historia del Arte</a> to better understand his context. But basically, he was a Valencian painter born in the 19th century (though he lived until 1923) famous for capturing the Mediterranean sun, the beaches, and the movement of the breeze like no one else. But more than that, it's his ability to paint movement, life itself. Let me explain: if we look at one of his works, for example, "Running along the beach" (1908), even though the name helps, it's impossible to see just a static image. You can imagine the scene, the sound of the children, the waves, the sun on your face... If you want to know more, Miguel Calvo Santos wrote a small article on the <a href="https://historia-arte.com/obras/corriendo-por-la-playa" target="_blank" rel="noopener noreferrer" class="text-blanco" style="text-decoration: underline; font-weight: bold;">Work's page</a>.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">I just realized that in the first paragraph talking about him, I didn't mention that his style was based on quick, life-filled brushstrokes, so I'll throw that in here hehe. Anyway, before I continue rambling, I couldn't afford to make a corporate, simple, generic, or boring website (like, with all due respect, the current one is). It had to be a living redesign that breathed the same air as the artworks and produced the same feeling of dynamism when viewing it.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">That's why everything from the fonts to the border shapes are designed to represent that light and movement. For the fonts I used Cormorant Garamond, which is a very elegant and classic font, and for the body text I used Alegreya Sans, which is a very modern and readable font, but equally elegant. The shapes, generated thanks to "Get Waves" (a Figma extension), make the borders look like beach waves. Fun fact: the borders of the first two separators I made myself based on an aerial photo of a beach.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">But well, I'll get into these details later because otherwise this section is going to be too long.</p>
+</article>
+
+<article class="sorolla-diseno-section">
+  <h2 class="text-h2 text-blanco">Color palette and Typography.</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">The color palette wasn't chosen at random, and it's divided into two categories (which could be a poetic metaphor for the living design system itself, but I'm not here to get romantic). On one hand, we have the base and/or institutional colors, like navy blue, gold, and soft black (you could also add arena-1), and the true protagonists present throughout the site, the backgrounds: I used 4 different tones combined in a gradient and organic separations to simulate a beach shore, starting from the whitest sand, to damp, wet, and finally the sea.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">With typography, although I already mentioned it, something similar happened, but I'll go into more detail. As I mentioned before, Sorolla was born in the 19th century (specifically in 1863), so I needed a font that provided elegance and classicism, and (among all the free ones) Cormorant Garamond stood out innately. But since I also wanted the site to be modern (and readable), I had to pair it with a sans-serif that shared that elegance, and that's where Alegreya Sans comes in. I considered using Tenor Sans, but I ended up discarding it because on mobile it was harder to read than Alegreya.</p>
+</article>
+
+<article class="sorolla-diseno-section">
+  <h2 class="text-h2 text-blanco">Organic shapes</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">For a body of work as alive as Sorolla's (because yes, if Don Quixote is more alive than ever according to Jesús G Maestro, the work "Walk on the Beach" is even more so), I couldn't use straight shapes — that would be an insult to his work and the sea waves. That's why all the organic shapes on the site were created consciously. I've already mentioned the separators and borders, so let's talk about the crown jewel.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Have you seen Sorolla's photo in the biography? This is where I went full craftsman. Since my father also uses oil paints, I borrowed (by which I mean I stole a drop and he still doesn't know) a drop of black, spread it on paper, and took a photo with my camera (a Canon Powershot SX70HS, in case anyone's curious). Using Inkscape (and nobody can change my mind, Inkscape is more powerful than Illustrator), I vectorized it through luminosity masking and used it as a clipping mask/frame for his portrait.</p>
+</article>
+
+<article class="sorolla-diseno-section">
+  <h2 class="text-h2 text-blanco">UX, UI and details</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">At the UX (user experience) level, navigation is ridiculously simple. The first thing I did was incorporate flat taxonomy, because the original site was incredibly complex and inconsistent at the link level. I gave it a clear visual hierarchy using color and fonts, prominent buttons, and a small quality-of-life detail. I divided the header into an upper part (logo, search, and CTA) and a lower part (navigation), with the lower part being sticky so it's always within reach without having to scroll up. I know some people prefer putting a sticky button in the bottom corner to go back to the top, but honestly, I think that adds friction — having to click a button in the corner, wait, move the mouse up, find where you want to go, and click. With the header you just move the mouse up, find where you want to go, and click.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Also, the decision to split the header into upper and lower parts isn't random. The lower part is smaller so it doesn't get in the way, and thus doesn't obscure the page or bother the user while they enjoy the site. At the UI level, I enjoyed experimenting a bit, especially with a detail I took reference from the Louvre Museum website, and that's the masonry grid combined with a small gradient at the end to give an infinity effect. Although that's what I like most, I also added a carousel at the start with 92 dvh (92% of the screen height; dvh is a responsive CSS unit. 92 isn't random either — the other 8 came from the header) so the user can see the works I consider most important from Sorolla.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Finally, as a last detail, I'd like to mention the liquid effect on the buttons, although unfortunately they're not visible (I explain why in the code). For that final immersion touch, I wanted the buttons to behave like liquid so the user feels like they're touching something real, not just a simple interface. However, due to technical limitations I didn't account for in the architecture, it's not possible to make it fully work.</p>
+</article>
+
+<article class="sorolla-diseno-section">
+  <h2 class="text-h2 text-blanco">A little scolding (WCAG 2.1)</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Lastly, I'd like to be transparent and admit that I've noticed two contrast issues (based on WCAG 2.1 standards). Specifically in the agenda section, where the upcoming experiences are, I have the times in gold over arena-1. If you don't have any visual impairment, you probably won't notice it, but those two texts don't comply with the standards. It's a visual error I overlooked and fixing it would take me 10 minutes, but with all honesty, I'm too lazy to do it because those are 10 minutes I'd have to take out of my free time. Sorry!</p>
+</article>
+
+</div>
+</div>

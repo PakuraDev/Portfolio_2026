@@ -1,0 +1,58 @@
+<style>
+  .openflow-resumen-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .openflow-thanks-box {
+    border: 2px solid var(--Blanco);
+    padding: 48px;
+    border-radius: 32px 0 32px 0;
+    background: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .openflow-resumen-container {
+      padding: 64px 24px;
+    }
+    .openflow-thanks-box {
+      padding: 32px 24px;
+      border-radius: 24px 0 24px 0;
+    }
+  }
+</style>
+
+<div class="openflow-resumen-container">
+
+  <div class="text-p-large text-blanco" style="margin-bottom: 64px; opacity: 0.9; font-size: 1.25rem;">
+    <p style="margin-bottom: 16px;">OpenFlow_V3 is my answer to all those slow, heavy, boring corporate software that promise to organize your life but end up drowning you in loading screens, submenus and endless latency. This third version (Portfolio Edition) is the definitive one, and honestly, my statement to prove that extreme performance doesn't need to rely on heavy servers.</p>
+    <p>Now let's summarize what this raw beast is about, its design and its code:</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 64px;">
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">What is OpenFlow_V3?</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">OpenFlow is a project management system (Single Page Application) conceived 100% under the "Local-First" philosophy. It's an environment that integrates an interactive Kanban board for dragging tasks and a reactive Gantt chart (timeline). Everything operates instantly without needing an external connection or cloud-hosted databases. Zero real latency, your data is yours and lives on your machine.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Design</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">If I had to define the design in two words, it would be: Industrial Brutalism. It's visually conceived as an old control panel of a nuclear power plant or a command-line terminal. I've suppressed any rounded edges, friendly pastel colors like Notion, and gentle animations, embracing a raw and noisy palette: ink black, concrete gray, and construction colors like acid green and alert orange. All commanded by <code>JetBrains Mono</code>. This is not friendly, it commands respect because it's a tool for coding and getting serious work done.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Code</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">On a technical level, the project hides some very interesting magic. It's built in Vanilla JS and doesn't use a single trendy modern framework. For storage, it uses an optimized <code>IndexedDB</code> wrapper, meaning the browser acts as an offline database. For rendering, it uses "Optimistic Rendering" with its own mathematical engine to calculate drag-and-drop collisions at 60fps without stuttering. And everything is secured by a Global Event Delegation pattern so RAM consumption is ridiculously stable and negligible compared to corporate monsters like Jira.</p>
+    </article>
+
+    <article class="openflow-thanks-box">
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Why this project</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">The truth is, I could use normal tools, but I've always been frustrated by that feeling of slowness the web has today. OpenFlow exists to remind myself (and whoever opens my code) what software and the web used to be like in their primal form: handcrafted, instant, and hyper-efficient.</p>
+      <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">Thanks for putting up with my complaints about mammoth frameworks, my paranoia and fixation with local network lag, and my rawest side. If my tech radicalism doesn't scare you, feel free to read the code and design case studies in depth. Cheers &lt;3</p>
+    </article>
+
+  </div>
+</div>

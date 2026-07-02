@@ -1,0 +1,139 @@
+<style>
+  .kroma-diseno-container {
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .kroma-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .kroma-diseno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .kroma-diseno-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .kroma-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .kroma-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .kroma-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .kroma-bullet-list {
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: disc;
+  }
+
+  @media (min-width: 1024px) {
+    .kroma-diseno-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+
+    .kroma-diseno-section:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .kroma-diseno-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="kroma-diseno-container">
+
+  <div class="kroma-intro-box">
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      The design is... simple, and that's about it. Thanks for reading. Jokes aside, it's basically a minimalist, brutalist, customizable start page, nothing more. But hey, we're not here to talk about the UI, but about UX, where the project stands out, although it's all true — it's for the sole user (me), and maybe some lunatic who likes my style or wants to customize it a bit. Anyway, let's divide this thing into 3 parts:
+    </p>
+
+    <ul class="kroma-list text-p-large text-blanco">
+      <li><span class="kroma-list-num">1</span> The concept: Linux + Terminal + Minimalist Brutalism</li>
+      <li><span class="kroma-list-num">2</span> Themes and Ricing</li>
+      <li><span class="kroma-list-num">3</span> UX and other details</li>
+    </ul>
+
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Let's explain everything, although don't expect too much quality because my head is going to explode from writing so much in such little time. Thanks for understanding.
+    </p>
+  </div>
+
+  <div class="kroma-diseno-grid">
+
+    <!-- Concepto -->
+    <article class="kroma-diseno-section">
+      <h2 class="text-h2 text-blanco">The concept: Linux + Terminal + Minimalist Brutalism (and a bit of UX)</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">As you might know, I'm a proud Linux user (fuck Windows), so it shouldn't be hard to guess that I use the terminal, and if you give me a choice between a pretty UI and a TUI (a text-based interface), I'd dive headfirst into the TUI like Betis goes for a goal. But of course, remember this is a graphical start page — we need a UI. So I went straight for minimalist brutalism, but combined with a terminal aesthetic and UX.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">But let's think: what does (or should) a start page have? A link organizer, a search bar, the time and date (fun fact: Firefox's doesn't have either date or time), and that's about it. And what should it have to resemble a terminal? Clearly, nerdy data and a place to type commands. And finally, what does it need to be useful so I can write a LinkedIn post explaining how building this project improved my productivity by 777% (sarcasm)? A notepad, and a customization system so I don't get bored seeing the same thing.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">We know everything it has, but how do we fit the pieces together? My idea was to organize according to Fitts's law (i.e., the most important stuff is closer, the least important is farther away). So I put the search bar and link organizer in the center, with the time and date above it. Since the side decorations are the least important, they go at the very bottom. The notepad goes on the right (which might not seem to make sense, but my setup lets me move the mouse more easily horizontally than vertically).</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">But where do we put the commands and customization system? The commands go in the search bar itself, which as I'll explain in the code, works both for searching and for certain things. The customization system is split into two parts: in settings, where we can choose from 5 themes and organize link groups, and in the bottom decoration bar itself, where we can activate decorate mode to add our own decorations to the sides of the search bar. As you can see in the screenshot I left, I have an image of Taiga Aisaka on the left.</p>
+    </article>
+
+    <!-- Temas y Ricing -->
+    <article class="kroma-diseno-section">
+      <h2 class="text-h2 text-blanco">Themes and Ricing</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">For those who don't know, ricing is the art of customizing the user interface, mainly on Linux. So yes, I just incorrectly used the term in 3 different ways, but anyway. Basically, ricing here is the ability to customize links (strike 1) and side decorations (strike 2, I barely escaped a ban on that one). In addition to link and decoration customization, the system has 5 themes, each with a name that doesn't make much sense but sounds deep:</p>
+
+      <ul class="kroma-bullet-list text-p-large text-blanco">
+        <li><strong>Minimalist:</strong> This is literal — only white, black, and gray are used. At first I thought I'd use this theme, but oh my god, it's impossible to use without ending up with bleeding eyes.</li>
+        <li><strong>Hongdae:</strong> This theme uses brown and beige, and it's the one I currently use. In fact, I liked it so much that the portfolio's base style itself uses one directly inspired by this theme.</li>
+        <li><strong>Kynesis:</strong> The theme I used for the screenshot. Honestly, it's a very night-time theme, but above all, very brutalist. It at least gives me vibes of what a real hacker would use at night — if a hacker had style, of course (because of this joke, if a black hat hacker finds it, the portfolio will probably be down for a few days due to the DDoS attack they'll throw at me).</li>
+        <li><strong>Genesis:</strong> The name could easily have been cyberpunk, because it's directly inspired by Aerko_'s colors, but Genesis sounds more... And also... (Translation: it's a random name)</li>
+        <li><strong>Lucy:</strong> This theme breaks a few copyright and accessibility laws, but it goes hard. Basically, I use a wallpaper of the character Lucyna Kushinada (whose authorship I can't confirm, since on alphacoders it was posted by someone called @Patrika, but their own description says not everything they upload is theirs) in black and white, combined with yellow for the rest of the interface. While it's a fairly nerdy theme, I needed it.</li>
+      </ul>
+    </article>
+
+    <!-- UX y otros detalles -->
+    <article class="kroma-diseno-section">
+      <h2 class="text-h2 text-blanco">UX and Other Details</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Although I'll explain all this in more depth in the code, let's talk a bit about the important UX. Let's cover the features, not without first mentioning that, like a good lazy person, the project is not responsive. But before you insult me (which I would also do), consider my reasoning. It's a page that can only be used on PC, so making it responsive for mobile was stupid. And on the other hand, only I use it, so making it responsive for other computers also seemed stupid. Now, with all the disgust you have for me, let's quickly go over the features:</p>
+
+      <ul class="kroma-bullet-list text-p-large text-blanco">
+        <li><strong>The smart bar:</strong> Besides searching (like any other search bar), I added some commands to speed up my daily tasks, such as searching for icons on svgrepo, quick math operations, searching YouTube videos, or picking a random number.</li>
+        <li><strong>Side notepad:</strong> This is probably the best idea I've ever had, because I used to use online notepad for notes, but that forced me to keep a tab open. So by adding this, I stopped using it. Fun fact: I have all the commands saved in a note so I don't forget them.</li>
+        <li><strong>Decoration bar:</strong> While there are some things that don't work because I'd have to run them on a local server, having my operating system or PC specs at the very bottom is a pretty big flex. Though it doesn't serve any purpose, that's why it's called "decoration" and not "lower bar".</li>
+      </ul>
+    </article>
+
+  </div>
+</div>

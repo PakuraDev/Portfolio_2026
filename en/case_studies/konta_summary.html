@@ -1,0 +1,67 @@
+<style>
+  .konta-resumen-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .konta-thanks-box {
+    border: 2px solid var(--Blanco);
+    padding: 48px;
+    border-radius: 32px 0 32px 0;
+    background: transparent;
+  }
+
+  .konta-links-container a {
+    color: var(--Amarillo);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .konta-links-container a:hover {
+    color: var(--Amarillo_Hover);
+  }
+
+  @media (max-width: 768px) {
+    .konta-resumen-container {
+      padding: 64px 24px;
+    }
+    .konta-thanks-box {
+      padding: 32px 24px;
+      border-radius: 24px 0 24px 0;
+    }
+  }
+</style>
+
+<div class="konta-resumen-container">
+
+  <div class="text-p-large text-blanco konta-links-container" style="margin-bottom: 64px; opacity: 0.9; font-size: 1.25rem;">
+    <p>Konta is a web application that makes it easy to manage weekly expenses for a group of people, and was built mainly for my parents. It's already the third version of the app, and probably the last because nobody uses them... Anyway, let's summarize the project, design, and code:</p>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 64px;">
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">What is Konta?</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">As I said, Konta is a PWA (progressive web app) for managing weekly expenses of a closed group, like a family. Multiple people can add expenses, check the remaining weekly budget, keep track of past weeks' spending, and avoid arguments over 5 euros disappearing from the living room drawer (wink wink).</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Design</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">For the design I needed something pleasant to look at, but very simple to use, since my parents (50+) are not exactly tech-savvy — to put it mildly, they struggle with Facebook. That's why I went with neo-brutalism, which is basically the eye-friendly version of brutalism, and minimalism so they don't get lost, combined with an error-proof UX. You can read more in the case study hehe.</p>
+    </article>
+
+    <article>
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Code</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">I don't want to say too much, but it's an app built with Vanilla JS and edge computing to be as fast and secure as possible, though I explain all of this in more depth in the case study. And honestly, what else can I say without spoiling it? It's really hard, so I'll just encourage you to read the case study hehe.</p>
+    </article>
+
+    <article class="konta-thanks-box">
+      <h2 class="text-h2 text-blanco" style="margin-bottom: 24px;">Acknowledgments</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">To wrap up, I'd like to thank Cloudflare for being such an easy company to love, my parents for being the main culprits behind this app, and most importantly, you for reading this. Thank you and best regards &lt;3</p>
+    </article>
+
+  </div>
+</div>

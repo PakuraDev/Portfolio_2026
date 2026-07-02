@@ -1,0 +1,207 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+  .openflow-codigo-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .openflow-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .openflow-codigo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 96px;
+  }
+
+  .openflow-codigo-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .openflow-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .openflow-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .openflow-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Code Blocks */
+  .code-block-wrapper {
+    background: var(--Negro);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 32px 0;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  }
+
+  .code-block-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .code-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .code-dot.red { background: #FF5F56; }
+  .code-dot.yellow { background: #FFBD2E; }
+  .code-dot.green { background: #27C93F; }
+
+  .code-lang {
+    color: var(--Blanco);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    opacity: 0.5;
+    margin-left: auto;
+    text-transform: uppercase;
+  }
+
+  .code-block-content {
+    padding: 32px;
+    overflow-x: auto;
+    color: #fcfcfa;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    white-space: pre;
+    margin: 0;
+  }
+
+  .code-keyword { color: #ff6188; }
+  .code-function { color: #a9dc76; }
+  .code-string { color: #ffd866; }
+  .code-comment { color: #727072; font-style: italic; }
+
+  @media (max-width: 768px) {
+    .openflow-codigo-container {
+      padding: 64px 24px;
+    }
+    .code-block-content {
+      font-size: 13px;
+      padding: 24px;
+    }
+  }
+</style>
+
+<div class="openflow-codigo-container">
+
+<div class="openflow-intro-box">
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Alright, talking about OpenFlow_V3's code is something I'm pretty excited about, because this project embodies my obsession with extreme performance, zero lag, and my deep hatred for network latency. These days, it seems like if you're not using a slow corporate tool that needs half a second to load every time you move a card, you're not professional. Screw that. OpenFlow is an industrial-grade, brutalist, raw Local-First SPA.</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">To not drive you crazy (or myself crazy), I'm going to divide this chaos into 4 parts:</p>
+
+  <ul class="openflow-list text-p-large text-blanco">
+    <li><span class="openflow-list-num">1</span> Local-First Architecture and Data Sovereignty (IndexedDB)</li>
+    <li><span class="openflow-list-num">2</span> The Optimistic Rendering Engine and Collision Radar</li>
+    <li><span class="openflow-list-num">3</span> Strict Event Delegation (The Security Guard)</li>
+    <li><span class="openflow-list-num">4</span> Taming the Timeline (Frappe) and the Search "Radar"</li>
+  </ul>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">As always, I'll try to explain this so anyone can understand, but if I get a bit nerdy, you know why.</p>
+</div>
+
+<article class="openflow-codigo-section">
+  <h2 class="text-h2 text-blanco">1. Local-First Architecture and Data Sovereignty (IndexedDB)</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">If you're coming from reading my other case studies, you already know that frameworks (cough, Angular, cough) and I are natural enemies. OpenFlow_V3 is built in pure, hardcore Vanilla JS. But the real gem here isn't that I don't use React or the like — it's that there's no server.</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">In a traditional website (like Jira), you move a task, your computer sends a little message to the server (who knows where it's hosted), the server processes it, saves it, and replies "okay, done." All that takes a few milliseconds (or seconds if your internet is Movistar on a rainy Sunday). In OpenFlow, your browser is the server. We use the browser's native database: <code>IndexedDB</code>.</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">IndexedDB is brutally fast, but its native API makes you want to cry because of its horrible callback system. So, with the philosophy of a craftsman (or masochist), I built my own promise-based wrapper in <code>db.js</code> to create a generic async CRUD and add a migration system (to go from v1 to v2 without losing data in the process by adding epics and injecting dates).</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">The biggest advantage of the Local-First approach is "Data Sovereignty." Your projects live on your machine and don't leave unless you export them. No corporate tracking, no middlemen. And most importantly: real latency is literally zero. Zero loading spinners. If the internet goes down, you keep working as if it were desktop software.</p>
+</article>
+
+<article class="openflow-codigo-section">
+  <h2 class="text-h2 text-blanco">2. The Optimistic Rendering Engine and Collision Radar</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Moving a card on a Kanban board seems like the simplest thing, but making it smooth at 60fps without the browser stuttering has its tricks. This is where what I call "Optimistic UI Rendering" comes in. When you drag a card and drop it, the graphical interface updates instantly in the DOM (in just 0ms), while the actual state change is sent to the database in the background, fully asynchronously. It's silent but lethal.</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">But of course, the native HTML5 Drag & Drop API is a total headache. Mainly because the browser doesn't have a clear sense of where exactly you want to drop the card in the middle of a column (we want manual ordering). So I programmed its own "Radar."</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// js/ui/render.js (Excerpt of the radar's mathematical magic)</span>
+<span class="code-keyword">function</span> <span class="code-function">getDragAfterElement</span>(container, y) {
+    <span class="code-keyword">const</span> draggableElements = [...container.querySelectorAll(<span class="code-string">'.task-card:not(.dragging)'</span>)];
+    <span class="code-keyword">return</span> draggableElements.reduce((closest, child) =&gt; {
+        <span class="code-keyword">const</span> box = child.getBoundingClientRect();
+        <span class="code-keyword">const</span> offset = y - box.top - box.height / <span class="code-keyword">2</span>; <span class="code-comment">// Distance to the center of the card</span>
+        <span class="code-keyword">if</span> (offset &lt; <span class="code-keyword">0</span> && offset &gt; closest.offset) {
+            <span class="code-keyword">return</span> { offset: offset, element: child };
+        } <span class="code-keyword">else</span> {
+            <span class="code-keyword">return</span> closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}</pre>
+</div>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Basically, it's a mathematical function that calculates where the mouse is relative to the vertical center of the other cards in the column, figuring out exactly which card you want to drop it under. Once the radar does its work, the pro version of the drop logic kicks in (the "Benito Villamarín Edition"): the script grabs all the cards in the list, assigns them a new <code>order</code> value based on their current index, and proceeds with saving, so the ranking remains immutable on refresh.</p>
+</article>
+
+<article class="openflow-codigo-section">
+  <h2 class="text-h2 text-blanco">3. Strict Event Delegation (The Security Guard)</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">If a Single Page Application (SPA) starts slowing down after half an hour of work, it most likely has "Memory Leaks." If you render 200 cards and attach an <code>addEventListener</code> to every little button, you're wasting RAM and creating computational garbage. And if you remove them from the DOM without deallocating the events, goodnight.</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">To maintain a flat memory profile for people who have OpenFlow open for 8 hours straight, I've applied a strict policy of global Event Delegation.</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Looking at the modal logic (<code>modal.js</code>), instead of attaching an event to every sad button to delete epics, the <code>modal-body</code> takes the role of a club bouncer, or rather, of Germán Pezzella cutting off a counterattack. Every click bounces up to it and, through conditional <code>e.target.matches()</code> checks, it decides who to take down. One single guardian, and thousands of temporary elements that are born and die cleanly.</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">And of course, an unforgivable anecdote in <code>render.js</code>. To prevent Cross-Site Scripting (XSS) attacks when injecting plain text as HTML, I had to wedge in an urgent sanitization function that converts tags like <code>&lt;script&gt;</code> into harmless <code>&amp;lt;</code> entities. "I'm sorry folks, if you don't escape your HTML, you're not Betis material." What can I say, pragmatism in the face of imminent disaster.</p>
+</article>
+
+<article class="openflow-codigo-section">
+  <h2 class="text-h2 text-blanco">4. Taming the Timeline (Frappe) and the Search "Radar"</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">For the timeline I used the <code>frappe-gantt</code> library. Not about to reinvent the wheel by drawing boxes on CANVAS, so I brought in Frappe with one problem: the usual one — it expects data in one format, and my DB has it in a very different one.</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Here, so nobody comes at me, the almighty Adapter Pattern steps in (<code>gantt.js</code>). I map and transform all my <code>OpenFlow</code> tasks on the fly into the structure Frappe expects, with the added bonus of first intercepting the phase (Epic) to steal its hex color and slip it into each timeline bar. And to force my "industrial brutalist palette" into some stubborn SVGs... I use temporary brute-force attacks (or in other words, jamming the styles in via JS after a little <code>setTimeout</code>).</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">And, to top off the technological crown, there's my real-time search. How does another typical SPA search for things? It sends the string (text) to the backend, does a pseudo-indexed search in the DB, returns results via a REST API, does a massive recalculation, and updates the React DOM. In OpenFlow? You simply have a listener catching your keystrokes, intercepting the DOM nodes one by one and comparing them. Anything that doesn't match... <code>display: none</code>. No network, no async waits, temporary hidden visibility, instant, and computationally free for the interface.</p>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">It's rough, free, and reactionary code in every sense, but I can proudly state that the resulting usability justifies every little madness. I hope your head hasn't exploded reading my way of understanding programming. See you in the next interface!</p>
+</article>
+
+</div>

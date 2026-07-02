@@ -1,0 +1,89 @@
+{
+  "aerko": {
+    "titulo": "Aerko_",
+    "descripcion": "Aerko_ is the most advanced open-source fitness PWA (at least at the time of writing) that exists, and my most ambitious project. Even months after its release, it maintains its base of 3000 monthly users at zero cost. I already have the next version planned, though it'll take time to execute.",
+    "etiquetas": ["Design", "Code", "TFM", "Open source"],
+    "enlaces": [
+      { "tipo": "web", "texto": "Web App", "url": "https://aerko.app/#/", "icon": "web" },
+      { "tipo": "landing", "texto": "Landing page", "url": "https://landing.aerko.app/", "icon": "web" },
+      { "tipo": "github", "texto": "GitHub repository", "url": "https://github.com/SrPakura/AERKO_PWA", "icon": "github" },
+      { "tipo": "figma", "texto": "Figma file", "url": "https://www.figma.com/design/UpqnrIqYNyEnqPb2LUiMnK/Aerko_?node-id=0-1&t=wRjLtcf6QxdYzxUe-1", "icon": "figma" },
+      { "tipo": "tfm", "texto": "TFM", "url": "https://drive.google.com/file/d/1vXtmRb_XLLb_CMrOAXYJig7gJ8mh4mHJ/view?usp=sharing", "icon": "book" }
+    ],
+    "tabs": [
+      { "id": "summary", "numero": "01", "titulo": "Summary", "archivo": "aerko_summary.html" },
+      { "id": "design", "numero": "02", "titulo": "UX/UI Design", "archivo": "aerko_design.html" },
+      { "id": "code", "numero": "03", "titulo": "Code", "archivo": "aerko_code.html" }
+    ]
+  },
+  "sorolla": {
+    "titulo": "Sorolla Museum",
+    "descripcion": "My redesign of the Sorolla Museum website, purely focused on doing justice to the work of the great Joaquin Sorolla. It combines a translucent neoclassical style with spectacular technical performance.",
+    "etiquetas": ["Design", "Code", "Open source", "I forgot responsive"],
+    "enlaces": [
+      { "tipo": "web", "texto": "Website", "url": "https://portfolio-museo-soralla.pages.dev/#", "icon": "web" },
+      { "tipo": "github", "texto": "GitHub repository", "url": "https://github.com/PakuraDev/Portfolio_Museo_Soralla", "icon": "github" },
+      { "tipo": "figma", "texto": "Figma file", "url": "https://www.figma.com/design/eJ2cBX9uaKqvo4z6eAKIA1/Museo_Sorolla?node-id=1-4&t=t205NJp7oCfkxz9N-1", "icon": "figma" }
+    ],
+    "tabs": [
+      { "id": "summary", "numero": "01", "titulo": "Summary", "archivo": "sorolla_summary.html" },
+      { "id": "design", "numero": "02", "titulo": "UX/UI Design", "archivo": "sorolla_design.html" },
+      { "id": "code", "numero": "03", "titulo": "Code", "archivo": "sorolla_code.html" }
+    ]
+  },
+  "konta": {
+    "titulo": "Konta",
+    "descripcion": "Konta is a PWA for managing weekly expenses of a closed group, such as a family, with a friendly neo-brutalist design.",
+    "etiquetas": ["Design", "Code", "Open source"],
+    "enlaces": [
+      { "tipo": "web", "texto": "Website", "url": "https://personal-konta.pages.dev/", "icon": "web" },
+      { "tipo": "github", "texto": "GitHub", "url": "https://github.com/PakuraDev/Personal_Konta", "icon": "github" },
+      { "tipo": "figma", "texto": "Figma", "url": "https://www.figma.com/design/whzvUpnmXPRucAcqazPn2m/Konta-V2?node-id=0-1&t=PSkuYnStfNZ6JBZq-1", "icon": "figma" }
+    ],
+    "tabs": [
+      { "id": "summary", "numero": "01", "titulo": "Summary", "archivo": "konta_summary.html" },
+      { "id": "design", "numero": "02", "titulo": "UX/UI Design", "archivo": "konta_design.html" },
+      { "id": "code", "numero": "03", "titulo": "Code", "archivo": "konta_code.html" }
+    ]
+  },
+  "kroma": {
+    "titulo": "Kroma",
+    "descripcion": "Kroma is the start page that has the honor of being the first page of Firefox I see every day.",
+    "etiquetas": ["Design", "Code", "Personal"],
+    "enlaces": [
+      { "tipo": "web", "texto": "Website", "url": "https://personal-kroma.pages.dev/", "icon": "web" },
+      { "tipo": "github", "texto": "GitHub", "url": "https://github.com/PakuraDev/Personal_Kroma", "icon": "github" },
+      { "tipo": "figma", "texto": "Figma", "url": "https://www.figma.com/design/HG9aubqUE12WJqi82wSSol/Nueva_pesta%C3%B1a?node-id=28-2&t=jgtf4yJgteRg4Rcb-1", "icon": "figma" }
+    ],
+    "tabs": [
+      { "id": "summary", "numero": "01", "titulo": "Summary", "archivo": "kroma_summary.html" },
+      { "id": "design", "numero": "02", "titulo": "UX/UI Design", "archivo": "kroma_design.html" },
+      { "id": "code", "numero": "03", "titulo": "Code", "archivo": "kroma_code.html" }
+    ]
+  },
+  "openflow": {
+    "titulo": "OpenFlow_",
+    "descripcion": "OpenFlow_V3 is my answer to all those slow, heavy, boring corporate software that promises to organize your life.",
+    "etiquetas": ["Design", "Code", "Open source"],
+    "enlaces": [
+      { "tipo": "web", "texto": "Website", "url": "https://openflow-73n.pages.dev/", "icon": "web" },
+      { "tipo": "github", "texto": "GitHub", "url": "https://github.com/PakuraDev/Work_OpenFlow", "icon": "github" }
+    ],
+    "tabs": [
+      { "id": "summary", "numero": "01", "titulo": "Summary", "archivo": "openflow_summary.html" },
+      { "id": "design", "numero": "02", "titulo": "UX/UI Design", "archivo": "openflow_design.html" },
+      { "id": "code", "numero": "03", "titulo": "Code", "archivo": "openflow_code.html" }
+    ]
+  },
+  "entropy": {
+    "titulo": "Entropy",
+    "descripcion": "Case study under construction...",
+    "etiquetas": ["WIP"],
+    "enlaces": [],
+    "tabs": [
+      { "id": "summary", "numero": "01", "titulo": "Summary", "archivo": "entropy_summary.html" },
+      { "id": "design", "numero": "02", "titulo": "UX/UI Design", "archivo": "entropy_design.html" },
+      { "id": "code", "numero": "03", "titulo": "Code", "archivo": "entropy_code.html" }
+    ]
+  }
+}

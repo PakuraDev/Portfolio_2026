@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Pezetoide's Portfolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="../css/paginas.css">
+    <link rel="stylesheet" href="../css/cards.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Web Components -->
+    <script type="module" src="./webcomponents/header.js"></script>
+</head>
+<body>
+    <!-- Background Canvas -->
+    <div id="canvas-container">
+      <canvas id="three-canvas"></canvas>
+    </div>
+    <div id="ambient-glow"></div>
+
+    <app-header></app-header>
+
+    <main class="page-curriculum">
+        <div class="curriculum-content">
+            <!-- Spanish CV Card -->
+            <div class="cv-card">
+                <div class="cv-card-header bg-azul text-blanco">
+                    <h3 class="text-p-large" style="font-weight: 700; margin: 0;">Spanish Resume</h3>
+                </div>
+                <div class="cv-card-body">
+                    <p class="text-p text-negro text-center" style="margin-bottom: 16px;">
+                        The Spanish version of my resume, optimized for maximum readability and compatibility.
+                    </p>
+                    <div class="cv-card-actions">
+                        <a href="../assets/curriculums/Curriculum_ATS.pdf" target="_blank" class="btn-outline text-button">View online</a>
+                        <a href="../assets/curriculums/Curriculum_ATS.pdf" download="Curriculum_ATS.pdf" class="btn-outline text-button">Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- English CV Card -->
+            <div class="cv-card cv-card-ats">
+                <div class="cv-card-header bg-azul text-blanco">
+                    <h3 class="text-p-large" style="font-weight: 700; margin: 0;">English Resume</h3>
+                </div>
+                <div class="cv-card-body">
+                    <p class="text-p text-negro text-center" style="margin-bottom: 16px;">
+                        The English version of my resume, optimized for maximum international compatibility.
+                    </p>
+                    <div class="cv-card-actions">
+                        <a href="../assets/curriculums/Resume_ATS.pdf" target="_blank" class="btn-outline text-button">View online</a>
+                        <a href="../assets/curriculums/Resume_ATS.pdf" download="Resume_ATS.pdf" class="btn-outline text-button">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/background.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Pezetoide's Portfolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="../css/paginas.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Web Components -->
+    <script type="module" src="./webcomponents/header.js"></script>
+</head>
+<body>
+    <!-- Background Canvas -->
+    <div id="canvas-container">
+      <canvas id="three-canvas"></canvas>
+    </div>
+    <div id="ambient-glow"></div>
+
+    <app-header></app-header>
+
+    <main class="page-contacto">
+        <div class="contacto-content">
+            <!-- Explanatory text -->
+            <div class="contacto-texto">
+                <p class="text-p text-negro">
+                    Advertising companies tend to raffle my number numerous times a day, so I never pick up calls from unknown numbers.<br><br>
+                    I prefer contact via a direct method, such as my email or WhatsApp, or through a job platform.<br><br>
+                    Note: I am currently only open to 100% remote positions (in Spanish or English).
+                </p>
+            </div>
+
+            <!-- Contact index -->
+            <div class="contacto-indice">
+                <h3 class="text-h3 text-azul">Direct methods:</h3>
+                <div class="contacto-links-group">
+                    <div class="contacto-links-row">
+                        <a href="mailto:AlexPereZamudio@proton.me" class="contacto-link">
+                            <span class="text-p-large">Email</span>
+                            <img src="../assets/iconos/external_link_simplificado.svg" alt="External link" width="24" height="24">
+                        </a>
+                        <!-- Obfuscating the href using JS mouse/keyboard events to avoid scraper bots -->
+                        <a href="#" onmouseover="this.href='https://wa.me/34'+'691'+'611'+'356'" onfocus="this.href='https://wa.me/34'+'691'+'611'+'356'" target="_blank" class="contacto-link">
+                            <span class="text-p-large">WhatsApp</span>
+                            <img src="../assets/iconos/external_link_simplificado.svg" alt="External link" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+
+                <h3 class="text-h3 text-azul">Job platforms</h3>
+                <div class="contacto-links-group">
+                    <div class="contacto-links-row">
+                        <a href="https://www.linkedin.com/in/alejandro-pz/" target="_blank" class="contacto-link">
+                            <span class="text-p-large">LinkedIn</span>
+                            <img src="../assets/iconos/external_link_simplificado.svg" alt="External link" width="24" height="24">
+                        </a>
+                        <a href="https://www.getmanfred.com/perfil/e55bb2fc-9a08-49c2-a421-b9f89f3093e1" target="_blank" class="contacto-link">
+                            <span class="text-p-large">Manfred</span>
+                            <img src="../assets/iconos/external_link_simplificado.svg" alt="External link" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/background.js"></script>
+</body>
+</html>

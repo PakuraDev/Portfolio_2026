@@ -1,0 +1,495 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+  .aerko-codigo-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .aerko-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .aerko-codigo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 96px;
+  }
+
+  .aerko-codigo-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .aerko-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .aerko-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .aerko-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Code Blocks */
+  .code-block-wrapper {
+    background: var(--Negro);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 32px 0;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  }
+
+  .code-block-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .code-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .code-dot.red { background: #FF5F56; }
+  .code-dot.yellow { background: #FFBD2E; }
+  .code-dot.green { background: #27C93F; }
+
+  .code-lang {
+    color: var(--Blanco);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    opacity: 0.5;
+    margin-left: auto;
+    text-transform: uppercase;
+  }
+
+  .code-block-content {
+    padding: 32px;
+    overflow-x: auto;
+    color: #fcfcfa;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    white-space: pre;
+    margin: 0;
+  }
+
+  .code-keyword { color: #ff6188; }
+  .code-function { color: #a9dc76; }
+  .code-string { color: #ffd866; }
+  .code-comment { color: #727072; font-style: italic; }
+
+  @media (max-width: 768px) {
+    .aerko-codigo-container {
+      padding: 64px 24px;
+    }
+    .code-block-content {
+      font-size: 13px;
+      padding: 24px;
+    }
+  }
+</style>
+
+<div class="aerko-codigo-container">
+<div class="aerko-intro-box">
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Talking about the code is going to be easy because there's plenty of code to go around, but very hard to explain so anyone can understand it. That's why I've decided to split it into 7 parts:</p>
+  <ul class="aerko-list text-p-large text-blanco">
+    <li><span class="aerko-list-num">1</span> SPA Architecture, Routing, and Native Reactivity</li>
+    <li><span class="aerko-list-num">2</span> Data Persistence and Cryptography (Privacy by Design)</li>
+    <li><span class="aerko-list-num">3</span> Artificial Intelligence and the "Fake DOM" (Training Lab)</li>
+    <li><span class="aerko-list-num">4</span> Service Workers and Serverless Alarms</li>
+    <li><span class="aerko-list-num">5</span> The Hell of Big Data on the Client (Onboarding)</li>
+    <li><span class="aerko-list-num">6</span> i18n and Copywriting Schizophrenia (Tsundere Mode)</li>
+    <li><span class="aerko-list-num">7</span> Analytics, Wrapped, and Your Data's Sovereignty</li>
+  </ul>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">If you feel overwhelmed, don't worry — so am I, and I'm the one who has to write this. But anyway, let's start.</p>
+</div>
+
+<article class="aerko-codigo-section">
+  <h2 class="text-h2 text-blanco">SPA Architecture, Routing, and Native Reactivity</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Okay, we're off to a rough start because explaining this in plain English is going to require way too much creativity. Ugh, I have to explain what a framework, an SPA, a router, an event bus, a web component, shadow DOM, the DOM itself, and many more things are... Let me do this: I'll give a quick explanation. Anyone who knows what I'm talking about can skip it directly.</p>
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">Quick Explanation</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Alright, to explain everything, let's imagine building an app is like running a theater. Most apps are made using a framework (like React, Angular (if anyone still uses that), or Astro if you're a gigachad), which is basically like going to IKEA and buying furniture with the wood already cut, screws included, and an instruction manual. It's super convenient and fast. But I'm a performance obsessive (or a masochist, both definitions are correct), so I used Vanilla JS, which in this context is exactly the same as getting in the car, going to the forest, making an axe, cutting down a tree, sanding the wood, and building the furniture with my own hands.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">If you understood that without needing to watch a tutorial or ask ChatGPT, then you're doing great. Moving on to the DOM, which would basically be the theater stage with its sets. In a traditional website, every time you click a button, the theater closes the curtain and changes the set. But my website is an SPA (Single Page Application), which means the curtain never closes. When you switch tabs, Flash (or anything with inhuman speed you can imagine) changes the set at the speed of light while you keep watching without needing to reload.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Now let's talk about the router, which is more or less like a club bouncer. To manage set changes without anyone sneaking in, I programmed my own router. Every time you try to go to a private section of the app, the router intercepts you and asks "Do you have the crypto session open?" or in Andalusian equivalent "Oi, are you from Betis or Sevilla?" If you've entered the pin (or are a Betis fan) it lets you in. If not, it kicks you out and sends you straight to the tax office for a surprise audit (By the way, let me clarify that I'm not talking about the router in your house, but a small script).</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Now the event bus (or EventBus), which I'll call "megaphone." Since I don't go to IKEA, the different parts of the app (furniture) don't come connected to each other, but I need the nutrition section to know that Juan has logged his weight so it can recalculate his calories. So I programmed an event bus, which is basically like a megaphone that shouts what you're doing to the rest of the app.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Now for what's probably the hardest thing to explain: Web Components and the Shadow DOM. Basically, it's like each component of the app is a tupperware container. Let's move from the theater to a bar kitchen. Sometimes the design (CSS) is chaos. Sometimes you have a red button on the home page, but due to a cascading error, it turns red in settings too, when the settings buttons are blue. Explained with the bar, it's like the waiter writes down 3 orders, but the chef gets confused and puts onions on all the dishes when only one was supposed to have them. To avoid this, the waiter gives the 3 tickets separately, and the chef puts each meal in an airtight container so the ingredients don't mix. Each container is a web component, and the shadow DOM is the food inside.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">And with these basic concepts, now comes the exam. I'm going to start talking like a nerd, so if you don't understand what follows, don't worry — that's normal.</p>
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">The Guardian Router</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Making a custom router based on window.location.hash is easy. The hard part is making that router a security paranoid. In Aerko_, before rendering a single element, the router intercepts the route, asks the authentication service if the crypto vault is open (authService.hasPin()), and routes to the private section or login accordingly. It also handles the user lifecycle — if you're a new user, it kidnaps... I mean, kindly takes you to onboarding. All this by injecting raw HTML and/or classes with replaceChildren() so the screen doesn't even flicker.</p>
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">EventBus</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">As a proper gigachad who doesn't go to IKEA, I had to build a native event bus based on the Publisher/Subscriber pattern (In human terms, components don't talk to each other directly; they shout to a common room and whoever's interested listens). I also added a debug mode that prints all events in the browser console so I don't go crazy tracking data, although I went crazy anyway building it.</p>
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">Web Components and the Shadow DOM</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Almost all (if not all) of the UI is built with native Web Components. And as you can imagine, most use shadow DOM, although there was a point in development where I went for light DOM (which is the opposite of shadow DOM), so in this case it's about 60-80% shadow DOM and 20-40% light DOM.</p>
+</article>
+
+<article class="aerko-codigo-section">
+  <h2 class="text-h2 text-blanco">Data Persistence and Cryptography (Privacy by Design)</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">This is where things get serious. Your phone (or whatever device you use the app on — maybe someone uses it on an iPad or even a mini PC, it's possible) is the database, which means if someone steals it or plugs it into a PC (knowing your PIN), your data could be vulnerable. Although it's optional (since the data isn't sensitive), I built an end-to-end encrypted vault architecture using IndexedDB and the Web Crypto API. If you activate it, your data will be stronger than vinegar, while if you don't, it's vulnerable (though honestly, I don't think anyone cares if their daily calories get leaked).</p>
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">Vaults and the Transparent Wrapper</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">I'm not gonna lie, whoever made IndexedDB must have hated their job. It's literally unbearable with its callback system, so I directly made a wrapper class with promises to make it transactional (I also considered using sqlite in wasm, but since I've worked with IndexedDB more often, I went with the safe option). Obviously I divided the database into different vaults, like "Public_store" (for silly things like language or theme) and armored vaults like "user_vault", "training_vault", etc.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">The fun part is the DX (Developer Experience). The rest of the app's code doesn't know about encryption — it just tells the database "Oi, can you save this for me?" and the database class intercepts "this" (the object), checks if it's going to a protected vault, and if so, generates a unique 12-byte initialization vector (IV) that gets encrypted with AES-GCM on the fly. It's been very nerdy, but the result is basically going from "I ate potatoes" to "iv: new Uint8Array([122, 201, 8, 45, 19, 110, 2, a long etc that I'm not going to write])". To show you the level of interception I'm talking about, here's a snippet from the code:</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// src/core/db/index.js (Extract of interception)</span>
+<span class="code-keyword">async</span> put(storeName, data) {
+    <span class="code-comment">// 1. Bypass if the vault is public or there's no key in RAM</span>
+    <span class="code-keyword">if</span> (!this._isProtected(storeName) || !cryptoService.key) {
+        <span class="code-keyword">return</span> this._transaction(storeName, <span class="code-string">'readwrite'</span>, store =&gt; store.put(data));
+    }
+
+    <span class="code-comment">// 2. Interception and on-the-fly encryption (AES-GCM)</span>
+    <span class="code-keyword">const</span> { id, ...payload } = data;
+    <span class="code-keyword">const</span> encryptedData = <span class="code-keyword">await</span> cryptoService.encrypt(payload);
+
+    <span class="code-keyword">const</span> recordToSave = {
+        id: id,
+        data: encryptedData <span class="code-comment">// Only the IV and encrypted buffer are saved</span>
+    };
+
+    <span class="code-comment">// 3. Secure insertion</span>
+    <span class="code-keyword">return</span> this._transaction(storeName, <span class="code-string">'readwrite'</span>, store =&gt; store.put(recordToSave));
+}</pre>
+</div>
+
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">RAM Memory and Paranoia</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Now, where does the key to encrypt that come from? From the PIN you enter when logging in. Using PBKDF2 (which although I would've liked to use Argon2, that seemed totally excessive, plus it would've been a wasm and complicated everything, since Argon2 is a hash), 100,000 iterations, and a random "Salt", an AES-GCM key is derived that would make any Russian hacker cry. And here's the genius (more like basic security xd): that key only lives in RAM. Every time you lock or exit the app, this.key=null runs and the key disappears. Without your PIN, it's mathematically impossible. So much so that the system is close to being quantum-proof.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Finally, to check if the PIN is correct without saving the actual PIN (which would be a symptom of severe idiocy), the "Canary" pattern is used. I store an encrypted object that says "{ secret: 'AERKO_SECURE' }", and when the user enters their PIN, it tries to decrypt the canary. If it returns 'AERKO_SECURE', I know it's you and I let you in. If not, the canary dies and you stay out. This isn't bulletproof either — obviously anyone bored enough could try brute force, but I don't think anyone would find it worth it to steal a phone, extract the app data (which is in the browser, making it even harder to export), decrypt it via brute force, all just to find out your leg day routine (or whether you actually skip it — I've caught you).</p>
+</article>
+
+<article class="aerko-codigo-section">
+  <h2 class="text-h2 text-blanco">Artificial Intelligence (MediaPipe) and the Fake DOM</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Putting computer vision in the browser without frying the phone was the biggest headache. Because of course, many people will now say "But there are people who can run AI on phones, like Qwen 3.5 2B", and I'll tell them "You're right, but you've probably seen that on an iPhone, and I want this to work on a 2018 potato," and there, along with everything needing to run on the phone without excuses (no wifi, no powerful GPU, no mid-range phone, etc.), is where the nightmare begins.</p>
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">Web Workers and Offline Capability</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Following my philosophy of individual freedom, and to allow any device to use the feature, I couldn't just include a single model and force people to use it. So I implemented a download system where you can choose between Lite, Full, and Heavy (along with a recommendation system) and save it in the browser cache. But there's a small problem: If I put an AI (which is already heavy) analyzing a video on the same thread that processes the screen, the app freezes. The solution? Put the AI in a Web Worker so it works in the background.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">But wait, if you thought my misery ended here, you haven't used a library made by Google. Mediapipe assumes it's on a normal page (which I can't really blame it for) and looks for objects like "window" or "document", but of course, in the Web Worker those objects don't exist. So I had no choice but to create a fake DOM so the AI thinks it's on a normal page. Let me drop a small extract here so you can see the level of insanity:</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// src/modules/training_lab/views/pose-worker.js (Extract of interception)</span>
+
+<span class="code-comment">// TRICK: The fake 'document' (Expert level with script interceptor)</span>
+<span class="code-keyword">if</span> (<span class="code-keyword">typeof</span> document === <span class="code-string">'undefined'</span>) {
+    self.document = {
+        createElement: <span class="code-keyword">function</span>(tag) {
+            <span class="code-comment">// If the AI tries to create a canvas, we give it an OffscreenCanvas</span>
+            <span class="code-keyword">if</span> (tag === <span class="code-string">'canvas'</span>) {
+                <span class="code-keyword">const</span> canvas = <span class="code-keyword">new</span> OffscreenCanvas(1, 1);
+                canvas.setAttribute = <span class="code-keyword">function</span>() {};
+                <span class="code-keyword">if</span> (!canvas.addEventListener) canvas.addEventListener = <span class="code-keyword">function</span>() {};
+                <span class="code-keyword">return</span> canvas;
+            }
+
+            <span class="code-comment">// We create a fake object for any other element (e.g., scripts)</span>
+            <span class="code-keyword">return</span> {
+                tagName: tag.toLowerCase(),
+                src: <span class="code-string">''</span>,
+                listeners: {},
+                setAttribute: <span class="code-keyword">function</span>(name, value) { <span class="code-keyword">if</span> (name === <span class="code-string">'src'</span>) this.src = value; },
+                addEventListener: <span class="code-keyword">function</span>(type, listener) { this.listeners[type] = listener; }
+            };
+        },
+        body: {
+            appendChild: <span class="code-keyword">function</span>(el) {
+                <span class="code-comment">// MAGIC: If MediaPipe injects a script, we intercept and execute it in RAM</span>
+                <span class="code-keyword">if</span> (el.tagName === <span class="code-string">'script'</span> && el.src) {
+                    fetch(el.src)
+                        .then(res =&gt; res.text())
+                        .then(code =&gt; {
+                            <span class="code-keyword">const</span> globalEval = eval;
+                            globalEval(code); <span class="code-comment">// Inject MediaPipe into the worker</span>
+                            <span class="code-comment">// Simulate that the script loaded so the library continues</span>
+                            <span class="code-keyword">if</span> (el.listeners[<span class="code-string">'load'</span>]) el.listeners[<span class="code-string">'load'</span>]();
+                        });
+                }
+            }
+        }
+    };
+}</pre>
+</div>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">With this I could already file for schizophrenia leave, but that's not the important part. The important thing is that now the main thread could paint your video, extract the frame bytes into an "OffscreenCanvas" and give them to the worker for processing without the interface freezing.</p>
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">Optimization:</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">On top of all this, there's another facet: optimization. If anyone thinks putting the model in a web worker is enough to run on a low-end phone, either they have no idea, or to them a low-end phone is at most 3 years old. So I added a "Ping-Pong" system where a frame is sent to the model, and until it finishes processing it, the next one isn't sent, along with a "quality reduction." The model itself reduces the video to 256x256, so sending a 4k video would be stupid. That's why the video the model analyzed was in 480p, making the reduction load smaller, and most importantly, the fps was reduced to 15, although this comes with a catch. If you show a user a 60fps video with a skeleton that only updates every 4 frames, the user will notice the skeleton is jerky — which leads to the next section.</p>
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">Premium Smoothing and Tempos</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Since the videos ran at 15fps, the frames were mathematically interpolated to reach 60fps, although that would cause — along with the interpolation and the model itself, which due to architecture limitations causes points to shake between frames — the skeleton to move erratically. So instead of feeding those raw data points, I ran them through a class I created for this purpose, the `BiomechanicsUtils` class, which applies mathematical smoothing so the movement curve is perfect. The result is that the skeleton moved with an input lag of 2-3 frames (which is already a victory compared to the initial 4) with brutal smoothness and stabilization.</p>
+  <h3 class="text-h3 text-blanco" style="margin-top: 24px; ">Other Algorithms</h3>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">In addition to calculating joint angles, to compute the score and provide important data for each exercise, algorithms were implemented that detect the frame (using the original 15 to avoid dirtying the data) where the sticking point occurs, the tempo, depth, and other data that varies depending on the exercise.</p>
+</article>
+
+<article class="aerko-codigo-section">
+  <h2 class="text-h2 text-blanco">Service Workers and Serverless Alarms</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">For those who don't know, Aerko is a PWA (Progressive Web App, or in plain English, an installable web application), so we need a Service Worker. In this situation I had to choose between making a "normal" Service Worker, an offline one, or being me and making a Service Worker that acts like the tax office handling the network (if the network were my taxes) and sending notifications (also like the tax office) without a server.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">If there's no coverage, the app works just as well, but the crown jewel is the notifications, which unfortunately won't work in the ecosystem until Apple deigns to stop hating iOS users. But to the point: to send you a notification reminding you it's time to eat at 14:30 without using a backend, I used the experimental "Notification Triggers" API (which, as you can guess, doesn't work very well on either Android or Apple).</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// sw.js (Extract of Offline Alarm scheduling)</span>
+
+<span class="code-keyword">async</span> <span class="code-keyword">function</span> programarAlarma(payload) {
+    <span class="code-keyword">const</span> [hours, minutes] = payload.time.split(<span class="code-string">':'</span>).map(Number);
+    <span class="code-keyword">const</span> now = <span class="code-keyword">new</span> Date();
+    <span class="code-keyword">let</span> alarmTime = <span class="code-keyword">new</span> Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, 0);
+
+    <span class="code-comment">// If the time has already passed today, schedule for tomorrow</span>
+    <span class="code-keyword">if</span> (alarmTime.getTime() &lt;= now.getTime()) {
+        alarmTime.setDate(alarmTime.getDate() + 1);
+    }
+
+    <span class="code-comment">// Check if the browser supports scheduled notifications</span>
+    <span class="code-keyword">if</span> (<span class="code-string">'showTrigger'</span> in Notification.prototype) {
+        <span class="code-keyword">try</span> {
+            <span class="code-keyword">await</span> self.registration.showNotification(payload.label, {
+                body: <span class="code-string">`⏱️ ${payload.time}`</span>,
+                icon: <span class="code-string">'/assets/icons/icon-192.png'</span>,
+                tag: payload.id,
+                <span class="code-comment">// MAGIC: The OS will fire the notification at this exact date</span>
+                showTrigger: <span class="code-keyword">new</span> TimestampTrigger(alarmTime.getTime())
+            });
+        } <span class="code-keyword">catch</span> (error) {
+            console.error(<span class="code-string">'Error scheduling notification:'</span>, error);
+        }
+    }
+}</pre>
+</div>
+
+</article>
+
+<article class="aerko-codigo-section">
+  <h2 class="text-h2 text-blanco">The Hell of Big Data on the Client</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Nobody wants to switch apps when they've been using another one for 7 years, so I had to implement an import and parsing system to translate data from apps like Apple Health, Google Fit, Hevy, Strong, etc. into a language my app can understand. But of course, as always, Apple is there to ruin my life. When I asked my friend to export their data for me to test the system, they sent me a 5 GB XML file. It's not just the file size (though 5 GB is no joke — who knows what they've been saving and since when), but the browser's DOMParser would rather commit suicide than try to read it.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">So the only solution to such madness was to read the file in chunks of 1 MB using regular expressions to grab the data my app wants on the fly. And if the file cuts a tag in half between two blocks, it saves the broken part and concatenates it with the next read.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// src/modules/onboarding/services/health-parser.service.js</span>
+<span class="code-comment">// Extract: Reading multi-gigabyte XML files without crashing the DOM</span>
+
+<span class="code-keyword">const</span> CHUNK_SIZE = 1024 * 1024; <span class="code-comment">// 1 MB</span>
+<span class="code-keyword">let</span> offset = 0;
+<span class="code-keyword">let</span> leftover = <span class="code-string">''</span>;
+
+<span class="code-keyword">const</span> readNextChunk = () =&gt; {
+    <span class="code-comment">// 1. Extract a block (slice) from the giant file without loading it all</span>
+    <span class="code-keyword">const</span> slice = file.slice(offset, offset + CHUNK_SIZE);
+    reader.readAsText(slice);
+};
+
+reader.onload = (e) =&gt; {
+    <span class="code-comment">// 2. Concatenate anything left over from the previous block with the new one</span>
+    <span class="code-keyword">const</span> chunk = leftover + e.target.result;
+    <span class="code-keyword">let</span> lastIndex = 0;
+
+    <span class="code-comment">// 3. Regex to find the node, avoiding the heavy DOMParser</span>
+    <span class="code-keyword">const</span> recordRegex = /&lt;Record([^&gt;]+)&gt;/g;
+    <span class="code-keyword">let</span> match;
+
+    <span class="code-keyword">while</span> ((match = recordRegex.exec(chunk)) !== null) {
+        <span class="code-keyword">const</span> attrs = match[2];
+        <span class="code-comment">// ... (Extraction logic for type, value, and date with Regex) ...</span>
+
+        lastIndex = match.index + match.length;
+    }
+
+    <span class="code-comment">// 4. Save the part of the string that didn't complete an XML tag</span>
+    leftover = chunk.slice(lastIndex);
+    offset += CHUNK_SIZE;
+
+    <span class="code-comment">// 5. Continue if we haven't reached the end</span>
+    <span class="code-keyword">if</span> (offset &lt; file.size) {
+        readNextChunk();
+    } <span class="code-keyword">else</span> {
+        <span class="code-comment">// Finished</span>
+    }
+};
+
+readNextChunk(); <span class="code-comment">// Start process</span></pre>
+</div>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">If you're coming from Google Fit (which exports as .zip), there's a problem. Do I force the user to give me the exact file? It was viable since they're supposed to be advanced users, but let's be honest, if my professor Billy saw me allowing that, he'd fail me on the spot. So I added JSZip to unzip the file in the browser's RAM asynchronously, find the .csv containing the word "weight", extract the text, and parse it.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">On the other hand, for workout apps like Hevy there was an even bigger problem. If my app has bench press as "Press_Banca" but Strong has it as "Press-Banca", it would be impossible to parse the data. So I had to make a heuristic engine that takes their "Press-Banca", cleans it, cross-references it with an internal dictionary, and maps it to "Press_Banca" (I could have also done fuzzy search with fuse.js, but that would add another external library with a chance of interpreting "incline bench press" as "bench press").</p>
+</article>
+
+<article class="aerko-codigo-section">
+  <h2 class="text-h2 text-blanco">I18N and Tsundere Mode</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Loading all languages at once is an atrocity for initial load time, so Aerko uses dynamic async imports. It only loads the dictionary for the screen you're currently viewing and caches it. Since the app detects the browser language, there's no need to change it manually, but in case of an error or if you just want to change it anyway, you can select any language from settings.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">But I didn't stop at just translating the app — I injected personalities. The system supports "Modes" that change both the text and the experience. Among them we have default, zen mode, which offers a more relaxed user experience with friendly comments, and tsundere mode, whose name could be considered clickbait since the tsundere archetype is based on hiding affection/feelings by insulting or treating someone badly, but in my app this mode just straight up hates you.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">It also supports arrays of texts (multiple options from which one is chosen randomly) so the app doesn't always insult you with the same phrase, and raw variables with RegExp on the fly (e.g., "You only lifted `{{weight}}` kg, pathetic"). (If anyone asks why a person in their right mind would want their app to insult them, I don't know the answer — I'm a designer, not a psychologist)</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">And because I love jokes, besides a button that says "Don't press here" which takes you to a Rick Roll if you press it, there's also a collection of insults to see how many insults you've unlocked.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// src/core/i18n/i18n.service.js (Simplified extract)</span>
+<span class="code-keyword">async</span> loadPage(pageName) {
+    <span class="code-comment">// 1. Dynamic route calculation based on language and mode</span>
+    <span class="code-keyword">const</span> basePath = <span class="code-string">`/src/core/i18n/${this._currentLang}/${pageName}.js`</span>;
+    <span class="code-keyword">const</span> modePath = this._modeSuffix ?
+        <span class="code-string">`/src/core/i18n/${this._currentLang}${this._modeSuffix}/${pageName}.js`</span> : basePath;
+
+    <span class="code-comment">// 2. Async loading (Code Splitting) and merging (Override)</span>
+    <span class="code-keyword">let</span> baseData = (<span class="code-keyword">await</span> <span class="code-keyword">import</span>(basePath).<span class="code-keyword">catch</span>(() =&gt; ({}))).default || {};
+    <span class="code-keyword">let</span> modeData = modePath !== basePath ?
+        (<span class="code-keyword">await</span> <span class="code-keyword">import</span>(modePath).<span class="code-keyword">catch</span>(() =&gt; ({}))).default || {} : {};
+
+    <span class="code-keyword">const</span> mergedData = { ...baseData, ...modeData };
+
+    <span class="code-comment">// 3. Translation wrapper with variables and random arrays</span>
+    <span class="code-keyword">const</span> dictWrapper = {
+        data: mergedData,
+        t: (key, vars = {}) =&gt; {
+            <span class="code-keyword">let</span> text = mergedData[key];
+
+            <span class="code-comment">// Random array resolution</span>
+            <span class="code-keyword">if</span> (Array.isArray(text)) {
+                text = text[Math.floor(Math.random() * text.length)];
+            }
+
+            <span class="code-comment">// Variable injection with Regex</span>
+            <span class="code-keyword">if</span> (vars && <span class="code-keyword">typeof</span> text === <span class="code-string">'string'</span>) {
+                <span class="code-keyword">for</span> (<span class="code-keyword">const</span> [vKey, vValue] of Object.entries(vars)) {
+                    text = text.replace(<span class="code-keyword">new</span> RegExp(<span class="code-string">`{{${vKey}}}`</span>, <span class="code-string">'g'</span>), vValue);
+                }
+            }
+            <span class="code-keyword">return</span> text || <span class="code-string">`[${key}]`</span>;
+        }
+    };
+    <span class="code-keyword">return</span> dictWrapper;
+}</pre>
+</div>
+
+</article>
+
+<article class="aerko-codigo-section">
+  <h2 class="text-h2 text-blanco">Analytics, "Wrapped" and Data Sovereignty</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Saving thousands of workouts in a local database and not showcasing them is like going to the gym and not looking in the mirror: a waste of time (SARCASM — I'm the first person who doesn't share their data online, though to be fair, the only network I use is Reddit). That's why the analytics tab was born, where the user can see statistics and graphs about everything they've done, and also generate a "wrapped", although I'll talk about that later.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">There are quite a few graphs and data points, like nutritional heat maps (like GitHub contributions, but vertical), image comparators, specific graphs, etc. But one thing (although it's in another tab) that deserves a mention is the routine analyzer, which tells you the training volume for each muscle, and finally the activation of your muscle heads, so you know if you're training balanced, if you're over/under-training a head, or if you just straight up skip leg day (I see you).</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">But if you thought rendering graphs or analyzing weeks of training was a lot, get ready for the crown jewel: the "Aerko Wrapped." I'm not gonna lie, to me, wrappeds are a brown-nosing invention to show off on social media when we all know nobody cares what you've listened to this year. I only listen to piano music, and I'm sure if I posted it online, people would tell me to get with the times, or not — because nobody cares. Anyway, I'll stop sounding like a real grandpa and talk about my app. Since I find it cringey, but I know users will probably want to share their achievements, I made a combination — a joke wrapped. It basically gives you 3 real data points (or 2 if you skipped leg day. If you skipped leg day, it doubles the number of days), and then a message written by me, which depending on the active mode, insults you or gives you such specific data as "you've definitely improved by at least 0.05% compared to last year."</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Since I know my reputation just sank to the basement with that paragraph, let's get back to technical seriousness to talk about data sovereignty. Although I think the mere fact of the cryptography should already tell you that "Your data is yours" is one of my dogmas, let's finish by talking about exports and app security.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">"Vendor lock" seems like cancer to me, so the app offers the ability to export all your data (separately or all together) in JSON. Now, what happens if we have encrypted vaults? Would it export the diet in Hebrew? Although I considered it (sarcasm), the app has a function that enters the encrypted vaults, grabs your records, runs them through the master key (the one that only lives in RAM), decrypts them, builds the JSON using a Blob, and downloads it. And you're free to do whatever you want with them.</p>
+
+<div class="code-block-wrapper">
+  <div class="code-block-header">
+    <div class="code-dots">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+    </div>
+    <div class="code-lang">JAVASCRIPT</div>
+  </div>
+  <pre class="code-block-content"><span class="code-comment">// src/modules/settings/services/export.service.js</span>
+<span class="code-comment">// Extract: On-the-fly decryption and data packaging on the client</span>
+
+<span class="code-keyword">async</span> exportData(selectedVaults) {
+    <span class="code-keyword">const</span> exportPayload = {};
+
+    <span class="code-keyword">for</span> (<span class="code-keyword">const</span> vaultName of selectedVaults) {
+        <span class="code-keyword">const</span> rawRecords = <span class="code-keyword">await</span> db.getAll(vaultName);
+
+        <span class="code-comment">// 1. If the vault is protected, decrypt record by record in RAM</span>
+        <span class="code-keyword">if</span> (isSecurityEnabled && protectedVaults.includes(vaultName)) {
+            <span class="code-keyword">if</span> (!cryptoService.key) <span class="code-keyword">throw</span> <span class="code-keyword">new</span> Error(<span class="code-string">"err_export_no_key"</span>);
+
+            <span class="code-keyword">const</span> decryptedRecords = [];
+            <span class="code-keyword">for</span> (<span class="code-keyword">const</span> record of rawRecords) {
+                <span class="code-keyword">const</span> decryptedData = <span class="code-keyword">await</span> cryptoService.decrypt(record.data);
+                decryptedRecords.push({ id: record.id, data: decryptedData });
+            }
+            exportPayload[vaultName] = decryptedRecords;
+        } <span class="code-keyword">else</span> {
+            exportPayload[vaultName] = rawRecords;
+        }
+    }
+
+    <span class="code-comment">// 2. Generate local JSON file without using backend</span>
+    <span class="code-keyword">const</span> jsonString = JSON.stringify(exportPayload, null, 2);
+    <span class="code-keyword">const</span> blob = <span class="code-keyword">new</span> Blob([jsonString], { type: <span class="code-string">'application/json'</span> });
+    <span class="code-keyword">const</span> url = URL.createObjectURL(blob);
+
+    <span class="code-comment">// 3. Force native download on the device</span>
+    <span class="code-keyword">const</span> a = document.createElement(<span class="code-string">'a'</span>);
+    a.href = url;
+    a.download = <span class="code-string">`Aerko_Export_${new Date().toISOString().split(<span class="code-string">'T'</span>)}.json`</span>;
+    document.body.appendChild(a);
+    a.click();
+
+    <span class="code-comment">// Memory cleanup</span>
+    setTimeout(() =&gt; {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }, 150);
+
+    <span class="code-keyword">return</span> true;
+}</pre>
+</div>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">And that's the case study. I hope you liked it (or at least that you didn't just feed it through AI, because I wrote every single one of these... 3000 words? Or even more, who knows how much I've written. But yes, two full days to write the complete case study.), and that's it. See you, local users</p>
+</article>
+
+</div>

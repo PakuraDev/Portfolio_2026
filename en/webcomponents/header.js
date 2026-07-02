@@ -3,14 +3,14 @@ class AppHeader extends HTMLElement {
     this.innerHTML = `
       <div class="app-header-container">
         <div class="header-logo" id="header-logo-btn" role="button" aria-label="Menu" tabindex="0">
-          <img src="./assets/iconos/Menu.svg" alt="Menu" width="24" height="24">
+          <img src="../assets/iconos/Menu.svg" alt="Menu" width="24" height="24">
         </div>
         <nav class="header-nav" id="header-nav">
-          <a href="index.html" class="nav-capsule text-button" data-target="Inicio">Inicio</a>
-          <a href="index.html#proyectos" class="nav-capsule text-button" data-target="Proyectos">Proyectos</a>
-          <a href="index.html#sobre-mi" class="nav-capsule text-button" data-target="Sobre mí">Sobre mí</a>
-          <a href="curriculum.html" class="nav-capsule text-button">Currículum</a>
-          <a href="contacto.html" class="nav-capsule text-button">Contacto</a>
+          <a href="index.html" class="nav-capsule text-button" data-target="Home">Home</a>
+          <a href="index.html#proyectos" class="nav-capsule text-button" data-target="Projects">Projects</a>
+          <a href="index.html#sobre-mi" class="nav-capsule text-button" data-target="About me">About me</a>
+          <a href="curriculum.html" class="nav-capsule text-button">Resume</a>
+          <a href="contacto.html" class="nav-capsule text-button">Contact</a>
         </nav>
       </div>
     `;
@@ -22,9 +22,8 @@ class AppHeader extends HTMLElement {
     const nav = this.querySelector('#header-nav');
     const capsules = this.querySelectorAll('.nav-capsule');
 
-    // Muestra u oculta la navegación
+    // Toggle navigation visibility on PC, slide-in on mobile
     logoBtn.addEventListener('click', () => {
-      // Si estamos en PC oculta/muestra la navegación, en movil la despliega
       if (window.innerWidth > 768) {
         nav.style.display = (nav.style.display === 'none') ? 'flex' : 'none';
       } else {
@@ -39,11 +38,10 @@ class AppHeader extends HTMLElement {
       }
     });
 
-    // Establece el estado activo actual según la URL
+    // Set current active state based on URL
     const currentPath = window.location.pathname;
     capsules.forEach(capsule => {
       const href = capsule.getAttribute('href');
-      // Lógica simple para marcar activo
       if (currentPath.includes('contacto.html') && href.includes('contacto.html')) {
         capsule.classList.add('active');
       } else if (currentPath.includes('curriculum.html') && href.includes('curriculum.html')) {
@@ -54,12 +52,11 @@ class AppHeader extends HTMLElement {
       }
     });
 
-    // Maneja el estado activo al hacer clic
+    // Handle active state on click
     capsules.forEach(capsule => {
       capsule.addEventListener('click', (e) => {
         const target = capsule.getAttribute('data-target');
-        
-        // Si no es un enlace real a otra página (los de navegación in-page)
+
         if (target) {
           const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
           if (isHomePage) {
@@ -75,8 +72,8 @@ class AppHeader extends HTMLElement {
             this.dispatchEvent(event);
           }
         }
-        
-        // En movil cerramos el menú después de hacer click
+
+        // Close menu on mobile after clicking
         if (window.innerWidth <= 768) {
             nav.classList.remove('nav-open');
         }

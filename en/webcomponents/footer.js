@@ -2,14 +2,14 @@ class AppFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <footer class="app-footer">
-        <!-- Parte Izquierda -->
+        <!-- Left Section -->
         <div class="footer-left-part">
-          
-          <!-- Cajón de marca -->
+
+          <!-- Brand box -->
           <div class="footer-brand-box">
             <div class="footer-texts">
-              <h3 class="text-h3 text-azul">Alejandro Pérez © 2026</h3>
-              <p class="text-p-large text-azul footer-brand-desc" style="align-self: stretch;">El diseño sin alma, no es diseño. El código sin criterio, no es producto. Aquí intento que ambas cosas ocurran a la vez.</p>
+              <h3 class="text-h3 text-azul">Alejandro Pérez &copy; 2026</h3>
+              <p class="text-p-large text-azul footer-brand-desc" style="align-self: stretch;">Design without soul is not design. Code without criteria is not a product. Here I try to make both happen at once.</p>
             </div>
             <div class="footer-logo">
               <svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,41 +21,41 @@ class AppFooter extends HTMLElement {
             </div>
           </div>
 
-          <!-- Contacto -->
+          <!-- Contact -->
           <div class="footer-contact">
-            <h3 class="text-h3 text-azul">¿Hablamos de producto?</h3>
+            <h3 class="text-h3 text-azul">Let's talk product?</h3>
             <a href="mailto:AlexPereZamudio@proton.me" class="footer-email-link">
-              <span class="text-p-large text-azul">[ Enviar correo ]</span>
+              <span class="text-p-large text-azul">[ Send email ]</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8.0411 5L12.1507 9.10959L5.30137 15.9589L5 19L8.0411 18.6986L14.8904 11.8493L19 15.9589V5H8.0411Z" fill="#2563EB"/>
               </svg>
             </a>
           </div>
 
-          <!-- Índice -->
+          <!-- Index -->
           <div class="footer-index">
-            <h3 class="text-h3 text-azul">Índice web:</h3>
+            <h3 class="text-h3 text-azul">Site index:</h3>
             <div class="footer-links-group" id="footer-links-group">
             </div>
           </div>
 
           <!-- Copy -->
           <div class="footer-copy">
-            <p class="text-p-large text-azul">Creado por Alejandro, AKA SrPakura</p>
+            <p class="text-p-large text-azul">Created by Alejandro, AKA SrPakura</p>
           </div>
         </div>
 
-        <!-- Redes sociales y botones -->
+        <!-- Social networks and buttons -->
         <div class="footer-socials-part">
-          
-          <div class="footer-social-box footer-back-to-top" role="button" aria-label="Volver arriba" tabindex="0">
+
+          <div class="footer-social-box footer-back-to-top" role="button" aria-label="Back to top" tabindex="0">
             <div class="footer-back-to-top-inner">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 15L12 9L6 15" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
           </div>
-          
+
           <a href="https://github.com/SrPakura" target="_blank" class="footer-social-box">
             <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_19_65)">
@@ -68,7 +68,7 @@ class AppFooter extends HTMLElement {
             </defs>
             </svg>
           </a>
-          
+
           <a href="https://github.com/PakuraDev" target="_blank" class="footer-social-box">
             <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_19_65)">
@@ -81,7 +81,7 @@ class AppFooter extends HTMLElement {
             </defs>
             </svg>
           </a>
-          
+
           <a href="https://www.linkedin.com/in/alejandro-pz-56493839b/" target="_blank" class="footer-social-box">
             <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_37_70)">
@@ -98,13 +98,13 @@ class AppFooter extends HTMLElement {
         </div>
       </footer>
     `;
-    
+
     this.linksData = [
-      { name: 'Inicio', href: 'index.html', dataTarget: 'Inicio' },
-      { name: 'Proyectos', href: 'index.html#proyectos', dataTarget: 'Proyectos' },
-      { name: 'Sobre mí', href: 'index.html#sobre-mi', dataTarget: 'Sobre mí' },
-      { name: 'Currículum', href: 'curriculum.html' },
-      { name: 'Contacto', href: 'contacto.html' }
+      { name: 'Home', href: 'index.html', dataTarget: 'Home' },
+      { name: 'Projects', href: 'index.html#proyectos', dataTarget: 'Projects' },
+      { name: 'About me', href: 'index.html#sobre-mi', dataTarget: 'About me' },
+      { name: 'Resume', href: 'curriculum.html' },
+      { name: 'Contact', href: 'contacto.html' }
     ];
 
     this.setupListeners();
@@ -128,27 +128,26 @@ class AppFooter extends HTMLElement {
     } else {
       const currentPath = window.location.pathname;
       if (currentPath.includes('contacto')) {
-        activeItem = this.linksData.find(l => l.name === 'Contacto');
+        activeItem = this.linksData.find(l => l.name === 'Contact');
       } else if (currentPath.includes('curriculum')) {
-        activeItem = this.linksData.find(l => l.name === 'Currículum');
-      } else if (currentPath.includes('caso_estudio')) {
+        activeItem = this.linksData.find(l => l.name === 'Resume');
+      } else if (currentPath.includes('study_case')) {
         activeItem = null;
       } else {
-        // En página principal
-        activeItem = this.linksData[0]; // Default Inicio
+        activeItem = this.linksData[0]; // Default Home
       }
     }
-    
+
     const otherLinks = activeItem ? this.linksData.filter(l => l !== activeItem) : this.linksData;
-    
+
     let html = '';
-    
+
     if (activeItem) {
       html += `
         <div class="footer-links-row">
           <a href="${activeItem.href}" class="footer-link active" data-target="${activeItem.dataTarget || ''}">
             <span class="text-p-large">${activeItem.name}</span>
-            <span class="text-p-large footer-link-estas-aqui text-azul">(Estás aquí)</span>
+            <span class="text-p-large footer-link-estas-aqui text-azul">(You are here)</span>
           </a>
         </div>
       `;
@@ -204,7 +203,7 @@ class AppFooter extends HTMLElement {
   setupRevealEffect() {
     const mainContent = document.getElementById('main-content');
     const introSection = document.querySelector('.home-intro');
-    
+
     const updateMargin = () => {
       if (mainContent) {
         mainContent.style.marginBottom = this.offsetHeight + 'px';
@@ -220,13 +219,11 @@ class AppFooter extends HTMLElement {
 
     window.addEventListener('resize', updateMargin);
     setTimeout(updateMargin, 100);
-    setTimeout(updateMargin, 500); // Retraso adicional por si acaso tardan fuentes/imágenes
-    setTimeout(updateMargin, 2000); // Seguridad final
+    setTimeout(updateMargin, 500);
+    setTimeout(updateMargin, 2000);
 
     window.addEventListener('scroll', () => {
       if (mainContent) {
-        // Solo mostramos el footer cuando el final del main está cerca (a menos de 1.5 pantallas)
-        // Esto garantiza que el footer JAMÁS se active estando cerca del header o el intro
         const mainBottom = mainContent.getBoundingClientRect().bottom;
         if (mainBottom < window.innerHeight * 1.5) {
           this.classList.add('show-footer');
@@ -252,7 +249,7 @@ class AppFooter extends HTMLElement {
 
   setupListeners() {
     const backToTopBtn = this.querySelector('.footer-back-to-top');
-    
+
     const scrollToTop = () => {
       window.scrollTo({
         top: 0,

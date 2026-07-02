@@ -1,0 +1,125 @@
+<style>
+  .openflow-diseno-container {
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .openflow-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .openflow-diseno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .openflow-diseno-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .openflow-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .openflow-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .openflow-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .openflow-diseno-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+
+    .openflow-diseno-section:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .openflow-diseno-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="openflow-diseno-container">
+
+  <div class="openflow-intro-box">
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Talking about OpenFlow_V3's design excites me as much as complaining about modern frameworks (and you know how much I love that). For this project, the goal was crystal clear: I didn't want another soft, super-rounded pastel-colored interface in the style of Notion, Asana, or Monday. For me, organizing engineering or design work shouldn't feel like playing a video game where friendly buttons smile at you. When I get to work, I want a hammer that drives the nail in one hit.
+    </p>
+    <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">
+      That's why OpenFlow is born and dies as pure Industrial Brutalism. And for that very reason, I've decided to split this design into three parts:
+    </p>
+
+    <ul class="openflow-list text-p-large text-blanco">
+      <li><span class="openflow-list-num">1</span> The concept: Industrial Brutalism and Raw Typography</li>
+      <li><span class="openflow-list-num">2</span> UI Kit, Pure CSS, and the Fear of Tailwind</li>
+      <li><span class="openflow-list-num">3</span> Frontal UX: Zero Hidden Clicks (Don't Make Me Think)</li>
+    </ul>
+
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      If you like rounded corners, sorry, today you're going to scrape your elbows.
+    </p>
+  </div>
+
+  <div class="openflow-diseno-grid">
+
+    <article class="openflow-diseno-section">
+      <h2 class="text-h2 text-blanco">1. The concept: Industrial Brutalism and Raw Typography</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">For the art direction, I wanted something utilitarian, noisy, and technical. Imagine the control panel of a hypermodern nuclear power plant, but packaged for the web. Everything is rigid. No <code>border-radius</code>. Everything is square or has a hard edge with thick black box shadows (<code>box-shadow: 4px 4px 0 var(--ink)</code>).</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">The real magic is in the color palette. I moved away from generic garbage. We start with a strong, almost oppressive base of black ink (<code>--ink: #050505</code>) and concrete gray (<code>--concrete: #e0e0e0</code>). On top of that sepulchral canvas, I unleash the attack dogs: construction and industrial colors, like a vibrant, suffocating acid yellow/green (<code>--acid: #ccff00</code>) accompanied by a pure emergency alert red (<code>--alert: #ff4d00</code>). These colors aren't decorative — they have a visual obligation. If you see the acid color, you know exactly where to move the mouse. In summary: pure pragmatism injected straight into the vein and zero nonsense.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">And regarding typography, I've forgotten about any standard corporate Sans-serif. Everything, absolutely all text, runs on <code>JetBrains Mono</code>. Whether it's a title, a field, or a tiny card, the feeling of coding always has to accompany the user. If the app doesn't look like a developer terminal on steroids, I've failed at life.</p>
+    </article>
+
+    <article class="openflow-diseno-section">
+      <h2 class="text-h2 text-blanco">2. UI Kit, Pure CSS, and the Fear of Tailwind</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">The atomic design structure is governed entirely by pure CSS divided into modular files (Have you seen the <code>components.css</code> and <code>layout.css</code> files? Well, all the atoms and molecules are there without needing to rely on libraries). Development agencies reading this, listen up! You don't need to download a mammoth library like Tailwind full of utility classes vomited into the HTML to have a consistent and scalable app.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Instead of reinventing the wheel for every damn button, the system holds onto three sacred buttons: <code>btn-acid</code> (for the overwhelming, dominant CTA), <code>btn-solid</code> (for strong secondary actions), and <code>btn-outline</code> (for things that just need to be there without making a fuss or stealing attention).</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">The Kanban board cards (<code>task-card</code>) have also been given aggression and pure physics. They're white, rudimentary, and when hovered, they give a threatening leap (<code>transform: translate(-2px, -2px)</code>) showing that damn brutalist shadow I love so much, warning you they're ready to be dragged. And if they carry Phase/Epic project tags, I slap a tiny "pill" label (<code>epic-pill</code>) on them because there's no need to steal attention from the text.</p>
+    </article>
+
+    <article class="openflow-diseno-section">
+      <h2 class="text-h2 text-blanco">3. Frontal UX: Zero Hidden Clicks and the Fear of the Dropdown</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">In UX, I imposed a vital, almost religious rule: "Don't hide things in a drawer that the user has to go looking for." I absolutely hate having to open 3 dropdowns to find my damn export data button in a commercial productivity app.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Since the header or <code>cmd-bar</code> at the top handles all orchestration, all global commands are planted right there in your face. They don't close, they don't collapse without your permission. The view modes <code>[ BOARD ]</code> and <code>[ TIMELINE ]</code> are raw switches. Want to import a .json with all your exported progress? It's not buried in Settings > Advanced > Database. No, folks, the IMPORT button is right there at the top, shining in your face for the full glory of "Local-First"!</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Finally, when you need to act and create something (whether a task or a phase), an imposing modal is invoked that imposes its own dark screen (<code>modal-overlay</code>) with a big technical title: <code>INPUT_REQUIRED</code>. It stops everything you're doing, blurs the background, and the center of your very soul shrinks down to that popup window with shameless inputs. And in case you hit the wrong key on mobile or after a tough bench press... no super-custom calendars that nobody understands: native browser <code>input[type="date"]</code>, which work much better than any giant React date-picker.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">And that's my love letter to the design of this dark and brutal performance monster. What more could you ask for? Noisy, raw, visually fast, and most importantly: it lets you work in peace without confetti animations getting in the way.</p>
+    </article>
+
+  </div>
+</div>

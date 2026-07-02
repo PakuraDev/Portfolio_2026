@@ -1,0 +1,138 @@
+<style>
+  .konta-codigo-container {
+    padding: 96px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .konta-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .konta-codigo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 96px;
+  }
+
+  .konta-codigo-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .konta-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .konta-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .konta-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .konta-bullet-list {
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: disc;
+  }
+
+  @media (max-width: 768px) {
+    .konta-codigo-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="konta-codigo-container">
+
+<div class="konta-intro-box">
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">I'm not gonna lie, this code is garbage... Just kidding, hahaha. Sorry everyone, I woke up happy today. Anyway, I love Konta's code because it's living proof of how powerful edge computing is, how easy optimization can be, and that you don't need an engineering degree to use it. If you're cool with it, let's divide the project into:</p>
+
+  <ul class="konta-list text-p-large text-blanco">
+    <li><span class="konta-list-num">1</span> JAMstack Architecture, SPA and Template Injection</li>
+    <li><span class="konta-list-num">2</span> Authentication, The "Bouncer" and Invisible DDOM Security</li>
+    <li><span class="konta-list-num">3</span> D1 Storage, Temporary Upserts and Tech Migrations</li>
+    <li><span class="konta-list-num">4</span> Interactive UI Kit: Modular CSS and Mobile Touch Capabilities</li>
+    <li><span class="konta-list-num">5</span> The Local Mathematical Heart: Temporal Parser and Native APIs</li>
+  </ul>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">I'd like to talk about DX, but I'll leave that for the design section. Now for real, let's start with this beauty.</p>
+</div>
+
+<article class="konta-codigo-section">
+  <h2 class="text-h2 text-blanco">JAMstack Architecture, SPA and Template Injection</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Again, as you might already guess, the app is built with HTML, pure CSS, Vanilla JS, and the love of my life, Cloudflare. This stack is known as JAMstack (JavaScript, APIs and Markup (just so you understand, both HTML and CSS are markup languages, not programming languages (one last clarification, strictly speaking CSS is a stylesheet language, but hey, it doesn't hurt to lump it in with markup languages, right?))), although I think I talked about it in another case study, I don't know.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Anyway, being an SPA, the entire structure rests on index.html, since no view is rendered directly in the DOM. Instead, I use &lt;template&gt; tags to render them. These tags are native to the browser and don't get drawn or consume active computation until the "router" in app.js dictates it, so I can already start showing off performance hehehe.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">The lifecycle itself is orchestrated inside a (big) function called bootstrapApp(). I think I already explained it in another project, exactly with the bouncer analogy, but basically it guarantees that both the deviceToken (I'll get into this later) and the visual theme are applied before the classic flicker of modern websites makes an appearance.</p>
+</article>
+
+<article class="konta-codigo-section">
+  <h2 class="text-h2 text-blanco">Authentication, The "Bouncer" and Invisible DDOM Security</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Alright, this is where the magic starts, and also where I have a pending update, but I'll explain that in a second. Look, passwords and URLs are a headache and a friction point, although I'll explain this in the design section. Anyway, from not wanting to use passwords, the need for an "ID" (to be exact, an invisible cryptographic ID) was born. What I did is a kind of "passkey", but crappier.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Basically, when "crypto.js" runs, it checks localStorage for an existing token (the devicetoken), and if it doesn't exist (the first time you enter the app), using the native crypto API with crypto.randomUUID, it generates a unique and irreplaceable identifier (UUID v4) that acts as an invisible password. This key serves as the login password, meaning the user doesn't have to create or remember any passwords.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">However, since it works through edge computing, anyone with the worker URL could access the database. That's why I created a "bouncer" in the API worker (Mr. Worker-API.js), which basically intercepts all requests and verifies that the token is correct. It compares the devicetoken with the one registered in the database (D1), and if they don't match, it sends you a tax audit (ok no, I'm not that evil, it just returns a 401 Unauthorized error).</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">That's also why "api.js" was necessary — it's responsible for intercepting and centralizing all asynchronous requests coming from the client. It wraps the native fetch function to forcibly embed the X-Device-Token header in every database call.</p>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Now, this authentication system is secure for the context of the app, but just yesterday, April 16th, Cloudflare opened its email service (Cloudflare Email Service), which I could use to implement a much more secure system like magic links or OTP, although that requires an email and the $5/month plan. So it'll probably stay as is.</p>
+</article>
+
+<article class="konta-codigo-section">
+  <h2 class="text-h2 text-blanco">D1 Storage, Temporary Upserts and Tech Migrations</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">In the early versions of Konta, the database engine ran on Supabase, but there was a small human-level problem: impatience. If queries took more than a second to confirm, the user (ahem, my mom) would press the add button a few times, causing duplicate entries in the database. The problem could be solved in two ways:</p>
+
+  <ul class="text-p-large text-blanco konta-bullet-list">
+    <li>Use a faster service</li>
+    <li>Put a click limit on the button</li>
+  </ul>
+
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Obviously I programmed both. Not to throw shade at Supabase, but D1 and Workers are free and much faster, so the decision was easy. Now, to not leave this section too empty, I'll add some info about the workers so I can use it when talking about DX. It's divided into 2 workers:</p>
+
+  <ul class="text-p-large text-blanco konta-bullet-list">
+    <li><strong>Worker-DB.js:</strong> This worker handles creating the database. I initially thought about making it so you'd have to modify this worker's source code to add users, budgets, etc. But I finally decided it was much better to keep the code generic and let these decisions be made from the UI.</li>
+    <li><strong>Worker-API.js:</strong> This worker handles database requests. And that's about it, I don't know what else to say about this one. I'll add filler. There's an extra budget ID for specific weeks, meaning you have the base budget (100 euros, for example), but next week you can set 150 euros, and it'll be saved in the database so that week shows 150 euros, all via this worker. (Pretty sad about the filler thing)</li>
+  </ul>
+</article>
+
+<article class="konta-codigo-section">
+  <h2 class="text-h2 text-blanco">Interactive UI Kit: Modular CSS and Mobile Touch Capabilities</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">For the first time in my life I've made a responsive project despite being mobile-first (ok no, I'm not that lazy haha), although the project prioritizes touch responses and mobile experience.</p>
+
+  <ul class="text-p-large text-blanco konta-bullet-list">
+    <li><strong>The swipeable bottom sheet:</strong> No library like jQuery (and by the way, to those of you using jQuery or WordPress, is everything okay at home?) or a plugin to create "drawer" modals from below. Using raw DOM visual management, it tracks the user's absolute touch events: <code>touchstart</code>, <code>touchmove</code>, and <code>touchend</code>. It saves the distance (<code>deltaY</code>) through state interpolation and detects if you pull the modal down past 100px. I hope you understood me hehe.</li>
+    <li><strong>CSS Separation:</strong> Agencies reading this, pay attention, you need this. The CSS is separated into two layers to avoid monoliths: main.css, which encapsulates variables and design tokens (colors, fonts, etc.), and components.css, which encapsulates all the app components. And all without using Tailwind or files over 1mb, so certain managers who called me exaggerating can learn something.</li>
+    <li><strong>Flexbox Anti-collision System:</strong> Using techniques like the invisible <code>::after</code> block in the expense list, 96px of margin is inserted at the end of the stack to avoid collisions with the floating button and allow scrolling, so no matter how many expenses you have and/or what screen size, you can always reach the last one.</li>
+  </ul>
+</article>
+
+<article class="konta-codigo-section">
+  <h2 class="text-h2 text-blanco">The Local Mathematical Heart: Temporal Parser and Native APIs</h2>
+  <p class="text-p-large text-blanco" style="opacity: 0.9;">Unlike other projects, relying on a library like Moment.js or date-fns feels like an insult to me, so all necessary formatting tools (for both dates and currencies) operate from the primitive brain of native APIs, encapsulated in utils.js.</p>
+
+  <ul class="text-p-large text-blanco konta-bullet-list">
+    <li><strong>The Intl API:</strong> It uses Intl.DateTimeFormat along with the Intl.NumberFormat currency format, specifying exclusive Locale directives for Spain (es-ES, Euro), returning direct text (e.g., Thursday, March 26 instead of obscure variables).</li>
+    <li><strong>Paranoia about the "December Bug" (#8 and #9):</strong> The script to locate which "ISO History Week" a timestamp belongs to (getWeekId() function). It recalculates Sundays, the leap, and fundamentally isolates the temporal context to avoid shifting the original constant. This solves global bugs where a week that crosses years (end of December, beginning of January) is incorrectly declared, locally forcing the ISO year before mutating the date object.</li>
+  </ul>
+</article>
+
+</div>

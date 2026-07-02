@@ -1,0 +1,122 @@
+<style>
+  .konta-diseno-container {
+    padding: 96px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 50vh;
+  }
+
+  .konta-intro-box {
+    border-bottom: 2px solid var(--Blanco);
+    padding-bottom: 48px;
+    margin-bottom: 64px;
+  }
+
+  .konta-diseno-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .konta-diseno-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .konta-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .konta-list li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .konta-list-num {
+    font-weight: bold;
+    border: 1px solid var(--Blanco);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .konta-diseno-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+
+    .konta-diseno-section:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .konta-diseno-container {
+      padding: 64px 24px;
+    }
+  }
+</style>
+
+<div class="konta-diseno-container">
+
+  <div class="konta-intro-box">
+    <p class="text-p-large text-blanco" style="opacity: 0.9;">
+      Talking about Konta's design is special. It's like talking about Seville, because if I tell you it has a special color, many people will tell me the only special thing about it is the heat, and I can't deny that, but it's not just that. Konta is special because it combines a UI and UX designed for my parents (people over 50 who still ask me how to use Facebook or how to see a WhatsApp status) with a DX so, so simple that even my parents could use it (ok no, but anyone with basic computer knowledge, and maybe with help from an AI, could do it).
+    </p>
+    <p class="text-p-large text-blanco" style="opacity: 0.9; margin-top: 16px;">
+      The purpose of the app is basically to track the household's weekly expenses, all stemming from the time a 5-euro bill went missing, just so you know the level of project maturity. Anyway, let's divide the design into:
+    </p>
+
+    <ul class="konta-list text-p-large text-blanco">
+      <li><span class="konta-list-num">1</span> The concept: Minimalist Neo-brutalism</li>
+      <li><span class="konta-list-num">2</span> UX and usability improvements over previous versions</li>
+      <li><span class="konta-list-num">3</span> DX</li>
+    </ul>
+  </div>
+
+  <div class="konta-diseno-grid">
+
+    <!-- Concepto -->
+    <article class="konta-diseno-section">
+      <h2 class="text-h2 text-blanco">The concept: Minimalist Neo-Brutalism</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Let's start talking about the UI, since we need something clear, simple, but eye-catching. That's why we have to use brutalism as a base, but since I'm going to use it every day without my eyes bleeding, we need to make it more modern, hence Neo-brutalism and minimalism.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">The first thing to choose was the color palette, where I went with something simple, white and black as base colors, and blue to bring the app to life. This also led to an improvement that previous versions didn't have: high contrast mode. In previous versions, since the code and database were private to us, there was no need to add a high contrast mode that meets WCAG standards, but now that the app is designed to be used by anyone, it's a detail that can't be ignored.</p>
+    </article>
+
+    <!-- UX -->
+    <article class="konta-diseno-section">
+      <h2 class="text-h2 text-blanco">UX and Improvements</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">The UX is probably where the project stands out most, especially in the latest version. Unused functions have been removed, a frictionless login system has been added (I don't know if that word exists), other functions have been moved to more hidden places, and quality-of-life features have been added. Let's start with the login, since that's where the user first interacts with the app.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">In the old days, since it was only for the 4 of us, the login consisted of opening the app, entering a PIN, and selecting your name. But now we needed an identifier to add security. Requiring a password from a UX perspective would be a disaster — I mean, remembering a password just to track your expenses is the equivalent of adding an extra door between the gate (the first door) and the front door. That's why a login system that simply depends on the device was implemented, although I'll explain this in the code section. This way, you'd only have to enter your name and the worker URL. But of course, typing a URL by hand is a pain, so a QR generation and scanning system was implemented, making it easier to add a new user.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Moving on to the main screen, the category feature was removed because nobody used it, and features like viewing expenses from another month were moved to the sidebar, allowing the main screen to focus on what's most important: the weekly budget, expenses, and the button to add a record. This way, the add-record screen could also remove the category selector, reducing the number of fields to fill in and therefore reducing the user's cognitive load.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">Meanwhile, to improve the user experience — since my parents would get lost when clicking an expense to see details and being taken to another screen — I directly implemented a modal system. When you click an expense, a modal covering about 60% of the screen opens, allowing you to see the expense details without leaving the main screen. This also added two features that didn't exist in previous versions: edit and delete.</p>
+    </article>
+
+    <!-- DX -->
+    <article class="konta-diseno-section">
+      <h2 class="text-h2 text-blanco">DX</h2>
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">This is where I think the project really shines, because to use it you need a free Cloudflare account and 0 programming knowledge. The first idea was that the user would have to modify the Worker-DB code to their liking, but I ended up implementing a configuration system within the app itself so that everyone can use the same code.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">In addition to leaving the code and instructions, to solve the editing problem, I implemented an extra screen for database creation, where the user only has to enter the Worker-DB URL, the Worker-API URL, and custom data like usernames or the base weekly budget.</p>
+
+      <p class="text-p-large text-blanco" style="opacity: 0.9;">And finally, although this should go in the UX section, the app is a PWA, so it can be installed on the device like a native app. And now I'm done.</p>
+    </article>
+
+  </div>
+</div>
